@@ -5,7 +5,7 @@ class inventory:
     name = mongoengine.StringField(required=True)
 
 
-    
+
 meta = {
     'db_alias': 'core',
     'collection': 'Users'
