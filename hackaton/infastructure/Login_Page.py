@@ -24,6 +24,9 @@ except ImportError:
     py3 = True
 
 import Login_Page_support
+import Secretarymainmenu
+import Studentmainmenu
+import Teachermainmenu
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -50,7 +53,7 @@ def destroy_Login_Page():
     w.destroy()
     w = None
 
-class Login_Page:
+class Login_Page(tk.Frame):
     def login(self):
         user = self.ID__Entry.get()
         pws = self.Password_Entry.get()
@@ -61,7 +64,8 @@ class Login_Page:
 
         elif pws == userobj['password']:
             tk.messagebox.showinfo('Login Page', f'''Welcome {userobj['name']}''')
-          #  if userobj['Usertype'] == 1:
+            #if userobj['Usertype'] == 1:
+
 
          #   elif userobj['Usertype'] == 2:
 
