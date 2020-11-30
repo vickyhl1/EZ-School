@@ -8,9 +8,12 @@
 import pymongo
 import sys
 from tkinter import messagebox
-
+sys.path.append('..')
+from data import db_init
+db_init()
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
+
 try:
     import Tkinter as tk
 except ImportError:
