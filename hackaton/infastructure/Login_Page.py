@@ -9,6 +9,7 @@ import pymongo
 import sys
 from tkinter import messagebox
 
+
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
 try:
@@ -18,9 +19,11 @@ except ImportError:
 
 try:
     import ttk
+
     py3 = False
 except ImportError:
     import tkinter.ttk as ttk
+
     py3 = True
 
 import Login_Page_support
@@ -28,73 +31,77 @@ import Secretarymainmenu
 import Studentmainmenu
 import Teachermainmenu
 
+
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
     root = tk.Tk()
-    top = Login_Page (root)
+    top = Login_Page(root)
     Login_Page_support.init(root, top)
     root.mainloop()
 
+
 w = None
+
+
 def create_Login_Page(rt, *args, **kwargs):
     '''Starting point when module is imported by another module.
        Correct form of call: 'create_Login_Page(root, *args, **kwargs)' .'''
     global w, w_win, root
-    #rt = root
+    # rt = root
     root = rt
-    w = tk.Toplevel (root)
-    top = Login_Page (w)
+    w = tk.Toplevel(root)
+    top = Login_Page(w)
     Login_Page_support.init(w, top, *args, **kwargs)
     return (w, top)
+
 
 def destroy_Login_Page():
     global w
     w.destroy()
     w = None
 
-class Login_Page(tk.Frame):
+
+class Login_Page():
     def login(self):
+        global w
         user = self.ID__Entry.get()
         pws = self.Password_Entry.get()
         global mydb
-        userobj = mydb['Users'].find_one({'id' :user})
+        userobj = mydb['Users'].find_one({'id': user})
         if userobj == None:
             tk.messagebox.showwarning('Login Page', 'The Id or Password is incorrect')
-
         elif pws == userobj['password']:
             tk.messagebox.showinfo('Login Page', f'''Welcome {userobj['name']}''')
-            #if userobj['Usertype'] == 1:
+        #    if userobj['Usertype'] == 1:
 
+        #   elif userobj['Usertype'] == 2:
 
-         #   elif userobj['Usertype'] == 2:
-
-          #  elif userobj['Usertype'] == 3:
+        #  elif userobj['Usertype'] == 3:
 
         else:
             tk.messagebox.showwarning('Login Page', 'The Id or Password is incorrect')
-
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
         _fgcolor = '#000000'  # X11 color: 'black'
-        _compcolor = '#d9d9d9' # X11 color: 'gray85'
-        _ana1color = '#d9d9d9' # X11 color: 'gray85'
-        _ana2color = '#ececec' # Closest X11 color: 'gray92'
+        _compcolor = '#d9d9d9'  # X11 color: 'gray85'
+        _ana1color = '#d9d9d9'  # X11 color: 'gray85'
+        _ana2color = '#ececec'  # Closest X11 color: 'gray92'
 
         top.geometry("600x525+660+210")
         top.minsize(148, 1)
         top.maxsize(1924, 1055)
-        top.resizable(1,  1)
+        top.resizable(1, 1)
         top.title("Login_Page")
         top.configure(background="#ffffff")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
 
-        self.menubar = tk.Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
-        top.configure(menu = self.menubar)
+        self.menubar = tk.Menu(top, font="TkMenuFont", bg=_bgcolor, fg=_fgcolor)
+        top.configure(menu=self.menubar)
 
         self.Login_Button = tk.Button(top)
         self.Login_Button.place(relx=0.283, rely=0.577, height=93, width=256)
@@ -108,7 +115,7 @@ class Login_Page(tk.Frame):
         self.Login_Button.configure(highlightcolor="black")
         self.Login_Button.configure(pady="0")
         self.Login_Button.configure(text='''Login''')
-        self.Login_Button.configure(command= self.login)
+        self.Login_Button.configure(command=self.login)
 
         self.Label1 = tk.Label(top)
         self.Label1.place(relx=0.217, rely=0.267, height=30, width=82)
@@ -158,7 +165,7 @@ class Login_Page(tk.Frame):
 
         self.Message1 = tk.Message(top)
         self.Message1.place(relx=0.5, rely=0.114, relheight=0.057
-                , relwidth=0.677)
+                            , relwidth=0.677)
         self.Message1.configure(background="#ffffff")
         self.Message1.configure(foreground="#000000")
         self.Message1.configure(highlightbackground="#d9d9d9")
@@ -166,10 +173,6 @@ class Login_Page(tk.Frame):
         self.Message1.configure(text=''':נא להכניס פרטי משתמש''')
         self.Message1.configure(width=406)
 
+
 if __name__ == '__main__':
     vp_start_gui()
-
-
-
-
-
