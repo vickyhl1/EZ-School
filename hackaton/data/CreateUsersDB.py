@@ -1,5 +1,8 @@
 import pymongo
 import pprint
+
+
+
 def db_init():
     client = pymongo.MongoClient()
     mydb = client['EZSchooldb']
@@ -8,10 +11,6 @@ def db_init():
     mycol2 = mydb['Users']
     # 1- Secreatery, 2- Teacher, 3-Student
 
-<<<<<<< HEAD
-=======
-def db_init():
->>>>>>> 67147330a616034865b4648794fce44b9d9423c1
     data = {
         'name': 'Rafael Azriaiev',
         'id': '309044071',

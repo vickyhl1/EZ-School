@@ -7,15 +7,8 @@
 """
 ---------------------!!!RUN THIS PAGE FOR DB CREATION AND TO START UP THE PROGRAM!!!---------------------
 """
-import pymongo
 import sys
-from tkinter import messagebox
-sys.path.append('..')
-from data import db_init
-db_init()
-client = pymongo.MongoClient()
-mydb = client['EZSchooldb']
-
+import pymongo
 try:
     import Tkinter as tk
 except ImportError:
@@ -29,15 +22,16 @@ except ImportError:
     import tkinter.ttk as ttk
 
     py3 = True
-
+from tkinter import messagebox
 import Login_Page_support
 import Secretarymainmenu
 import Studentmainmenu
 import Teachermainmenu
 sys.path.append('..')
 from data import db_init
-
 db_init()
+client = pymongo.MongoClient()
+mydb = client['EZSchooldb']
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
