@@ -64,10 +64,16 @@ class Login_Page(tk.Frame):
 
         elif pws == userobj['password']:
             tk.messagebox.showinfo('Login Page', f'''Welcome {userobj['name']}''')
-            #if userobj['Usertype'] == 1:
-            #elif userobj['Usertype'] == 2:
-            if userobj['Usertype'] == 3:
+            if userobj['Usertype'] == 1:
+                root.destroy()
+                Secretarymainmenu.vp_start_gui()
+            elif userobj['Usertype'] == 2:
+                root.destroy()
+                Teachermainmenu.vp_start_gui()
+            elif userobj['Usertype'] == 3:
+                root.destroy()
                 Studentmainmenu.vp_start_gui()
+
         else:
             tk.messagebox.showwarning('Login Page', 'The Id or Password is incorrect')
 
