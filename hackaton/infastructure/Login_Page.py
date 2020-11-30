@@ -75,7 +75,11 @@ class Login_Page(tk.Frame):
         user = self.ID__Entry.get()
         pws = self.Password_Entry.get()
         global mydb
-        userobj = mydb['Users'].find_one({'id': user})
+
+        def searchUser( id , password):
+            return mydb['Users'].find_one({'id': user})
+
+        userobj = searchUser(user,pws)
         if userobj == None:
             tk.messagebox.showwarning('Login Page', 'The Id or Password is incorrect')
 
