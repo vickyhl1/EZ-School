@@ -64,7 +64,14 @@ def destroy_Login_Page():
 
 
 class Login_Page(tk.Frame):
+
     def login(self):
+        """
+        login function to give functionality to "Login" button in the program, the function receives id and password
+        from entry boxes by user and checks if the id exists in our db, if it exists it checks if the password entered
+        is matching the id, if it does match the user will move onward to the main menu according to the user type
+        (secretary/teacher/student).
+        """
         user = self.ID__Entry.get()
         pws = self.Password_Entry.get()
         global mydb
