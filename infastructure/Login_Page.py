@@ -91,6 +91,7 @@ class Login_Page(tk.Frame):
         else:
             tk.messagebox.showwarning('Login Page', 'The Id or Password is incorrect')
 
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''

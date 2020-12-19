@@ -21,7 +21,8 @@ except ImportError:
 
 import Secretarymainmenu_support
 import webbrowser
-import HealthPage
+import HealthPageSecretary
+
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -53,7 +54,7 @@ class secretarypage:
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
         root.destroy()
-        HealthPage.vp_start_gui()
+        HealthPageSecretary.vp_start_gui()
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''

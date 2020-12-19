@@ -21,7 +21,7 @@ except ImportError:
 
 import Teachermainmenu_support
 import webbrowser
-import HealthPage
+import HealthPageTeacher
 
 
 def vp_start_gui():
@@ -52,7 +52,7 @@ def destroy_teacherpage():
 class teacherpage:
     def openHealth(self):
         root.destroy()
-        HealthPage.vp_start_gui()
+        HealthPageTeacher.vp_start_gui()
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
 
