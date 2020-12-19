@@ -28,8 +28,9 @@ import Secretarymainmenu
 import Studentmainmenu
 import Teachermainmenu
 sys.path.append('..')
-from data import db_init
-db_init()
+from data import user_db_init, inventory_db_init
+user_db_init()
+inventory_db_init()
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
 
