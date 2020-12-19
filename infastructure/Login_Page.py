@@ -9,6 +9,7 @@
 """
 import sys
 import pymongo
+
 try:
     import Tkinter as tk
 except ImportError:
@@ -29,8 +30,15 @@ import Secretarymainmenu
 import Studentmainmenu
 import Teachermainmenu
 
+
 from data import db_init
 db_init()
+
+sys.path.append('..')
+from data import user_db_init, inventory_db_init
+user_db_init()
+inventory_db_init()
+
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
 
@@ -84,6 +92,7 @@ class Login_Page(tk.Frame):
             elif userobj['Usertype'] == 3:
                 root.destroy()
                 Studentmainmenu.vp_start_gui()
+
 
         else:
             tk.messagebox.showwarning('Login Page', 'The Id or Password is incorrect')

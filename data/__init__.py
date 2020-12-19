@@ -1,1 +1,4 @@
-from .CreateUsersDB import db_init
+#db package
+
+from .CreateUsersDB import user_db_init
+from .CreateInventoryDB import inventory_db_init
