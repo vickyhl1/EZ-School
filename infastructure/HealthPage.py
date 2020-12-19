@@ -24,7 +24,8 @@ import HealthPage_support
 from datetime import date
 from tkinter import messagebox
 import Studentmainmenu
-
+import Teachermainmenu
+import Secretarymainmenu
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -56,17 +57,17 @@ def destroy_Toplevel1():
 class Toplevel1:
     def submit(self):
         global flag
-        if not flag:
-            tk.messagebox.showwarning('Health page', 'ההצהרה הוגשה')
+        if flag:
+            tk.messagebox._show('Health page', 'ההצהרה הוגשה')
+            flag=0
 
         else:
             tk.messagebox.showwarning('Health page', 'לא אישרת את ההצהרה, נסה שוב מאוחר יותר')
-            flag=0
         root.destroy()
         Studentmainmenu.vp_start_gui()
     def checkbox(self):
         global flag
-        if flag:
+        if flag==1:
             flag=0
         elif flag==0:
             flag=1
@@ -103,11 +104,17 @@ class Toplevel1:
         self.Message1.configure(foreground="#000000")
         self.Message1.configure(highlightbackground="#d9d9d9")
         self.Message1.configure(highlightcolor="black")
-        self.Message1.configure(text=''':טופס הצהרת בריאות   
+        self.Message1.configure(text='''
+        
+                :טופס הצהרת בריאות                         
 
-    אני מצהיר\ה כי ערכתי היום בדיקה למדידת חום גוף
-      בה נמצא כי חום גופי אינו עולה על 38 מעלות
-אני מצהיר\ה כי איני משתעל\ת וכן כי אין לי קשיים בנשימה''')
+אני מצהיר/ה כי ערכתי היום בדיקה למדידת חום גוף בה נמצא כי 
+                            חום גופי אינו עולה על 38 מעלות
+
+אני מצהיר/ה כי איני משתעל/ת וכן כי אין לי קשיים בנשימה    
+
+נא הכנס/י מספר תעודת זהנת ואשר/י את ההצהרה לפני ההגשה ''')
+
         self.Message1.configure(width=641)
 
         self.style.map('TCheckbutton',background=

@@ -21,6 +21,9 @@ except ImportError:
 
 import Teachermainmenu_support
 import webbrowser
+import HealthPage
+
+
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -47,6 +50,9 @@ def destroy_teacherpage():
     w = None
 
 class teacherpage:
+    def openHealth(self):
+        root.destroy()
+        HealthPage.vp_start_gui()
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
 
@@ -103,6 +109,8 @@ class teacherpage:
         self.teach_health.configure(highlightcolor="black")
         self.teach_health.configure(pady="0")
         self.teach_health.configure(text='''הצהרת בריאות''')
+        self.teach_health.configure(command= self.openHealth)
+
 
         self.menubar = tk.Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
         top.configure(menu = self.menubar)

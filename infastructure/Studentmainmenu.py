@@ -23,7 +23,6 @@ except ImportError:
 import Studentmainmenu_support
 import webbrowser
 import HealthPage
-global userobj
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
