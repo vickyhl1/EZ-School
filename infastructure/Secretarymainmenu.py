@@ -21,6 +21,9 @@ except ImportError:
 
 import Secretarymainmenu_support
 import webbrowser
+import HealthPageSecretary
+
+
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -49,6 +52,9 @@ def destroy_secretarypage():
 class secretarypage:
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
+    def openHealth(self):
+        root.destroy()
+        HealthPageSecretary.vp_start_gui()
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -103,6 +109,8 @@ class secretarypage:
         self.health.configure(highlightcolor="black")
         self.health.configure(pady="0")
         self.health.configure(text='''הצהרת בריאות''')
+        self.health.configure(command= self.openHealth)
+
 
         self.menubar = tk.Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
         top.configure(menu = self.menubar)
