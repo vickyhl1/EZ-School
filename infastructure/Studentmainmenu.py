@@ -21,12 +21,9 @@ except ImportError:
     py3 = True
 
 import Studentmainmenu_support
-<<<<<<< HEAD
 import webbrowser
-=======
 import HealthPage
 global userobj
->>>>>>> yovel
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -56,14 +53,11 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
-<<<<<<< HEAD
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
-=======
     def openHealth(self):
         root.destroy()
         HealthPage.vp_start_gui()
->>>>>>> yovel
     def __init__(self, top=None):
 
         '''This class configures and populates the toplevel window.
