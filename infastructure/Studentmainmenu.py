@@ -5,8 +5,9 @@
 #  in conjunction with Tcl version 8.6
 #    Nov 29, 2020 09:44:10 PM +0200  platform: Windows NT
 
-import sys
 
+import sys
+import pymongo
 try:
     import Tkinter as tk
 except ImportError:
@@ -20,14 +21,18 @@ except ImportError:
     py3 = True
 
 import Studentmainmenu_support
+import HealthPage
+global userobj
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
     root = tk.Tk()
-    top = studentpage (root)
-    Studentmainmenu_support.init(root, top)
+    top = studentpage(root)
+    Studentmainmenu_support.init(root,top)
     root.mainloop()
+
+
 
 w = None
 def create_studentpage(rt, *args, **kwargs):
@@ -47,7 +52,11 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+    def openHealth(self):
+        root.destroy()
+        HealthPage.vp_start_gui()
     def __init__(self, top=None):
+
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
@@ -100,6 +109,9 @@ class studentpage:
         self.stud_health.configure(highlightcolor="black")
         self.stud_health.configure(pady="0")
         self.stud_health.configure(text='''הצהרת בריאות''')
+
+        self.stud_health.configure(command= self.openHealth)
+
 
         self.menubar = tk.Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
         top.configure(menu = self.menubar)
