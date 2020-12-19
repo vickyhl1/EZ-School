@@ -20,6 +20,7 @@ except ImportError:
     py3 = True
 
 import Studentmainmenu_support
+import webbrowser
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -47,6 +48,8 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+    def openforum(self):
+        webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -177,6 +180,7 @@ class studentpage:
         self.stud_forum.configure(highlightcolor="black")
         self.stud_forum.configure(pady="0")
         self.stud_forum.configure(text='''פורום''')
+        self.stud_forum.configure(command=self.openforum)
 
         self.courses = tk.Button(top)
         self.courses.place(relx=0.74, rely=0.324, height=93, width=186)

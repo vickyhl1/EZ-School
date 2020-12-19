@@ -20,7 +20,7 @@ except ImportError:
     py3 = True
 
 import Secretarymainmenu_support
-
+import webbrowser
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -47,6 +47,8 @@ def destroy_secretarypage():
     w = None
 
 class secretarypage:
+    def openforum(self):
+        webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -177,6 +179,7 @@ class secretarypage:
         self.forum.configure(highlightcolor="black")
         self.forum.configure(pady="0")
         self.forum.configure(text='''פורום''')
+        self.forum.configure(command=self.openforum)
 
         self.inventory_manage = tk.Button(top)
         self.inventory_manage.place(relx=0.74, rely=0.324, height=93, width=186)
