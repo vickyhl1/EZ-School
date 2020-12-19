@@ -21,6 +21,7 @@ except ImportError:
 
 import Teachermainmenu_support
 import webbrowser
+import zoomlinksforteacher
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -50,6 +51,11 @@ class teacherpage:
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
 
+    def openzoom(self):
+        root.destroy()
+        zoomlinksforteacher.vp_start_gui()
+
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -61,7 +67,7 @@ class teacherpage:
 
         top.geometry("1920x1051+-9+-9")
         top.minsize(148, 1)
-        top.maxsize(1924, 1055)
+        top.maxsize(1550, 900)
         top.resizable(1,  1)
         top.title("Teacher main menu")
         top.configure(background="#ffffff")
@@ -91,6 +97,7 @@ class teacherpage:
         self.zoom.configure(highlightcolor="black")
         self.zoom.configure(pady="0")
         self.zoom.configure(text='''ZOOM''')
+        self.zoom.configure(command=self.openzoom)
 
         self.teach_health = tk.Button(top)
         self.teach_health.place(relx=0.474, rely=0.171, height=93, width=186)

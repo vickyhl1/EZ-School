@@ -60,7 +60,7 @@ class secretarypage:
 
         top.geometry("1920x1051+-9+-9")
         top.minsize(148, 1)
-        top.maxsize(1924, 1055)
+        top.maxsize(1550, 900)
         top.resizable(1,  1)
         top.title("Secretary main menu")
         top.configure(background="#ffffff")
