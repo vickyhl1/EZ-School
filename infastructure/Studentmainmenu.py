@@ -23,7 +23,9 @@ except ImportError:
 import Studentmainmenu_support
 import webbrowser
 import HealthPage
+import Seker
 global userobj
+
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -53,6 +55,9 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+    def opensurvey(self):
+        root.destroy()
+        Seker.vp_start_gui()
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
@@ -180,6 +185,7 @@ class studentpage:
         self.survey.configure(highlightcolor="black")
         self.survey.configure(pady="0")
         self.survey.configure(text='''סקר מורים''')
+        self.survey.configure(command=self.opensurvey)
 
         self.stud_forum = tk.Button(top)
         self.stud_forum.place(relx=0.609, rely=0.324, height=93, width=186)

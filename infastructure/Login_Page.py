@@ -31,9 +31,6 @@ import Studentmainmenu
 import Teachermainmenu
 
 
-from data import db_init
-db_init()
-
 sys.path.append('..')
 from data import user_db_init, inventory_db_init
 user_db_init()
