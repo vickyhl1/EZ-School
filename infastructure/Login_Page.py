@@ -68,6 +68,9 @@ def destroy_Login_Page():
 
 class Login_Page(tk.Frame):
     def login(self):
+        f = open("Current_user.txt", "w")
+        f.seek(0)
+        f.truncate()
         user = self.ID__Entry.get()
         pws = self.Password_Entry.get()
         global mydb
@@ -77,6 +80,9 @@ class Login_Page(tk.Frame):
 
         elif pws == userobj['password']:
             tk.messagebox.showinfo('Login Page', f'''Welcome {userobj['name']}''')
+
+            f.write(userobj['id']+"\n"+userobj['name'])
+            f.close()
             if userobj['Usertype'] == 1:
                 root.destroy()
                 Secretarymainmenu.vp_start_gui()
