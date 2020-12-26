@@ -8,6 +8,7 @@
 
 import sys
 import pymongo
+
 try:
     import Tkinter as tk
 except ImportError:
@@ -23,7 +24,7 @@ except ImportError:
 import Studentmainmenu_support
 import webbrowser
 import HealthPage
-import zoomlinksforstudents
+import classes
 global userobj
 
 def vp_start_gui():
@@ -61,7 +62,7 @@ class studentpage:
         HealthPage.vp_start_gui()
     def openzoom(self):
         root.destroy()
-        zoomlinksforstudents.vp_start_gui()
+        classes.vp_start_gui()
 
     def __init__(self, top=None):
 
