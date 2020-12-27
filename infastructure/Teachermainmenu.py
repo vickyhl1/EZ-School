@@ -23,6 +23,7 @@ import Teachermainmenu_support
 import webbrowser
 import zoomlinksforteacher
 import HealthPageTeacher
+import GamesTeacher
 
 
 def vp_start_gui():
@@ -51,6 +52,9 @@ def destroy_teacherpage():
     w = None
 
 class teacherpage:
+    def OpenGames(self):
+        root.destroy()
+        GamesTeacher.vp_start_gui()
     def openHealth(self):
         root.destroy()
         HealthPageTeacher.vp_start_gui()
@@ -133,6 +137,8 @@ class teacherpage:
         self.games_teach.configure(highlightcolor="black")
         self.games_teach.configure(pady="0")
         self.games_teach.configure(text='''העלאת משחקי חשיבה''')
+        self.games_teach.configure(command=self.OpenGames)
+
 
         self.shop = tk.Button(top)
         self.shop.place(relx=0.219, rely=0.324, height=93, width=186)
