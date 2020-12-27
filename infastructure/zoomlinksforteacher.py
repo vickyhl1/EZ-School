@@ -61,7 +61,7 @@ class zoom_links_teacher:
 
     def manual_entry(self):
         my_link_collec=links_db_init()
-        link=my_link_collec.find_one()
+        link = my_link_collec.find_one()
         my_link_collec.delete_one(link)
         link = self.zoom_link_entry.get()
         data = {'manual_class': link}
