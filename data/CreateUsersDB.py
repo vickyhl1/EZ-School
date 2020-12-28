@@ -30,7 +30,7 @@ def user_db_init():
     for user in data:
         existing_user = mycol.find_one({'id': user['id']})
         if existing_user == None:
-            mycol.insert_one(data)
+            mycol.insert_one(user)
         elif not existing_user['id'] == user['id']:
             mycol.insert_one(user)
 
