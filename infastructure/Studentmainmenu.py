@@ -55,6 +55,9 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+    def openGames(self):
+        root.destroy()
+        Seker.vp_start_gui()
     def opensurvey(self):
         root.destroy()
         Seker.vp_start_gui()
@@ -148,6 +151,7 @@ class studentpage:
         self.games.configure(highlightcolor="black")
         self.games.configure(pady="0")
         self.games.configure(text='''משחקי חשיבה''')
+        self.games.configure(command=self.openGames)
 
         self.shop = tk.Button(top)
         self.shop.place(relx=0.219, rely=0.324, height=93, width=186)

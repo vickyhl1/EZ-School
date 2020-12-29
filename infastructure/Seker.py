@@ -268,7 +268,7 @@ class Seker:
         self.Submit.configure(takefocus="")
         self.Submit.configure(text='''הגש''')
         self.Submit.configure(cursor="hand1")
-        self.submit.configure(command=self.submit)
+        self.Submit.configure(command=self.submit)
 
         self.MainMenu = ttk.Button(top)
         self.MainMenu.place(relx=0.017, rely=0.933, height=25, width=136)
