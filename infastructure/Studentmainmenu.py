@@ -8,6 +8,7 @@
 
 import sys
 import pymongo
+
 try:
     import Tkinter as tk
 except ImportError:
@@ -23,7 +24,8 @@ except ImportError:
 import Studentmainmenu_support
 import webbrowser
 import HealthPage
-import Seker
+import classes
+import Seker1
 global userobj
 
 
@@ -59,13 +61,23 @@ class studentpage:
         root.destroy()
         Seker.vp_start_gui()
     def opensurvey(self):
-        root.destroy()
-        Seker.vp_start_gui()
+        f = open("isSekerOpen.txt")
+        flag=f.read()
+        f.close()
+        if flag == "0":
+            tk.messagebox.showwarning('Seker', 'הסקר אינו זמין כרגע')
+        else:
+             root.destroy()
+             Seker1.vp_start_gui()
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
         root.destroy()
         HealthPage.vp_start_gui()
+    def openzoom(self):
+        root.destroy()
+        classes.vp_start_gui()
+
     def __init__(self, top=None):
 
         '''This class configures and populates the toplevel window.
@@ -78,7 +90,7 @@ class studentpage:
 
         top.geometry("1920x1051+-9+-9")
         top.minsize(148, 1)
-        top.maxsize(1924, 1055)
+        top.maxsize(1550, 900)
         top.resizable(1,  1)
         top.title("Student main menu")
         top.configure(background="#ffffff")
@@ -108,6 +120,7 @@ class studentpage:
         self.zoom.configure(highlightcolor="black")
         self.zoom.configure(pady="0")
         self.zoom.configure(text='''ZOOM''')
+        self.zoom.configure(command=self.openzoom)
 
         self.stud_health = tk.Button(top)
         self.stud_health.place(relx=0.474, rely=0.171, height=93, width=186)
@@ -182,7 +195,7 @@ class studentpage:
         self.survey.configure(activebackground="#ececec")
         self.survey.configure(activeforeground="#000000")
         self.survey.configure(background="#d9d9d9")
-        self.survey.configure(cursor="fleur")
+        self.survey.configure(cursor="hand2")
         self.survey.configure(disabledforeground="#a3a3a3")
         self.survey.configure(foreground="#000000")
         self.survey.configure(highlightbackground="#d9d9d9")

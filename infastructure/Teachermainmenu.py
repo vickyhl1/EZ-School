@@ -6,6 +6,7 @@
 #    Nov 29, 2020 09:44:48 PM +0200  platform: Windows NT
 
 import sys
+import pymongo
 
 try:
     import Tkinter as tk
@@ -21,6 +22,9 @@ except ImportError:
 
 import Teachermainmenu_support
 import webbrowser
+import HealthPageTeacher
+import classesTeacher
+
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -47,8 +51,15 @@ def destroy_teacherpage():
     w = None
 
 class teacherpage:
+    def openHealth(self):
+        root.destroy()
+        HealthPageTeacher.vp_start_gui()
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
+
+    def openzoom(self):
+        root.destroy()
+        classesTeacher.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -61,7 +72,7 @@ class teacherpage:
 
         top.geometry("1920x1051+-9+-9")
         top.minsize(148, 1)
-        top.maxsize(1924, 1055)
+        top.maxsize(1550, 900)
         top.resizable(1,  1)
         top.title("Teacher main menu")
         top.configure(background="#ffffff")
@@ -91,6 +102,7 @@ class teacherpage:
         self.zoom.configure(highlightcolor="black")
         self.zoom.configure(pady="0")
         self.zoom.configure(text='''ZOOM''')
+        self.zoom.configure(command=self.openzoom)
 
         self.teach_health = tk.Button(top)
         self.teach_health.place(relx=0.474, rely=0.171, height=93, width=186)
@@ -103,6 +115,8 @@ class teacherpage:
         self.teach_health.configure(highlightcolor="black")
         self.teach_health.configure(pady="0")
         self.teach_health.configure(text='''הצהרת בריאות''')
+        self.teach_health.configure(command= self.openHealth)
+
 
         self.menubar = tk.Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
         top.configure(menu = self.menubar)

@@ -11,32 +11,32 @@ def inventory_db_init():
             'id': '001',
             'item_name': 'עיפרון HB2',
             'price': 2,
-            'units_available': 50},
+            'qty': 50},
         {
             'id': '002',
             'item_name': 'עט שחור 0.5',
             'price': 15,
-            'units_available': 30},
+            'qty': 30},
         {
             'id': '003',
             'item_name': 'דפי משבצות A4 (חבילה 72)',
             'price': 25,
-            'units_available': 100},
+            'qty': 100},
         {
             'id': '004',
             'item_name': 'מרקרים',
             'price': 10,
-            'units_available': 70},
+            'qty': 70},
         {
             'id': '005',
             'item_name': 'דפי שורות A4 (חבילה 72)',
             'price': 25,
-            'units_available': 100},
+            'qty': 100},
         {
             'id': '006',
             'item_name': 'קלסר שחור',
             'price': 30,
-            'units_available': 65}
+            'qty': 65}
     ]
 
     for item in inventory:
