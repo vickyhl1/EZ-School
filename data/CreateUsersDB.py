@@ -15,7 +15,8 @@ def user_db_init():
         'name': 'Rafael Azriaiev',
         'id': '309044071',
         'password': '1234',
-        'Usertype': 3},
+        'Usertype': 3,
+        'Tuition309044071': -1500},
     {
         'name': 'Tal Shaked',
         'id': '312208523',
@@ -24,6 +25,7 @@ def user_db_init():
     {
         'name': 'Yovel Aloni',
         'id': '319122842',
+
         'password': '123456',
         'Usertype': 1}
     ]
