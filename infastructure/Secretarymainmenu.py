@@ -22,8 +22,12 @@ except ImportError:
 import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
+<<<<<<< HEAD
 import SekerRes
 
+=======
+import TuitionSecretaryid
+>>>>>>> 6361d6a7e8f61c064567f8ed7e0ac8a8e59e7f37
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -51,6 +55,9 @@ def destroy_secretarypage():
     w = None
 
 class secretarypage:
+    def openTuition(self):
+        root.destroy()
+        TuitionSecretaryid.vp_start_gui()
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
@@ -167,6 +174,7 @@ class secretarypage:
         self.tuition_fee.configure(highlightcolor="black")
         self.tuition_fee.configure(pady="0")
         self.tuition_fee.configure(text='''גביית תשלום - שכר לימוד''')
+        self.tuition_fee.configure(command=self.openTuition)
 
         self.teachers_survey = tk.Button(top)
         self.teachers_survey.place(relx=0.474, rely=0.324, height=93, width=186)

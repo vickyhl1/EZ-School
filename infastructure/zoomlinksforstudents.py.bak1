@@ -60,11 +60,24 @@ class zoom_links_teacher:
     def openHebrew(self):
         webbrowser.open("https://sce-ac-il.zoom.us/j/84840441076")
 
+<<<<<<< HEAD:infastructure/zoomlinksforteacher.py
+    def manual_entry(self):
+        my_link_collec=links_db_init()
+        link = my_link_collec.find_one()
+        my_link_collec.delete_one(link)
+        link = self.zoom_link_entry.get()
+        data = {'manual_class': link}
+        my_link_collec.insert_one(data)
+        tk.messagebox.showinfo('Link added','התווסף בהצלחה')
+
+
+=======
     def openUpdated(self):
         global my_links_collection
         link=my_links_collection.find_one()
         link=link['manual_class']
         webbrowser.open(link)
+>>>>>>> d675161124565ecbc052bb5721c076dbc8393950:infastructure/zoomlinksforstudents.py.bak1
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
