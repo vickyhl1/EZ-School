@@ -23,16 +23,19 @@ except ImportError:
     import tkinter.ttk as ttk
 
     py3 = True
+sys.path.append('..')
 from tkinter import messagebox
 import Login_Page_support
 import Secretarymainmenu
 import Studentmainmenu
 import Teachermainmenu
 
+
 sys.path.append('..')
 from data import user_db_init, inventory_db_init
 user_db_init()
 inventory_db_init()
+
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
 
@@ -68,6 +71,9 @@ def destroy_Login_Page():
 
 class Login_Page(tk.Frame):
     def login(self):
+        f = open("Current_user.txt", "w")
+        f.seek(0)
+        f.truncate()
         user = self.ID__Entry.get()
         pws = self.Password_Entry.get()
         global mydb
@@ -77,6 +83,9 @@ class Login_Page(tk.Frame):
 
         elif pws == userobj['password']:
             tk.messagebox.showinfo('Login Page', f'''Welcome {userobj['name']}''')
+
+            f.write(userobj['id']+"\n"+userobj['name'])
+            f.close()
             if userobj['Usertype'] == 1:
                 root.destroy()
                 Secretarymainmenu.vp_start_gui()
@@ -90,7 +99,6 @@ class Login_Page(tk.Frame):
 
         else:
             tk.messagebox.showwarning('Login Page', 'The Id or Password is incorrect')
-
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -106,7 +114,7 @@ class Login_Page(tk.Frame):
         top.maxsize(1924, 1055)
         top.resizable(1, 1)
         top.title("Login_Page")
-        top.configure(background="#ffffff")
+        top.configure(background="#ccfdd5")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
 
@@ -117,7 +125,7 @@ class Login_Page(tk.Frame):
         self.Login_Button.place(relx=0.283, rely=0.577, height=93, width=256)
         self.Login_Button.configure(activebackground="#ececec")
         self.Login_Button.configure(activeforeground="#000000")
-        self.Login_Button.configure(background="#e7e7e7")
+        self.Login_Button.configure(background="#93ff93")
         self.Login_Button.configure(cursor="hand2")
         self.Login_Button.configure(disabledforeground="#a3a3a3")
         self.Login_Button.configure(foreground="#000000")
@@ -131,7 +139,7 @@ class Login_Page(tk.Frame):
         self.Label1.place(relx=0.217, rely=0.267, height=30, width=82)
         self.Label1.configure(activebackground="#f9f9f9")
         self.Label1.configure(activeforeground="black")
-        self.Label1.configure(background="#ffffff")
+        self.Label1.configure(background="#ccfdd5")
         self.Label1.configure(disabledforeground="#a3a3a3")
         self.Label1.configure(foreground="#000000")
         self.Label1.configure(highlightbackground="#d9d9d9")
@@ -152,9 +160,9 @@ class Login_Page(tk.Frame):
 
         self.Label2 = tk.Label(top)
         self.Label2.place(relx=0.2, rely=0.423, height=42, width=102)
-        self.Label2.configure(activebackground="#f9f9f9")
+        self.Label2.configure(activebackground="#ccfdd5")
         self.Label2.configure(activeforeground="black")
-        self.Label2.configure(background="#ffffff")
+        self.Label2.configure(background="#ccfdd5")
         self.Label2.configure(disabledforeground="#a3a3a3")
         self.Label2.configure(foreground="#000000")
         self.Label2.configure(highlightbackground="#d9d9d9")
@@ -176,11 +184,12 @@ class Login_Page(tk.Frame):
         self.Message1 = tk.Message(top)
         self.Message1.place(relx=0.5, rely=0.114, relheight=0.057
                             , relwidth=0.677)
-        self.Message1.configure(background="#ffffff")
+        self.Message1.configure(background="#ccfdd5")
         self.Message1.configure(foreground="#000000")
         self.Message1.configure(highlightbackground="#d9d9d9")
         self.Message1.configure(highlightcolor="black")
         self.Message1.configure(text=''':נא להכניס פרטי משתמש''')
+        self.Message1.configure(font="-family {Segoe UI} -size 9 -weight bold")
         self.Message1.configure(width=406)
 
 

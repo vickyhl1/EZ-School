@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+312208523
+Tal Shaked
+=======
+<<<<<<< HEAD
+309044071
+Rafael Azriaiev
+=======
+312208523
+Tal Shaked
+>>>>>>> e513fc9dc9df51620a6e7a5193a285ea2822e900
+>>>>>>> 29c45be46e8fc4d8972e0349d1294021b9ed65d0

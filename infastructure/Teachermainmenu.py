@@ -6,6 +6,7 @@
 #    Nov 29, 2020 09:44:48 PM +0200  platform: Windows NT
 
 import sys
+import pymongo
 
 try:
     import Tkinter as tk
@@ -21,10 +22,13 @@ except ImportError:
 
 import Teachermainmenu_support
 import webbrowser
-import zoomlinksforteacher
 import HealthPageTeacher
+<<<<<<< HEAD
 import GamesTeacher
 
+=======
+import classesTeacher
+>>>>>>> vicky
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -63,8 +67,7 @@ class teacherpage:
 
     def openzoom(self):
         root.destroy()
-        zoomlinksforteacher.vp_start_gui()
-
+        classesTeacher.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.

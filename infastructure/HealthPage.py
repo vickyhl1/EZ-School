@@ -60,6 +60,12 @@ class Toplevel1:
         if flag:
             tk.messagebox._show('Health page', 'ההצהרה הוגשה')
             flag=0
+            f = open("Current_user.txt")
+            txt = str(date.today()) + "\n" + f.read() + "\n\n"
+            f.close()
+            f = open("Health_statements.txt", "a")
+            f.write(txt + "\n\n")
+            f.close()
 
         else:
             tk.messagebox.showwarning('Health page', 'לא אישרת את ההצהרה, נסה שוב מאוחר יותר')
@@ -149,7 +155,9 @@ class Toplevel1:
         self.dateanduser.configure(foreground="#000000")
         self.dateanduser.configure(highlightbackground="#d9d9d9")
         self.dateanduser.configure(highlightcolor="black")
-        txt=date.today()
+        f = open("Current_user.txt")
+        txt = str(date.today()) + "\n" + f.read()
+        f.close()
         self.dateanduser.configure(text= txt)
         self.dateanduser.configure(width=540)
 

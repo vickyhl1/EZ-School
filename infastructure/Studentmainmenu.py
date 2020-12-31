@@ -8,6 +8,7 @@
 
 import sys
 import pymongo
+
 try:
     import Tkinter as tk
 except ImportError:
@@ -23,8 +24,11 @@ except ImportError:
 import Studentmainmenu_support
 import webbrowser
 import HealthPage
-import zoomlinksforstudents
+import classes
+import Seker1
 global userobj
+import TuitionStudent
+
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -54,6 +58,30 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+<<<<<<< HEAD
+    def openGames(self):
+        root.destroy()
+        Seker.vp_start_gui()
+    def opensurvey(self):
+        f = open("isSekerOpen.txt")
+        flag=f.read()
+        f.close()
+        if flag == "0":
+            tk.messagebox.showwarning('Seker', 'הסקר אינו זמין כרגע')
+        else:
+             root.destroy()
+             Seker1.vp_start_gui()
+=======
+<<<<<<< HEAD
+    def paymentTuition(self):
+        root.destroy()
+        TuitionStudent.vp_start_gui()
+=======
+    def opensurvey(self):
+        root.destroy()
+        Seker.vp_start_gui()
+>>>>>>> 29c45be46e8fc4d8972e0349d1294021b9ed65d0
+>>>>>>> 6361d6a7e8f61c064567f8ed7e0ac8a8e59e7f37
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
@@ -61,7 +89,7 @@ class studentpage:
         HealthPage.vp_start_gui()
     def openzoom(self):
         root.destroy()
-        zoomlinksforstudents.vp_start_gui()
+        classes.vp_start_gui()
 
     def __init__(self, top=None):
 
@@ -149,6 +177,7 @@ class studentpage:
         self.games.configure(highlightcolor="black")
         self.games.configure(pady="0")
         self.games.configure(text='''משחקי חשיבה''')
+        self.games.configure(command=self.openGames)
 
         self.shop = tk.Button(top)
         self.shop.place(relx=0.219, rely=0.324, height=93, width=186)
@@ -173,6 +202,8 @@ class studentpage:
         self.payment_tuit.configure(highlightcolor="black")
         self.payment_tuit.configure(pady="0")
         self.payment_tuit.configure(text='''תשלום שכר לימוד''')
+        self.payment_tuit.configure(command=self.paymentTuition)
+
 
         self.survey = tk.Button(top)
         self.survey.place(relx=0.474, rely=0.324, height=93, width=186)
@@ -186,6 +217,7 @@ class studentpage:
         self.survey.configure(highlightcolor="black")
         self.survey.configure(pady="0")
         self.survey.configure(text='''סקר מורים''')
+        self.survey.configure(command=self.opensurvey)
 
         self.stud_forum = tk.Button(top)
         self.stud_forum.place(relx=0.609, rely=0.324, height=93, width=186)
