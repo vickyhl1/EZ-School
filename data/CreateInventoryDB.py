@@ -1,10 +1,15 @@
 import pymongo
 
-def inventory_db_init():
+def connect_to_collection(collection_name):
     client = pymongo.MongoClient()
     mydb = client['EZSchooldb']
+    mycol = mydb[collection_name]
+    return mycol
 
-    mycol = mydb['Inventory']
+def inventory_db_init():
+
+
+    mycol = connect_to_collection('Inventory')
 
     inventory = [
         {
