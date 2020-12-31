@@ -71,11 +71,10 @@ class zoomlinkes:
         if txt:
             webbrowser.open(txt)
     def newHistory(self):
-        f=open("newHistory6.txt")
+        f=open("newHistory6.txt","r")
         txt = f.read()
-        print(txt)
-        f.close()
-        if txt:
+        if(txt):
+            f.close()
             webbrowser.open(txt)
     def back(self):
         root.destroy()

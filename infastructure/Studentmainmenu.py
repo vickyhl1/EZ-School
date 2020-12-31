@@ -26,6 +26,7 @@ import webbrowser
 import HealthPage
 import classes
 global userobj
+import TuitionStudent
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -55,6 +56,9 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+    def paymentTuition(self):
+        root.destroy()
+        TuitionStudent.vp_start_gui()
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
@@ -174,6 +178,8 @@ class studentpage:
         self.payment_tuit.configure(highlightcolor="black")
         self.payment_tuit.configure(pady="0")
         self.payment_tuit.configure(text='''תשלום שכר לימוד''')
+        self.payment_tuit.configure(command=self.paymentTuition)
+
 
         self.survey = tk.Button(top)
         self.survey.place(relx=0.474, rely=0.324, height=93, width=186)
