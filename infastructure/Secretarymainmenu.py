@@ -22,6 +22,7 @@ except ImportError:
 import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
+import SekerRes
 
 
 def vp_start_gui():
@@ -55,6 +56,9 @@ class secretarypage:
     def openHealth(self):
         root.destroy()
         HealthPageSecretary.vp_start_gui()
+    def openSeker(self):
+        root.destroy()
+        SekerRes.vp_start_gui()
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -175,6 +179,7 @@ class secretarypage:
         self.teachers_survey.configure(highlightcolor="black")
         self.teachers_survey.configure(pady="0")
         self.teachers_survey.configure(text='''סקר מורים''')
+        self.teachers_survey.configure(command=self.openSeker)
 
         self.forum = tk.Button(top)
         self.forum.place(relx=0.609, rely=0.324, height=93, width=186)

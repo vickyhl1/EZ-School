@@ -6,6 +6,7 @@
 #    Dec 29, 2020 06:17:37 PM +0200  platform: Windows NT
 
 import sys
+sys.path.append('..')
 
 try:
     import Tkinter as tk
@@ -21,6 +22,8 @@ except ImportError:
 
 import Seker1_support
 import Studentmainmenu
+import pymongo
+from data import seker_db_init
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -52,7 +55,12 @@ def destroy_Seker():
 class Seker:
     def Submit(self):
         tk.messagebox._show('seker page', 'הסקר הוגש')
+        mycol=seker_db_init()
+        data={'q1':self.Question1.get(),'q2':self.Question2.get(),'q3':self.Question3.get(),'q4':self.Question4.get()
+            ,'q5':self.Question5.get(),'q6':self.Question6.get(),'q7':self.Question7.get(),'q8':self.Question8.get()}
+        mycol.insert_one(data)
         self.mainmenu()
+
     def mainmenu(self):
         root.destroy()
         Studentmainmenu.vp_start_gui()

@@ -1,7 +1,7 @@
 import pymongo
 
-def links_db_init():
+def seker_db_init():
     client = pymongo.MongoClient()
     mydb = client['EZSchooldb']
 
-    return mydb['Links']
+    return mydb['Seker']
