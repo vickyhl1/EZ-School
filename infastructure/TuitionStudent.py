@@ -26,9 +26,8 @@ import Studentmainmenu
 from tkinter import messagebox
 sys.path.append('..')
 
-from data import user_db_init, inventory_db_init
+from data import user_db_init
 user_db_init()
-inventory_db_init()
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
 userobj=None

@@ -23,6 +23,7 @@ except ImportError:
 import TuitionSecretaryid_support
 import Secretarymainmenu
 import TuitionSecretarypayment
+import classesReport
 
 from tkinter import messagebox
 sys.path.append('..')
@@ -79,7 +80,8 @@ class Tuitionsec:
             TuitionSecretarypayment.vp_start_gui()
 
     def Openreport(self):
-        paymentReport.vp_start_gui()
+        root.destroy()
+        classesReport.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -114,7 +116,7 @@ class Tuitionsec:
         self.report.configure(highlightcolor="black")
         self.report.configure(pady="0")
         self.report.configure(text='''הנפקת דו"ח''')
-        # self.report.configure(command=self.Openreport)
+        self.report.configure(command=self.Openreport)
 
         self.mainmenu = tk.Button(top)
         self.mainmenu.place(relx=0.05, rely=0.844, height=44, width=147)

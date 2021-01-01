@@ -23,6 +23,7 @@ import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
 import TuitionSecretaryid
+import classesScheSecretary
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -50,6 +51,9 @@ def destroy_secretarypage():
     w = None
 
 class secretarypage:
+    def openScheStudent(self):
+        root.destroy()
+        classesScheSecretary.vp_start_gui()
     def openTuition(self):
         root.destroy()
         TuitionSecretaryid.vp_start_gui()
@@ -88,6 +92,7 @@ class secretarypage:
         self.student_schedule.configure(highlightcolor="black")
         self.student_schedule.configure(pady="0")
         self.student_schedule.configure(text='''עדכון מערכת שעות תלמיד''')
+        self.student_schedule.configure(command= self.openScheStudent)
 
         self.teacher_schedule = tk.Button(top)
         self.teacher_schedule.place(relx=0.344, rely=0.17, height=93, width=186)

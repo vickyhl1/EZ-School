@@ -27,6 +27,7 @@ import HealthPage
 import classes
 global userobj
 import TuitionStudent
+import classesSche
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -56,6 +57,9 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+    def open_classes(self):
+        root.destroy()
+        classesSche.vp_start_gui()
     def paymentTuition(self):
         root.destroy()
         TuitionStudent.vp_start_gui()
@@ -98,6 +102,7 @@ class studentpage:
         self.stud_sched.configure(highlightcolor="black")
         self.stud_sched.configure(pady="0")
         self.stud_sched.configure(text='''מערכת שעות''')
+        self.stud_sched.configure(command=self.open_classes)
 
         self.zoom = tk.Button(top)
         self.zoom.place(relx=0.344, rely=0.17, height=93, width=186)
