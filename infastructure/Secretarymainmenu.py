@@ -22,8 +22,16 @@ except ImportError:
 import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
+<<<<<<< HEAD
+import SekerRes
+
+=======
 import TuitionSecretaryid
+<<<<<<< HEAD
 import classesScheSecretary
+=======
+>>>>>>> 6361d6a7e8f61c064567f8ed7e0ac8a8e59e7f37
+>>>>>>> 64be9d82c1ec4dff52a605405ad4580f46c3bedd
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -62,6 +70,9 @@ class secretarypage:
     def openHealth(self):
         root.destroy()
         HealthPageSecretary.vp_start_gui()
+    def openSeker(self):
+        root.destroy()
+        SekerRes.vp_start_gui()
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -184,6 +195,7 @@ class secretarypage:
         self.teachers_survey.configure(highlightcolor="black")
         self.teachers_survey.configure(pady="0")
         self.teachers_survey.configure(text='''סקר מורים''')
+        self.teachers_survey.configure(command=self.openSeker)
 
         self.forum = tk.Button(top)
         self.forum.place(relx=0.609, rely=0.324, height=93, width=186)

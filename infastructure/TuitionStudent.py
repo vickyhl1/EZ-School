@@ -291,17 +291,6 @@ class Tuition:
         self.month_entry.configure(foreground="#000000")
         self.month_entry.configure(insertbackground="black")
 
-    @staticmethod
-    def popup1(event, *args, **kwargs):
-        Popupmenu1 = tk.Menu(root, tearoff=0)
-        Popupmenu1.configure(activebackground="#ececec")
-        Popupmenu1.configure(activeborderwidth="1")
-        Popupmenu1.configure(activeforeground="#000000")
-        Popupmenu1.configure(background="#d9d9d9")
-        Popupmenu1.configure(borderwidth="1")
-        Popupmenu1.configure(disabledforeground="#a3a3a3")
-        Popupmenu1.configure(foreground="#000000")
-        Popupmenu1.post(event.x_root, event.y_root)
 
 if __name__ == '__main__':
     vp_start_gui()
