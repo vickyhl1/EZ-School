@@ -22,16 +22,10 @@ except ImportError:
 import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
-<<<<<<< HEAD
 import SekerRes
 
-=======
 import TuitionSecretaryid
-<<<<<<< HEAD
 import classesScheSecretary
-=======
->>>>>>> 6361d6a7e8f61c064567f8ed7e0ac8a8e59e7f37
->>>>>>> 64be9d82c1ec4dff52a605405ad4580f46c3bedd
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
