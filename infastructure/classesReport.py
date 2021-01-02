@@ -191,6 +191,7 @@ class classReport:
         self.mainmenu.configure(highlightcolor="black")
         self.mainmenu.configure(pady="0")
         self.mainmenu.configure(text='''תפריט ראשי''')
+        self.mainmenu.configure(command=self.back)
 
         self.class2.configure(command=self.openreport2)
         self.class3.configure(command=self.openreport3)
