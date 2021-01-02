@@ -21,6 +21,12 @@ except ImportError:
 
 import classesReport_support
 import Secretarymainmenu
+import balanceReport1
+import balanceReport2
+import balanceReport3
+import balanceReport4
+import balanceReport5
+import balanceReport6
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -52,7 +58,22 @@ class classReport:
         root.destroy()
         Secretarymainmenu.vp_start_gui()
     def openreport1(self):
-        Secretarymainmenu.vp_start_gui()
+        balanceReport1.vp_start_gui()
+
+    def openreport2(self):
+        balanceReport2.vp_start_gui()
+
+    def openreport3(self):
+        balanceReport3.vp_start_gui()
+
+    def openreport4(self):
+        balanceReport4.vp_start_gui()
+
+    def openreport5(self):
+        balanceReport5.vp_start_gui()
+    def openreport6(self):
+        balanceReport6.vp_start_gui()
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -170,6 +191,13 @@ class classReport:
         self.mainmenu.configure(highlightcolor="black")
         self.mainmenu.configure(pady="0")
         self.mainmenu.configure(text='''תפריט ראשי''')
+
+        self.class2.configure(command=self.openreport2)
+        self.class3.configure(command=self.openreport3)
+        self.class4.configure(command=self.openreport4)
+        self.class5.configure(command=self.openreport5)
+        self.class6.configure(command=self.openreport6)
+
 
         self.Message1 = tk.Message(top)
         self.Message1.place(relx=0.05, rely=0.023, relheight=0.072

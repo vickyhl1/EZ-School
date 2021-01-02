@@ -10,7 +10,7 @@ def user_db_init():
     # 1- Secreatery, 2- Teacher, 3-Student
 
     data = [
-        {
+        {   'stuNum':2,
             'name': 'Rafael Azriaiev',
             'id': '309044071',
             'password': '1234',
@@ -19,6 +19,7 @@ def user_db_init():
             'class': 1,
             'attendance': 0},
         {
+            'stuNum': 3,
             'name': 'Adi Cohen',
             'id': '123456789',
             'password': '1234',
@@ -27,6 +28,7 @@ def user_db_init():
             'class': 1,
             'attendance': 0},
         {
+            'stuNum': 4,
             'name': 'Raful Azriaiev',
             'id': '123456788',
             'password': '1234',
@@ -34,7 +36,7 @@ def user_db_init():
             'Tuition123456788': 0,
             'class': 1,
             'attendance': 0},
-        {
+        {   'stuNum':5,
             'name': 'Etty balloon',
             'id': '987654321',
             'password': '1234',
@@ -43,6 +45,7 @@ def user_db_init():
             'class': 1,
             'attendance': 0},
         {
+            'stuNum': 6,
             'name': 'Yuval Katan',
             'id': '123412341',
             'password': '1234',
@@ -51,6 +54,7 @@ def user_db_init():
             'class': 1,
             'attendance': 0},
         {
+            'stuNum': 7,
             'name': 'Adi Cohen',
             'id': '123458769',
             'password': '1234',
@@ -59,6 +63,7 @@ def user_db_init():
             'class': 1,
             'attendance': 0},
         {
+            'stuNum':8,
             'name': 'Rafi Koldeki',
             'id': '123477688',
             'password': '1234',
@@ -67,6 +72,7 @@ def user_db_init():
             'class': 1,
             'attendance': 0},
         {
+            'stuNum': 9,
             'name': 'Shaked Boltek',
             'id': '121212121',
             'password': '1234',
@@ -75,6 +81,7 @@ def user_db_init():
             'class': 1,
             'attendance': 0},
         {
+            'stuNum': 10,
             'name': 'Ziyad Hammed',
             'id': '111111111',
             'password': '1234',
@@ -83,8 +90,9 @@ def user_db_init():
             'class': 1,
             'attendance': 0},
         {
+            'stuNum': 11,
             'name': 'Vicky Hlustov',
-            'id': '320755481',
+            'id': '121212121',
             'password': '1234',
             'Usertype': 3,
             'Tuition121212121': -221,
@@ -97,6 +105,7 @@ def user_db_init():
             'password': '12345',
             'Usertype': 2},
         {
+            'stuNum': 12,
             'name': 'Noa Hamuda',
             'id': '309044070',
             'password': '1234',
@@ -105,6 +114,7 @@ def user_db_init():
             'class': 2,
             'attendance': 0},
         {
+            'stuNum': 13,
             'name': 'Alon Tree',
             'id': '123456790',
             'password': '1234',
@@ -113,6 +123,7 @@ def user_db_init():
             'class': 2,
             'attendance': 0},
         {
+            'stuNum': 14,
             'name': 'Emma Watson',
             'id': '143256788',
             'password': '1234',
@@ -121,6 +132,7 @@ def user_db_init():
             'class': 2,
             'attendance': 0},
         {
+            'stuNum': 15,
             'name': 'Ben Kiosk',
             'id': '988854321',
             'password': '1234',
@@ -129,6 +141,7 @@ def user_db_init():
             'class': 2,
             'attendance': 0},
         {
+            'stuNum': 16,
             'name': 'Yuval Kibutz',
             'id': '111112341',
             'password': '1234',
@@ -137,6 +150,7 @@ def user_db_init():
             'class': 2,
             'attendance': 0},
         {
+            'stuNum': 17,
             'name': 'Israel Israeli',
             'id': '123456900',
             'password': '1234',
@@ -145,6 +159,7 @@ def user_db_init():
             'class': 2,
             'attendance': 0},
         {
+            'stuNum': 18,
             'name': 'Violet Lapunk',
             'id': '123774688',
             'password': '1234',
@@ -153,6 +168,7 @@ def user_db_init():
             'class': 2,
             'attendance': 0},
         {
+            'stuNum': 19,
             'name': 'Liron Nagar',
             'id': '205555287',
             'password': '1234',
@@ -161,6 +177,7 @@ def user_db_init():
             'class': 2,
             'attendance': 0},
         {
+            'stuNum': 20,
             'name': 'Hamud Hamid',
             'id': '111121111',
             'password': '1234',
@@ -169,6 +186,7 @@ def user_db_init():
             'class': 2,
             'attendance': 0},
         {
+            'stuNum': 21,
             'name': 'Nagash Shemlash',
             'id': '320755581',
             'password': '1234',
@@ -177,6 +195,7 @@ def user_db_init():
             'class': 2,
             'attendance': 0},
         {
+            'stuNum':22,
             'name': 'Israel Avihail',
             'id': '302144070',
             'password': '1234',
@@ -185,6 +204,7 @@ def user_db_init():
             'class': 3,
             'attendance': 0},
         {
+            'stuNum': 23,
             'name': 'Tali Tavlin',
             'id': '123090942',
             'password': '1234',
@@ -193,6 +213,7 @@ def user_db_init():
             'class': 3,
             'attendance': 0},
         {
+            'stuNum': 24,
             'name': 'Hadas Chassidim',
             'id': '012345678',
             'password': '1234',
@@ -201,6 +222,7 @@ def user_db_init():
             'class': 3,
             'attendance': 0},
         {
+            'stuNum': 25,
             'name': 'May Hagbi',
             'id': '204857673',
             'password': '1234',
@@ -209,6 +231,7 @@ def user_db_init():
             'class': 3,
             'attendance': 0},
         {
+            'stuNum': 26,
             'name': 'Shay Sarussi',
             'id': '012234567',
             'password': '1234',
@@ -217,6 +240,7 @@ def user_db_init():
             'class': 3,
             'attendance': 0},
         {
+            'stuNum': 27,
             'name': 'Irena Lerman',
             'id': '001122334',
             'password': '1234',
@@ -225,6 +249,7 @@ def user_db_init():
             'class': 3,
             'attendance': 0},
         {
+            'stuNum': 28,
             'name': 'Nimrod Krieger',
             'id': '098098098',
             'password': '1234',
@@ -233,6 +258,7 @@ def user_db_init():
             'class': 3,
             'attendance': 0},
         {
+            'stuNum': 29,
             'name': 'Naftaly Peretz',
             'id': '204444099',
             'password': '1234',
@@ -241,6 +267,7 @@ def user_db_init():
             'class': 3,
             'attendance': 0},
         {
+            'stuNum': 30,
             'name': 'Refael Ben Kimon',
             'id': '111122111',
             'password': '1234',
@@ -249,6 +276,7 @@ def user_db_init():
             'class': 3,
             'attendance': 0},
         {
+            'stuNum': 31,
             'name': 'Ginda Sultzman',
             'id': '001122333',
             'password': '1234',
@@ -262,6 +290,7 @@ def user_db_init():
             'password': '123456',
             'Usertype': 1},
         {
+            'stuNum': 32,
             'name': 'Nadav Ishay',
             'id': '304412060',
             'password': '1234',
@@ -270,6 +299,7 @@ def user_db_init():
             'class': 4,
             'attendance': 0},
         {
+            'stuNum': 33,
             'name': 'Daniel Dahan',
             'id': '333090942',
             'password': '1234',
@@ -278,6 +308,7 @@ def user_db_init():
             'class': 4,
             'attendance': 0},
         {
+            'stuNum': 34,
             'name': 'Yinon Hadad',
             'id': '210345678',
             'password': '1234',
@@ -286,6 +317,7 @@ def user_db_init():
             'class': 4,
             'attendance': 0},
         {
+            'stuNum': 35,
             'name': 'Shay Waitzman',
             'id': '298767673',
             'password': '1234',
@@ -294,6 +326,7 @@ def user_db_init():
             'class': 4,
             'attendance': 0},
         {
+            'stuNum': 36,
             'name': 'Roni Jack Vitouli',
             'id': '120234567',
             'password': '1234',
@@ -302,6 +335,7 @@ def user_db_init():
             'class': 4,
             'attendance': 0},
         {
+            'stuNum': 37,
             'name': 'Gal Aloni',
             'id': '110023334',
             'password': '1234',
@@ -310,6 +344,7 @@ def user_db_init():
             'class': 4,
             'attendance': 0},
         {
+            'stuNum': 38,
             'name': 'Maor Mohav',
             'id': '189098098',
             'password': '1234',
@@ -318,6 +353,7 @@ def user_db_init():
             'class': 4,
             'attendance': 0},
         {
+            'stuNum': 39,
             'name': 'Shay Lee',
             'id': '574444099',
             'password': '1234',
@@ -326,6 +362,7 @@ def user_db_init():
             'class': 4,
             'attendance': 0},
         {
+            'stuNum': 40,
             'name': 'Yael Shloosh',
             'id': '122222111',
             'password': '1234',
@@ -334,6 +371,7 @@ def user_db_init():
             'class': 4,
             'attendance': 0},
         {
+            'stuNum': 41,
             'name': 'Naor Greenbaum',
             'id': '476423233',
             'password': '1234',
@@ -342,6 +380,7 @@ def user_db_init():
             'class': 4,
             'attendance': 0},
         {
+            'stuNum': 42,
             'name': 'Sami Hakbai',
             'id': '123498765',
             'password': '1234',
@@ -350,6 +389,7 @@ def user_db_init():
             'class': 5,
             'attendance': 0},
         {
+            'stuNum': 43,
             'name': 'Lital Pony',
             'id': '302944245',
             'password': '1234',
@@ -358,6 +398,7 @@ def user_db_init():
             'class': 5,
             'attendance': 0},
         {
+            'stuNum': 44,
             'name': 'Hadas Hadad',
             'id': '230145678',
             'password': '1234',
@@ -366,6 +407,7 @@ def user_db_init():
             'class': 5,
             'attendance': 0},
         {
+            'stuNum': 45,
             'name': 'Loki Odinson',
             'id': '892767673',
             'password': '1234',
@@ -374,6 +416,7 @@ def user_db_init():
             'class': 5,
             'attendance': 0},
         {
+            'stuNum': 46,
             'name': 'Thor Odinson',
             'id': '892767674',
             'password': '1234',
@@ -382,6 +425,7 @@ def user_db_init():
             'class': 5,
             'attendance': 0},
         {
+            'stuNum': 47,
             'name': 'Nemo Gold',
             'id': '112223224',
             'password': '1234',
@@ -390,6 +434,7 @@ def user_db_init():
             'class': 5,
             'attendance': 0},
         {
+            'stuNum': 48,
             'name': 'Dora Explola',
             'id': '189098079',
             'password': '1234',
@@ -398,6 +443,7 @@ def user_db_init():
             'class': 5,
             'attendance': 0},
         {
+            'stuNum': 49,
             'name': 'Diego Maradonna',
             'id': '374231099',
             'password': '1234',
@@ -406,6 +452,7 @@ def user_db_init():
             'class': 5,
             'attendance': 0},
         {
+            'stuNum': 50,
             'name': 'Ash Ketchum',
             'id': '382746583',
             'password': '1234',
@@ -414,14 +461,16 @@ def user_db_init():
             'class': 5,
             'attendance': 0},
         {
+            'stuNum': 51,
             'name': 'Bob Habnai',
             'id': '236423233',
             'password': '1234',
             'Usertype': 3,
-            'Tuition476423233': -1,
+            'Tuition236423233': -1,
             'class': 5,
             'attendance': 0},
         {
+            'stuNum': 52,
             'name': 'Vin Diesel',
             'id': '324982135',
             'password': '1234',
@@ -430,6 +479,7 @@ def user_db_init():
             'class': 6,
             'attendance': 0},
         {
+            'stuNum': 53,
             'name': 'Chriss Pratt',
             'id': '312872215',
             'password': '1234',
@@ -438,6 +488,7 @@ def user_db_init():
             'class': 6,
             'attendance': 0},
         {
+            'stuNum': 54,
             'name': 'Zoey Saldana',
             'id': '231145678',
             'password': '1234',
@@ -446,6 +497,7 @@ def user_db_init():
             'class': 6,
             'attendance': 0},
         {
+            'stuNum': 55,
             'name': 'Bradley Cooper',
             'id': '312555673',
             'password': '1234',
@@ -454,6 +506,7 @@ def user_db_init():
             'class': 6,
             'attendance': 0},
         {
+            'stuNum': 56,
             'name': 'Dave Batista',
             'id': '312545673',
             'password': '1234',
@@ -462,6 +515,7 @@ def user_db_init():
             'class': 6,
             'attendance': 0},
         {
+            'stuNum': 57,
             'name': 'Karen Gillan',
             'id': '213522324',
             'password': '1234',
@@ -470,6 +524,7 @@ def user_db_init():
             'class': 6,
             'attendance': 0},
         {
+            'stuNum': 58,
             'name': 'Seth Green',
             'id': '322171742',
             'password': '1234',
@@ -478,6 +533,7 @@ def user_db_init():
             'class': 6,
             'attendance': 0},
         {
+            'stuNum': 59,
             'name': 'Michael Rocker',
             'id': '322131099',
             'password': '1234',
@@ -486,6 +542,7 @@ def user_db_init():
             'class': 6,
             'attendance': 0},
         {
+            'stuNum': 60,
             'name': 'Mila Kunis',
             'id': '312246583',
             'password': '1234',
@@ -494,6 +551,7 @@ def user_db_init():
             'class': 6,
             'attendance': 0},
         {
+            'stuNum': 61,
             'name': 'Christopher Firebank',
             'id': '238723233',
             'password': '1234',
@@ -532,6 +590,7 @@ def user_db_init():
             'password': '12345',
             'Usertype': 2},
     ]
+
     for user in data:
         existing_user = mycol.find_one({'id': user['id']})
         if existing_user == None:
