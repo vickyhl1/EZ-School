@@ -22,15 +22,12 @@ except ImportError:
 import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
-<<<<<<< HEAD
 import SekerChoice
 import TuitionSecretaryid
-=======
 import SekerRes
-
+import TeachersSche
 import TuitionSecretaryid
 import classesScheSecretary
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -72,6 +69,10 @@ class secretarypage:
     def openSeker(self):
         root.destroy()
         SekerChoice.vp_start_gui()
+    def openScheteachers(self):
+        root.destroy()
+        TeachersSche.vp_start_gui()
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -115,6 +116,7 @@ class secretarypage:
         self.teacher_schedule.configure(highlightcolor="black")
         self.teacher_schedule.configure(pady="0")
         self.teacher_schedule.configure(text='''עדכון מערכת שעות מורה''')
+        self.teacher_schedule.configure(command= self.openScheteachers)
 
         self.health = tk.Button(top)
         self.health.place(relx=0.474, rely=0.171, height=93, width=186)

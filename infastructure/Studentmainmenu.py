@@ -60,13 +60,11 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
-<<<<<<< HEAD
-=======
+
     def open_classes(self):
         root.destroy()
         classesSche.vp_start_gui()
 
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
     def openGames(self):
         root.destroy()
         Seker.vp_start_gui()
@@ -83,10 +81,7 @@ class studentpage:
     def paymentTuition(self):
         root.destroy()
         TuitionStudent.vp_start_gui()
-<<<<<<< HEAD
 
-=======
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
     def opensurvey(self):
         root.destroy()
         Seker.vp_start_gui()

@@ -26,26 +26,20 @@ import webbrowser
 import Studentmainmenu
 from data import game_links_db_init
 my_links_collec = game_links_db_init()
-<<<<<<< HEAD
 import webbrowser
 
-=======
 import Studentmainmenu
 import webbrowser
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
-<<<<<<< HEAD
     root = tk.Tk()
     top = Toplevel1 (root)
 
-=======
     root =tk.Tk()
     top = Games(root)
     top = Toplevel1(root)
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
     GamesStudent_support.init(root, top)
     root.mainloop()
 
@@ -64,21 +58,18 @@ def create_Toplevel1(rt, *args, **kwargs):
     GamesStudent_support.init(w, top, *args, **kwargs)
     return (w, top)
 
-<<<<<<< HEAD
-=======
+
 def destroy_Games():
     top = Toplevel1 (w)
     GamesStudent_support.init(w, top, *args, **kwargs)
     return (w, top)
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 
 def destroy_Toplevel1():
     global w
     w.destroy()
     w = None
 
-<<<<<<< HEAD
-=======
+
 class Games:
     def open_Math(self):
         webbrowser.open("http://games.yo-yoo.co.il/games_play.php?game=6497")
@@ -95,7 +86,6 @@ class Games:
         root.destroy()
         Studentmainmenu.vp_start_gui()
 
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 class Toplevel1:
     def newLink(self):
         f=open("newGameLink.txt")
@@ -114,10 +104,7 @@ class Toplevel1:
         webbrowser.open("http://www.yo-yoo.co.il/ktantanim/games_play.php?game=252")
     def OpenArt(self):
         webbrowser.open("https://www.yo-yoo.co.il/coloring/")
-<<<<<<< HEAD
 
-=======
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -126,10 +113,7 @@ class Toplevel1:
         _compcolor = '#d9d9d9' # X11 color: 'gray85'
         _ana1color = '#d9d9d9' # X11 color: 'gray85'
         _ana2color = '#ececec' # Closest X11 color: 'gray92'
-<<<<<<< HEAD
 
-=======
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
         self.style = ttk.Style()
         if sys.platform == "win32":
             self.style.theme_use('winnative')
@@ -163,10 +147,8 @@ class Toplevel1:
         self.Memory.configure(cursor="hand2")
         self.Memory.configure(highlightcolor="black")
         self.Memory.configure(pady="0")
-<<<<<<< HEAD
         self.Memory.configure(text='''זיכרון''')
         self.Memory.configure(command=self.OpenMemory)
-=======
         self.Memory.configure(text='''משחק זיכרון''')
         self.Memory.configure(command=self.open_Memory)
 
@@ -177,7 +159,6 @@ class Toplevel1:
         self.Math.configure(background="#ff8080")
         self.Math.configure(cursor="hand2")
         self.Math.configure(disabledforeground="#a3a3a3")
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 
         top.geometry("600x450+383+106")
         top.minsize(120, 1)
@@ -216,8 +197,7 @@ class Toplevel1:
         self.Math.configure(highlightcolor="black")
         self.Math.configure(pady="0")
         self.Math.configure(text='''משחק חשבון''')
-<<<<<<< HEAD
-=======
+
         self.Math.configure(command=self.open_Math)
 
         self.English = tk.Button(top)
@@ -228,7 +208,6 @@ class Toplevel1:
         self.English.configure(cursor="hand2")
         self.English.configure(disabledforeground="#a3a3a3")
         self.Math.configure(text='''חשבון''')
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
         self.Math.configure(command=self.OpenMath)
 
         self.English = tk.Button(top)
@@ -243,8 +222,7 @@ class Toplevel1:
         self.English.configure(highlightbackground="#d9d9d9")
         self.English.configure(highlightcolor="black")
         self.English.configure(pady="0")
-<<<<<<< HEAD
-=======
+
         self.English.configure(text='''משחק לימוד אנגלית''')
         self.English.configure(command=self.open_English)
 
@@ -269,7 +247,6 @@ class Toplevel1:
         self.Art.configure(background="#ff8080")
         self.Art.configure(cursor="hand2")
         self.Art.configure(disabledforeground="#a3a3a3")
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
         self.English.configure(text='''אנגלית''')
         self.English.configure(command=self.OpenEnglish)
 
@@ -285,8 +262,7 @@ class Toplevel1:
         self.Art.configure(highlightbackground="#d9d9d9")
         self.Art.configure(highlightcolor="black")
         self.Art.configure(pady="0")
-<<<<<<< HEAD
-=======
+
         self.Art.configure(text='''משחקי אומנות''')
         self.Art.configure(command=self.open_Art)
 
@@ -297,7 +273,6 @@ class Toplevel1:
         self.BackToMenu.configure(background="#ff8080")
         self.BackToMenu.configure(cursor="hand2")
         self.BackToMenu.configure(disabledforeground="#a3a3a3")
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
         self.Art.configure(text='''אומנות''')
         self.Art.configure(command=self.OpenArt)
 
@@ -329,13 +304,10 @@ class Toplevel1:
         self.BackToMenu.configure(highlightcolor="black")
         self.BackToMenu.configure(pady="0")
         self.BackToMenu.configure(text='''חזרה לתפריט הראשי''')
-<<<<<<< HEAD
         self.BackToMenu.configure(command=self.BackToMainMenu)
 
-=======
         self.BackToMenu.configure(command=self.Back)
         self.BackToMenu.configure(command=self.BackToMainMenu)
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 
 if __name__ == '__main__':
     vp_start_gui()
