@@ -26,7 +26,7 @@ import webbrowser
 import HealthPageTeacher
 import GamesForTeacher
 import classesTeacher
-
+import ScheForOneTeacher
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -65,6 +65,10 @@ class teacherpage:
     def openzoom(self):
         root.destroy()
         classesTeacher.vp_start_gui()
+    def openSchedule(self):
+        root.destroy()
+        ScheForOneTeacher.vp_start_gui()
+
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -95,6 +99,8 @@ class teacherpage:
         self.teach_sched.configure(highlightcolor="black")
         self.teach_sched.configure(pady="0")
         self.teach_sched.configure(text='''מערכת שעות''')
+        self.teach_sched.configure(command=self.openSchedule)
+
 
         self.zoom = tk.Button(top)
         self.zoom.place(relx=0.344, rely=0.17, height=93, width=186)
