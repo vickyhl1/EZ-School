@@ -8,6 +8,7 @@
 
 import sys
 import pymongo
+sys.path.append('..')
 
 try:
     import Tkinter as tk
@@ -58,7 +59,6 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
-<<<<<<< HEAD
     def openGames(self):
         root.destroy()
         Seker.vp_start_gui()
@@ -71,17 +71,14 @@ class studentpage:
         else:
              root.destroy()
              Seker1.vp_start_gui()
-=======
-<<<<<<< HEAD
+
     def paymentTuition(self):
         root.destroy()
         TuitionStudent.vp_start_gui()
-=======
+
     def opensurvey(self):
         root.destroy()
         Seker.vp_start_gui()
->>>>>>> 29c45be46e8fc4d8972e0349d1294021b9ed65d0
->>>>>>> 6361d6a7e8f61c064567f8ed7e0ac8a8e59e7f37
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):

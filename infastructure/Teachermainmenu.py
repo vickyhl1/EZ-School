@@ -7,6 +7,7 @@
 
 import sys
 import pymongo
+sys.path.append('..')
 
 try:
     import Tkinter as tk
@@ -23,12 +24,8 @@ except ImportError:
 import Teachermainmenu_support
 import webbrowser
 import HealthPageTeacher
-<<<<<<< HEAD
 import GamesTeacher
-
-=======
 import classesTeacher
->>>>>>> vicky
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
