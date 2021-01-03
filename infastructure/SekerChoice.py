@@ -20,7 +20,8 @@ except ImportError:
     py3 = True
 
 import SekerChoice_support
-
+import SekerRes
+import Secretarymainmenu
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -47,6 +48,24 @@ def destroy_Toplevel1():
     w = None
 
 class Toplevel1:
+    def submit(self):
+        f = open("isSekerOpen.txt","r")
+        txt = f.read()
+        print(txt)
+        f.close()
+        bool=1
+        if txt=="1":
+            f=open("isSekerOpen.txt","w")
+            f.write("0")
+        else:
+            f=open("isSekerOpen.txt", "w")
+            f.write("1")
+        f.close()
+        root.destroy()
+        Secretarymainmenu.vp_start_gui()
+    def SekerResults(self):
+        root.destroy()
+        SekerRes.vp_start_gui()
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -64,16 +83,18 @@ class Toplevel1:
         top.configure(background="#d9d9d9")
 
         self.Button1 = tk.Button(top)
-        self.Button1.place(relx=0.561, rely=0.389, height=44, width=87)
+        self.Button1.place(relx=0.500, rely=0.389, height=44, width=140)
         self.Button1.configure(activebackground="#ececec")
         self.Button1.configure(activeforeground="#000000")
         self.Button1.configure(background="#d9d9d9")
         self.Button1.configure(disabledforeground="#a3a3a3")
         self.Button1.configure(foreground="#000000")
+        self.Button1.configure(cursor="hand2")
         self.Button1.configure(highlightbackground="#d9d9d9")
         self.Button1.configure(highlightcolor="black")
         self.Button1.configure(pady="0")
-        self.Button1.configure(text='''פרסום סקר''')
+        self.Button1.configure(text="פרסום/הסתרת הסקר")
+        self.Button1.configure(command=self.submit)
 
         self.Button2 = tk.Button(top)
         self.Button2.place(relx=0.14, rely=0.389, height=44, width=87)
@@ -82,10 +103,12 @@ class Toplevel1:
         self.Button2.configure(background="#d9d9d9")
         self.Button2.configure(disabledforeground="#a3a3a3")
         self.Button2.configure(foreground="#000000")
+        self.Button2.configure(cursor="hand2")
         self.Button2.configure(highlightbackground="#d9d9d9")
         self.Button2.configure(highlightcolor="black")
         self.Button2.configure(pady="0")
         self.Button2.configure(text='''תוצאות סקר''')
+        self.Button2.configure(command=self.SekerResults)
 
         self.Label1 = tk.Label(top)
         self.Label1.place(relx=0.316, rely=0.111, height=31, width=114)

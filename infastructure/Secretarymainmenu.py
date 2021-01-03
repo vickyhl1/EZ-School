@@ -22,10 +22,15 @@ except ImportError:
 import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
+<<<<<<< HEAD
+import SekerChoice
+import TuitionSecretaryid
+=======
 import SekerRes
 
 import TuitionSecretaryid
 import classesScheSecretary
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -66,7 +71,7 @@ class secretarypage:
         HealthPageSecretary.vp_start_gui()
     def openSeker(self):
         root.destroy()
-        SekerRes.vp_start_gui()
+        SekerChoice.vp_start_gui()
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
