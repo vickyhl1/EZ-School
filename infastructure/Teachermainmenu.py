@@ -24,7 +24,7 @@ except ImportError:
 import Teachermainmenu_support
 import webbrowser
 import HealthPageTeacher
-import GamesTeacher
+import GamesForTeacher
 import classesTeacher
 
 def vp_start_gui():
@@ -55,7 +55,7 @@ def destroy_teacherpage():
 class teacherpage:
     def OpenGames(self):
         root.destroy()
-        GamesTeacher.vp_start_gui()
+        GamesForTeacher.vp_start_gui()
     def openHealth(self):
         root.destroy()
         HealthPageTeacher.vp_start_gui()

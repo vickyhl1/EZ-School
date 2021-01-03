@@ -30,6 +30,7 @@ import Seker1
 global userobj
 import TuitionStudent
 import classesSche
+import GamesForStudent
 
 
 def vp_start_gui():
@@ -60,16 +61,12 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
-<<<<<<< HEAD
-=======
     def open_classes(self):
         root.destroy()
         classesSche.vp_start_gui()
-
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
     def openGames(self):
         root.destroy()
-        Seker.vp_start_gui()
+        GamesForStudent.vp_start_gui()
     def opensurvey(self):
         f = open("isSekerOpen.txt")
         flag=f.read()
@@ -83,13 +80,6 @@ class studentpage:
     def paymentTuition(self):
         root.destroy()
         TuitionStudent.vp_start_gui()
-<<<<<<< HEAD
-
-=======
->>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
-    def opensurvey(self):
-        root.destroy()
-        Seker.vp_start_gui()
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
