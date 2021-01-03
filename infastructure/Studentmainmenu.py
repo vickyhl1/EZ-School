@@ -29,6 +29,7 @@ import classes
 import Seker1
 global userobj
 import TuitionStudent
+import classesSche
 
 
 def vp_start_gui():
@@ -59,6 +60,13 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+<<<<<<< HEAD
+=======
+    def open_classes(self):
+        root.destroy()
+        classesSche.vp_start_gui()
+
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
     def openGames(self):
         root.destroy()
         Seker.vp_start_gui()
@@ -75,7 +83,10 @@ class studentpage:
     def paymentTuition(self):
         root.destroy()
         TuitionStudent.vp_start_gui()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
     def opensurvey(self):
         root.destroy()
         Seker.vp_start_gui()
@@ -118,6 +129,7 @@ class studentpage:
         self.stud_sched.configure(highlightcolor="black")
         self.stud_sched.configure(pady="0")
         self.stud_sched.configure(text='''מערכת שעות''')
+        self.stud_sched.configure(command=self.open_classes)
 
         self.zoom = tk.Button(top)
         self.zoom.place(relx=0.344, rely=0.17, height=93, width=186)

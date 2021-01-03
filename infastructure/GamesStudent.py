@@ -26,15 +26,26 @@ import webbrowser
 import Studentmainmenu
 from data import game_links_db_init
 my_links_collec = game_links_db_init()
+<<<<<<< HEAD
 import webbrowser
 
+=======
+import Studentmainmenu
+import webbrowser
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
+<<<<<<< HEAD
     root = tk.Tk()
     top = Toplevel1 (root)
 
+=======
+    root =tk.Tk()
+    top = Games(root)
+    top = Toplevel1(root)
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
     GamesStudent_support.init(root, top)
     root.mainloop()
 
@@ -53,12 +64,38 @@ def create_Toplevel1(rt, *args, **kwargs):
     GamesStudent_support.init(w, top, *args, **kwargs)
     return (w, top)
 
+<<<<<<< HEAD
+=======
+def destroy_Games():
+    top = Toplevel1 (w)
+    GamesStudent_support.init(w, top, *args, **kwargs)
+    return (w, top)
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 
 def destroy_Toplevel1():
     global w
     w.destroy()
     w = None
 
+<<<<<<< HEAD
+=======
+class Games:
+    def open_Math(self):
+        webbrowser.open("http://games.yo-yoo.co.il/games_play.php?game=6497")
+    def open_English(self):
+        webbrowser.open("http://games.yo-yoo.co.il/games_play.php?game=4444")
+    def open_Memory(self):
+        webbrowser.open("http://games.yo-yoo.co.il/games_play.php?game=5692")
+    def open_Geography(self):
+        webbrowser.open("http://games.yo-yoo.co.il/games_play.php?game=6459")
+    def open_Art(self):
+        webbrowser.open("https://www.yo-yoo.co.il/coloring/")
+
+    def Back(self):
+        root.destroy()
+        Studentmainmenu.vp_start_gui()
+
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 class Toplevel1:
     def newLink(self):
         f=open("newGameLink.txt")
@@ -77,7 +114,10 @@ class Toplevel1:
         webbrowser.open("http://www.yo-yoo.co.il/ktantanim/games_play.php?game=252")
     def OpenArt(self):
         webbrowser.open("https://www.yo-yoo.co.il/coloring/")
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -86,7 +126,10 @@ class Toplevel1:
         _compcolor = '#d9d9d9' # X11 color: 'gray85'
         _ana1color = '#d9d9d9' # X11 color: 'gray85'
         _ana2color = '#ececec' # Closest X11 color: 'gray92'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
         self.style = ttk.Style()
         if sys.platform == "win32":
             self.style.theme_use('winnative')
@@ -120,8 +163,21 @@ class Toplevel1:
         self.Memory.configure(cursor="hand2")
         self.Memory.configure(highlightcolor="black")
         self.Memory.configure(pady="0")
+<<<<<<< HEAD
         self.Memory.configure(text='''זיכרון''')
         self.Memory.configure(command=self.OpenMemory)
+=======
+        self.Memory.configure(text='''משחק זיכרון''')
+        self.Memory.configure(command=self.open_Memory)
+
+        self.Math = tk.Button(top)
+        self.Math.place(relx=0.383, rely=0.333, height=44, width=107)
+        self.Math.configure(activebackground="#ececec")
+        self.Math.configure(activeforeground="#000000")
+        self.Math.configure(background="#ff8080")
+        self.Math.configure(cursor="hand2")
+        self.Math.configure(disabledforeground="#a3a3a3")
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 
         top.geometry("600x450+383+106")
         top.minsize(120, 1)
@@ -160,6 +216,19 @@ class Toplevel1:
         self.Math.configure(highlightcolor="black")
         self.Math.configure(pady="0")
         self.Math.configure(text='''משחק חשבון''')
+<<<<<<< HEAD
+=======
+        self.Math.configure(command=self.open_Math)
+
+        self.English = tk.Button(top)
+        self.English.place(relx=0.383, rely=0.467, height=44, width=107)
+        self.English.configure(activebackground="#ececec")
+        self.English.configure(activeforeground="#000000")
+        self.English.configure(background="#ff8080")
+        self.English.configure(cursor="hand2")
+        self.English.configure(disabledforeground="#a3a3a3")
+        self.Math.configure(text='''חשבון''')
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
         self.Math.configure(command=self.OpenMath)
 
         self.English = tk.Button(top)
@@ -174,6 +243,33 @@ class Toplevel1:
         self.English.configure(highlightbackground="#d9d9d9")
         self.English.configure(highlightcolor="black")
         self.English.configure(pady="0")
+<<<<<<< HEAD
+=======
+        self.English.configure(text='''משחק לימוד אנגלית''')
+        self.English.configure(command=self.open_English)
+
+        self.Geography = tk.Button(top)
+        self.Geography.place(relx=0.383, rely=0.6, height=44, width=107)
+        self.Geography.configure(activebackground="#ececec")
+        self.Geography.configure(activeforeground="#000000")
+        self.Geography.configure(background="#ff8080")
+        self.Geography.configure(cursor="hand2")
+        self.Geography.configure(disabledforeground="#a3a3a3")
+        self.Geography.configure(foreground="#000000")
+        self.Geography.configure(highlightbackground="#d9d9d9")
+        self.Geography.configure(highlightcolor="black")
+        self.Geography.configure(pady="0")
+        self.Geography.configure(text='''משחק גיאוגרפיה''')
+        self.Geography.configure(command=self.open_Geography)
+
+        self.Art = tk.Button(top)
+        self.Art.place(relx=0.383, rely=0.733, height=44, width=107)
+        self.Art.configure(activebackground="#ececec")
+        self.Art.configure(activeforeground="#000000")
+        self.Art.configure(background="#ff8080")
+        self.Art.configure(cursor="hand2")
+        self.Art.configure(disabledforeground="#a3a3a3")
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
         self.English.configure(text='''אנגלית''')
         self.English.configure(command=self.OpenEnglish)
 
@@ -189,6 +285,19 @@ class Toplevel1:
         self.Art.configure(highlightbackground="#d9d9d9")
         self.Art.configure(highlightcolor="black")
         self.Art.configure(pady="0")
+<<<<<<< HEAD
+=======
+        self.Art.configure(text='''משחקי אומנות''')
+        self.Art.configure(command=self.open_Art)
+
+        self.BackToMenu = tk.Button(top)
+        self.BackToMenu.place(relx=0.017, rely=0.889, height=44, width=137)
+        self.BackToMenu.configure(activebackground="#ececec")
+        self.BackToMenu.configure(activeforeground="#000000")
+        self.BackToMenu.configure(background="#ff8080")
+        self.BackToMenu.configure(cursor="hand2")
+        self.BackToMenu.configure(disabledforeground="#a3a3a3")
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
         self.Art.configure(text='''אומנות''')
         self.Art.configure(command=self.OpenArt)
 
@@ -220,8 +329,13 @@ class Toplevel1:
         self.BackToMenu.configure(highlightcolor="black")
         self.BackToMenu.configure(pady="0")
         self.BackToMenu.configure(text='''חזרה לתפריט הראשי''')
+<<<<<<< HEAD
         self.BackToMenu.configure(command=self.BackToMainMenu)
 
+=======
+        self.BackToMenu.configure(command=self.Back)
+        self.BackToMenu.configure(command=self.BackToMainMenu)
+>>>>>>> 84f4f72796da1f3ea093cdad45dfd99ab4fa713f
 
 if __name__ == '__main__':
     vp_start_gui()
