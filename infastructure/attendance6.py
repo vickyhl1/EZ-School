@@ -31,6 +31,7 @@ mydb = client['EZSchooldb']
 import attendance6_support
 import Teachermainmenu
 from tkinter import messagebox
+import AbsenceReport6
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -60,6 +61,8 @@ def destroy_Toplevel1():
     w = None
 
 class Toplevel1:
+    def report(self):
+        AbsenceReport6.vp_start_gui()
     def Back(self):
         root.destroy()
         Teachermainmenu.vp_start_gui()
@@ -345,6 +348,8 @@ class Toplevel1:
         self.attendancereport.configure(highlightcolor="black")
         self.attendancereport.configure(pady="0")
         self.attendancereport.configure(text='''דוח נוכחות''')
+        self.attendancereport.configure(command=self.report)
+
 
 if __name__ == '__main__':
     vp_start_gui()
