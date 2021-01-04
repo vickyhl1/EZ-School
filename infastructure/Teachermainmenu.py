@@ -7,6 +7,7 @@
 
 import sys
 import pymongo
+sys.path.append('..')
 
 try:
     import Tkinter as tk
@@ -23,8 +24,9 @@ except ImportError:
 import Teachermainmenu_support
 import webbrowser
 import HealthPageTeacher
+import GamesTeacher
 import classesTeacher
-
+import ScheForOneTeacher
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -51,6 +53,9 @@ def destroy_teacherpage():
     w = None
 
 class teacherpage:
+    def OpenGames(self):
+        root.destroy()
+        GamesTeacher.vp_start_gui()
     def openHealth(self):
         root.destroy()
         HealthPageTeacher.vp_start_gui()
@@ -60,6 +65,10 @@ class teacherpage:
     def openzoom(self):
         root.destroy()
         classesTeacher.vp_start_gui()
+    def openSchedule(self):
+        root.destroy()
+        ScheForOneTeacher.vp_start_gui()
+
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -90,6 +99,8 @@ class teacherpage:
         self.teach_sched.configure(highlightcolor="black")
         self.teach_sched.configure(pady="0")
         self.teach_sched.configure(text='''מערכת שעות''')
+        self.teach_sched.configure(command=self.openSchedule)
+
 
         self.zoom = tk.Button(top)
         self.zoom.place(relx=0.344, rely=0.17, height=93, width=186)
@@ -132,6 +143,8 @@ class teacherpage:
         self.games_teach.configure(highlightcolor="black")
         self.games_teach.configure(pady="0")
         self.games_teach.configure(text='''העלאת משחקי חשיבה''')
+        self.games_teach.configure(command=self.OpenGames)
+
 
         self.shop = tk.Button(top)
         self.shop.place(relx=0.219, rely=0.324, height=93, width=186)

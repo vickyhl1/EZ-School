@@ -8,6 +8,7 @@
 
 import sys
 import pymongo
+sys.path.append('..')
 
 try:
     import Tkinter as tk
@@ -25,8 +26,10 @@ import Studentmainmenu_support
 import webbrowser
 import HealthPage
 import classes
-import Seker
+import Seker1
 global userobj
+import TuitionStudent
+import classesSche
 
 
 def vp_start_gui():
@@ -57,6 +60,28 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+
+    def open_classes(self):
+        root.destroy()
+        classesSche.vp_start_gui()
+
+    def openGames(self):
+        root.destroy()
+        Seker.vp_start_gui()
+    def opensurvey(self):
+        f = open("isSekerOpen.txt")
+        flag=f.read()
+        f.close()
+        if flag == "0":
+            tk.messagebox.showwarning('Seker', 'הסקר אינו זמין כרגע')
+        else:
+             root.destroy()
+             Seker1.vp_start_gui()
+
+    def paymentTuition(self):
+        root.destroy()
+        TuitionStudent.vp_start_gui()
+
     def opensurvey(self):
         root.destroy()
         Seker.vp_start_gui()
@@ -99,6 +124,7 @@ class studentpage:
         self.stud_sched.configure(highlightcolor="black")
         self.stud_sched.configure(pady="0")
         self.stud_sched.configure(text='''מערכת שעות''')
+        self.stud_sched.configure(command=self.open_classes)
 
         self.zoom = tk.Button(top)
         self.zoom.place(relx=0.344, rely=0.17, height=93, width=186)
@@ -155,6 +181,7 @@ class studentpage:
         self.games.configure(highlightcolor="black")
         self.games.configure(pady="0")
         self.games.configure(text='''משחקי חשיבה''')
+        self.games.configure(command=self.openGames)
 
         self.shop = tk.Button(top)
         self.shop.place(relx=0.219, rely=0.324, height=93, width=186)
@@ -179,6 +206,8 @@ class studentpage:
         self.payment_tuit.configure(highlightcolor="black")
         self.payment_tuit.configure(pady="0")
         self.payment_tuit.configure(text='''תשלום שכר לימוד''')
+        self.payment_tuit.configure(command=self.paymentTuition)
+
 
         self.survey = tk.Button(top)
         self.survey.place(relx=0.474, rely=0.324, height=93, width=186)

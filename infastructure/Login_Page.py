@@ -32,10 +32,12 @@ import Teachermainmenu
 
 
 sys.path.append('..')
-from data import user_db_init, inventory_db_init
+from data import user_db_init, inventory_db_init,game_links_db_init,Schedule_db_init,ScheduleTeacher_db_init
 user_db_init()
 inventory_db_init()
-
+game_links_db_init()
+Schedule_db_init()
+ScheduleTeacher_db_init()
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
 
@@ -99,7 +101,6 @@ class Login_Page(tk.Frame):
 
         else:
             tk.messagebox.showwarning('Login Page', 'The Id or Password is incorrect')
-
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.

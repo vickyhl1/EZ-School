@@ -22,7 +22,12 @@ except ImportError:
 import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
-
+import SekerChoice
+import TuitionSecretaryid
+import SekerRes
+import TeachersSche
+import TuitionSecretaryid
+import classesScheSecretary
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -50,11 +55,24 @@ def destroy_secretarypage():
     w = None
 
 class secretarypage:
+    def openScheStudent(self):
+        root.destroy()
+        classesScheSecretary.vp_start_gui()
+    def openTuition(self):
+        root.destroy()
+        TuitionSecretaryid.vp_start_gui()
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
         root.destroy()
         HealthPageSecretary.vp_start_gui()
+    def openSeker(self):
+        root.destroy()
+        SekerChoice.vp_start_gui()
+    def openScheteachers(self):
+        root.destroy()
+        TeachersSche.vp_start_gui()
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -85,6 +103,7 @@ class secretarypage:
         self.student_schedule.configure(highlightcolor="black")
         self.student_schedule.configure(pady="0")
         self.student_schedule.configure(text='''עדכון מערכת שעות תלמיד''')
+        self.student_schedule.configure(command= self.openScheStudent)
 
         self.teacher_schedule = tk.Button(top)
         self.teacher_schedule.place(relx=0.344, rely=0.17, height=93, width=186)
@@ -97,6 +116,7 @@ class secretarypage:
         self.teacher_schedule.configure(highlightcolor="black")
         self.teacher_schedule.configure(pady="0")
         self.teacher_schedule.configure(text='''עדכון מערכת שעות מורה''')
+        self.teacher_schedule.configure(command= self.openScheteachers)
 
         self.health = tk.Button(top)
         self.health.place(relx=0.474, rely=0.171, height=93, width=186)
@@ -163,6 +183,7 @@ class secretarypage:
         self.tuition_fee.configure(highlightcolor="black")
         self.tuition_fee.configure(pady="0")
         self.tuition_fee.configure(text='''גביית תשלום - שכר לימוד''')
+        self.tuition_fee.configure(command=self.openTuition)
 
         self.teachers_survey = tk.Button(top)
         self.teachers_survey.place(relx=0.474, rely=0.324, height=93, width=186)
@@ -175,6 +196,7 @@ class secretarypage:
         self.teachers_survey.configure(highlightcolor="black")
         self.teachers_survey.configure(pady="0")
         self.teachers_survey.configure(text='''סקר מורים''')
+        self.teachers_survey.configure(command=self.openSeker)
 
         self.forum = tk.Button(top)
         self.forum.place(relx=0.609, rely=0.324, height=93, width=186)
