@@ -61,9 +61,17 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+<<<<<<< HEAD
     def open_classes(self):
         root.destroy()
         classesSche.vp_start_gui()
+=======
+
+    def open_classes(self):
+        root.destroy()
+        classesSche.vp_start_gui()
+
+>>>>>>> 880b965bcf2f9e78016aa3eee89c113c6bcd346e
     def openGames(self):
         root.destroy()
         GamesForStudent.vp_start_gui()
@@ -80,6 +88,13 @@ class studentpage:
     def paymentTuition(self):
         root.destroy()
         TuitionStudent.vp_start_gui()
+<<<<<<< HEAD
+=======
+
+    def opensurvey(self):
+        root.destroy()
+        Seker.vp_start_gui()
+>>>>>>> 880b965bcf2f9e78016aa3eee89c113c6bcd346e
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
