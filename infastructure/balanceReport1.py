@@ -7,6 +7,7 @@
 
 import sys
 import pymongo
+
 try:
     import Tkinter as tk
 except ImportError:
@@ -26,6 +27,7 @@ user_db_init()
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
 Users=mydb['Users']
+
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -53,15 +55,14 @@ def destroy_report():
 
 class report:
     def txtreport(self):
-        global mydb
-        txt =""
-        balance="Tuition"
-        for i in range (2,62):
+        global Users
+        txt = ""
+        balance = "Tuition"
+        for user in Users.find({'class': {'$exists': True}}):
             balance = "Tuition"
-            userobj = mydb['Users'].find_one({'stuNum': i})
-            if userobj['class']==1:
-                balance+=userobj['id']
-                txt+=userobj['id']+"            "+userobj['name']+"               "+str(userobj[balance])+"\n"
+            if user['class'] == 1:
+                balance+=user['id']
+                txt+=user['id']+"            "+user['name']+"               "+str(user[balance])+"\n"
         return txt
 
     def __init__(self, top=None):
