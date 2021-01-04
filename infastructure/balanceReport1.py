@@ -70,6 +70,7 @@ class report:
         for i in range(2, 62):
             balance = "Tuition"
             userobj = mydb['Users'].find_one({'stuNum': i})
+            print(userobj['name'])
             if userobj['class'] == 1:
                 balance += userobj['id']
                 txt += userobj['id'] + "            " + userobj['name'] + "               " + str(

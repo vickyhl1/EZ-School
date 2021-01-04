@@ -64,14 +64,14 @@ def destroy_Toplevel1():
 
 
 class Toplevel1:
-    # def report(self):
-    #     message = ""
-    #     global mydb
-    #     for i in range(2, 62):
-    #         userobj = mydb['Users'].find_one({'stuNum': i})
-    #         if userobj['class'] == 1:
-    #             message += str(userobj['attendance']) + '   ' + userobj['id'] + '  ' + userobj['name'] + '\n'
-    #     return message
+    def report(self):
+        message = ""
+        global mydb
+        for i in range(2, 62):
+            userobj = mydb['Users'].find_one({'stuNum': i})
+            if userobj['class'] == 1:
+                message += str(userobj['attendance']) + '   ' + userobj['id'] + '  ' + userobj['name'] + '\n'
+        return message
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
