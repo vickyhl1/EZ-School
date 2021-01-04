@@ -31,7 +31,7 @@ user_db_init()
 
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
-
+Users=mydb['Users']
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -66,11 +66,10 @@ def destroy_Toplevel1():
 class Toplevel1:
     def report(self):
         message = ""
-        global mydb
-        for i in range(2, 62):
-            userobj = mydb['Users'].find_one({'stuNum': i})
-            if userobj['class'] == 1:
-                message += str(userobj['attendance']) + '   ' + userobj['id'] + '  ' + userobj['name'] + '\n'
+        global Users
+        for user in Users.find({'class': {'$exists': True}}):
+            if user['class'] == 1:
+                message += str(user['attendance']) + '   ' + user['id'] + '  ' + user['name'] + '\n'
         return message
 
     def __init__(self, top=None):

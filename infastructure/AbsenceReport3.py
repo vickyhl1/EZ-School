@@ -28,7 +28,7 @@ user_db_init()
 
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
-
+Users=mydb['Users']
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -56,7 +56,13 @@ def destroy_Toplevel1():
     w = None
 
 class Toplevel1:
-
+    def report(self):
+        message = ""
+        global Users
+        for user in Users.find({'class': {'$exists': True}}):
+            if user['class'] == 3:
+                message += str(user['attendance']) + '   ' + user['id'] + '  ' + user['name'] + '\n'
+        return message
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -88,7 +94,7 @@ class Toplevel1:
         self.Message1.configure(foreground="#000000")
         self.Message1.configure(highlightbackground="#d9d9d9")
         self.Message1.configure(highlightcolor="black")
-        self.Message1.configure(text='teeeeeeext')
+        self.Message1.configure(text=self.report())
         self.Message1.configure(width=810)
 
 if __name__ == '__main__':

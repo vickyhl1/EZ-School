@@ -55,15 +55,14 @@ def destroy_Toplevel1():
 
 class Toplevel1:
     def txtreport(self):
-        global mydb
-        txt =""
-        balance="Tuition"
-        for i in range (2,62):
+        global Users
+        txt = ""
+        balance = "Tuition"
+        for user in Users.find({'class': {'$exists': True}}):
             balance = "Tuition"
-            userobj = mydb['Users'].find_one({'stuNum': i})
-            if userobj['class']==3:
-                balance+=userobj['id']
-                txt+=userobj['id']+"            "+userobj['name']+"               "+str(userobj[balance])+"\n"
+            if user['class'] == 3:
+                balance+=user['id']
+                txt+=user['id']+"            "+user['name']+"               "+str(user[balance])+"\n"
         return txt
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
