@@ -269,18 +269,6 @@ class Toplevel1:
         self.Q8.configure(highlightcolor="black")
         self.Q8.configure(text='''בשאלה 8 הצביעו''')
 
-        self.BackButton = tk.Button(top)
-        self.BackButton.place(relx=0.029, rely=0.908, height=44, width=87)
-        self.BackButton.configure(activebackground="#ececec")
-        self.BackButton.configure(activeforeground="#000000")
-        self.BackButton.configure(background="#d9d9d9")
-        self.BackButton.configure(disabledforeground="#a3a3a3")
-        self.BackButton.configure(foreground="#000000")
-        self.BackButton.configure(highlightbackground="#d9d9d9")
-        self.BackButton.configure(highlightcolor="black")
-        self.BackButton.configure(pady="0")
-        self.BackButton.configure(text='''תפריט ראשי''')
-
         self.Label2 = tk.Label(top)
         self.Label2.place(relx=0.564, rely=0.227, height=21, width=36)
         self.Label2.configure(activebackground="#f9f9f9")

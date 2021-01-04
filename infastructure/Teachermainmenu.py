@@ -27,6 +27,8 @@ import HealthPageTeacher
 import GamesForTeacher
 import classesTeacher
 import ScheForOneTeacher
+import TransWorkClock
+
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -53,6 +55,8 @@ def destroy_teacherpage():
     w = None
 
 class teacherpage:
+    def OpenWork(self):
+        TransWorkClock.vp_start_gui()
     def OpenGames(self):
         root.destroy()
         GamesForTeacher.vp_start_gui()
@@ -169,6 +173,7 @@ class teacherpage:
         self.teach_work.configure(highlightcolor="black")
         self.teach_work.configure(pady="0")
         self.teach_work.configure(text='''שעון עבודה''')
+        self.teach_work.configure(command=self.OpenWork)
 
         self.presents = tk.Button(top)
         self.presents.place(relx=0.474, rely=0.324, height=93, width=186)
