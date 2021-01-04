@@ -7,6 +7,7 @@
 
 import sys
 import pymongo
+sys.path.append('..')
 
 try:
     import Tkinter as tk

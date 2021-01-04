@@ -8,6 +8,7 @@
 
 import sys
 import pymongo
+sys.path.append('..')
 
 try:
     import Tkinter as tk
@@ -28,6 +29,7 @@ import classes
 import Seker1
 global userobj
 import TuitionStudent
+import classesSche
 
 
 def vp_start_gui():
@@ -59,6 +61,13 @@ def destroy_studentpage():
 
 class studentpage:
 
+<<<<<<< HEAD
+=======
+    def open_classes(self):
+        root.destroy()
+        classesSche.vp_start_gui()
+
+>>>>>>> 880b965bcf2f9e78016aa3eee89c113c6bcd346e
     def openGames(self):
         root.destroy()
         Seker.vp_start_gui()
@@ -79,7 +88,10 @@ class studentpage:
     def opensurvey(self):
         root.destroy()
         Seker.vp_start_gui()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 880b965bcf2f9e78016aa3eee89c113c6bcd346e
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
@@ -119,6 +131,7 @@ class studentpage:
         self.stud_sched.configure(highlightcolor="black")
         self.stud_sched.configure(pady="0")
         self.stud_sched.configure(text='''מערכת שעות''')
+        self.stud_sched.configure(command=self.open_classes)
 
         self.zoom = tk.Button(top)
         self.zoom.place(relx=0.344, rely=0.17, height=93, width=186)
