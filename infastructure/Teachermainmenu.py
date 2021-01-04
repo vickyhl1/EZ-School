@@ -26,13 +26,12 @@ import webbrowser
 import HealthPageTeacher
 import GamesTeacher
 import classesTeacher
-<<<<<<< HEAD
 import classesattendance
 
 
-=======
+
 import ScheForOneTeacher
->>>>>>> 880b965bcf2f9e78016aa3eee89c113c6bcd346e
+
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
@@ -71,16 +70,16 @@ class teacherpage:
     def openzoom(self):
         root.destroy()
         classesTeacher.vp_start_gui()
-<<<<<<< HEAD
+
     def openattendance(self):
         root.destroy()
         classesattendance.vp_start_gui()
-=======
+
     def openSchedule(self):
         root.destroy()
         ScheForOneTeacher.vp_start_gui()
 
->>>>>>> 880b965bcf2f9e78016aa3eee89c113c6bcd346e
+
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.

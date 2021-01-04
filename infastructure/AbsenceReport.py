@@ -15,14 +15,18 @@ except ImportError:
 
 try:
     import ttk
+
     py3 = False
 except ImportError:
     import tkinter.ttk as ttk
+
     py3 = True
 
 import AbsenceReport_support
+
 sys.path.append('..')
 from data import user_db_init
+
 user_db_init()
 
 client = pymongo.MongoClient()
@@ -33,52 +37,55 @@ def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
     root = tk.Tk()
-    top = Toplevel1 (root)
+    top = Toplevel1(root)
     AbsenceReport_support.init(root, top)
     root.mainloop()
 
+
 w = None
+
+
 def create_Toplevel1(rt, *args, **kwargs):
     '''Starting point when module is imported by another module.
        Correct form of call: 'create_Toplevel1(root, *args, **kwargs)' .'''
     global w, w_win, root
-    #rt = root
+    # rt = root
     root = rt
-    w = tk.Toplevel (root)
-    top = Toplevel1 (w)
+    w = tk.Toplevel(root)
+    top = Toplevel1(w)
     AbsenceReport_support.init(w, top, *args, **kwargs)
     return (w, top)
+
 
 def destroy_Toplevel1():
     global w
     w.destroy()
     w = None
 
-class Toplevel1:
-    def report(self):
-        message=""
-        global mydb
-        myCol=mydb['Users']
-        data=myCol.find({})
-        for i in range(1,):
-            if one_User['class']==1:
-                message+=str(one_User['attendance'])+'   '+one_User['id']+'  '+one_User['name']+'\n'
 
-        return (message)
+class Toplevel1:
+    # def report(self):
+    #     message = ""
+    #     global mydb
+    #     for i in range(2, 62):
+    #         userobj = mydb['Users'].find_one({'stuNum': i})
+    #         if userobj['class'] == 1:
+    #             message += str(userobj['attendance']) + '   ' + userobj['id'] + '  ' + userobj['name'] + '\n'
+    #     return message
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#e0cce3'  # X11 color: 'gray85'
         _fgcolor = '#000000'  # X11 color: 'black'
-        _compcolor = '#d9d9d9' # X11 color: 'gray85'
-        _ana1color = '#d9d9d9' # X11 color: 'gray85'
-        _ana2color = '#ececec' # Closest X11 color: 'gray92'
+        _compcolor = '#d9d9d9'  # X11 color: 'gray85'
+        _ana1color = '#d9d9d9'  # X11 color: 'gray85'
+        _ana2color = '#ececec'  # Closest X11 color: 'gray92'
 
         top.geometry("994x696+152+0")
         top.minsize(120, 1)
         top.maxsize(1370, 749)
-        top.resizable(1,  1)
+        top.resizable(1, 1)
         top.title("דוח חיסורים כיתה א")
         top.configure(background="#e0cce3")
 
@@ -100,10 +107,6 @@ class Toplevel1:
         self.Message1.configure(text=self.report())
         self.Message1.configure(width=810)
 
+
 if __name__ == '__main__':
     vp_start_gui()
-
-
-
-
-

@@ -36,7 +36,8 @@ def user_db_init():
             'Tuition123456788': 0,
             'class': 1,
             'attendance': 0},
-        {   'stuNum':5,
+        {
+            'stuNum': 5,
             'name': 'Etty balloon',
             'id': '987654321',
             'password': '1234',

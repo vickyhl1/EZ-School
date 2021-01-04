@@ -7,6 +7,7 @@
 
 import sys
 import pymongo
+
 try:
     import Tkinter as tk
 except ImportError:
@@ -14,54 +15,65 @@ except ImportError:
 
 try:
     import ttk
+
     py3 = False
 except ImportError:
     import tkinter.ttk as ttk
+
     py3 = True
 
 import balanceReport1_support
+
 sys.path.append('..')
 from data import user_db_init
+
 user_db_init()
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
-Users=mydb['Users']
+
+
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
     root = tk.Tk()
-    top = report (root)
+    top = report(root)
     balanceReport1_support.init(root, top)
     root.mainloop()
 
+
 w = None
+
+
 def create_report(rt, *args, **kwargs):
     '''Starting point when module is imported by another module.
        Correct form of call: 'create_report(root, *args, **kwargs)' .'''
     global w, w_win, root
-    #rt = root
+    # rt = root
     root = rt
-    w = tk.Toplevel (root)
-    top = report (w)
+    w = tk.Toplevel(root)
+    top = report(w)
     balanceReport1_support.init(w, top, *args, **kwargs)
     return (w, top)
+
 
 def destroy_report():
     global w
     w.destroy()
     w = None
 
+
 class report:
     def txtreport(self):
         global mydb
-        txt =""
-        balance="Tuition"
-        for i in range (2,62):
+        txt = ""
+        balance = "Tuition"
+        for i in range(2, 62):
             balance = "Tuition"
             userobj = mydb['Users'].find_one({'stuNum': i})
-            if userobj['class']==1:
-                balance+=userobj['id']
-                txt+=userobj['id']+"            "+userobj['name']+"               "+str(userobj[balance])+"\n"
+            if userobj['class'] == 1:
+                balance += userobj['id']
+                txt += userobj['id'] + "            " + userobj['name'] + "               " + str(
+                    userobj[balance]) + "\n"
         return txt
 
     def __init__(self, top=None):
@@ -69,14 +81,14 @@ class report:
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
         _fgcolor = '#000000'  # X11 color: 'black'
-        _compcolor = '#d9d9d9' # X11 color: 'gray85'
-        _ana1color = '#d9d9d9' # X11 color: 'gray85'
-        _ana2color = '#ececec' # Closest X11 color: 'gray92'
+        _compcolor = '#d9d9d9'  # X11 color: 'gray85'
+        _ana1color = '#d9d9d9'  # X11 color: 'gray85'
+        _ana2color = '#ececec'  # Closest X11 color: 'gray92'
 
         top.geometry("1536x801")
         top.minsize(120, 1)
         top.maxsize(1540, 845)
-        top.resizable(1,  1)
+        top.resizable(1, 1)
         top.title('דו"ח יתרות כיתה א')
         top.configure(background="#d9d9d9")
 
@@ -92,13 +104,5 @@ class report:
         self.printreport.configure(width=470)
 
 
-
-
-
 if __name__ == '__main__':
     vp_start_gui()
-
-
-
-
-
