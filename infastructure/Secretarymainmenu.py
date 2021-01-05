@@ -30,6 +30,9 @@ import TuitionSecretaryid
 import SekerChoice
 import TuitionSecretaryid
 import SekerRes
+import TuitionSecretaryid
+import classesScheSecretary
+import TransWorkClock
 import TeachersSche
 import TuitionSecretaryid
 import classesScheSecretary
@@ -61,6 +64,8 @@ def destroy_secretarypage():
     w = None
 
 class secretarypage:
+    def OpenWork(self):
+        TransWorkClock.vp_start_gui()
     def openScheStudent(self):
         root.destroy()
         classesScheSecretary.vp_start_gui()
@@ -73,7 +78,6 @@ class secretarypage:
         root.destroy()
         HealthPageSecretary.vp_start_gui()
     def openSeker(self):
-        root.destroy()
         SekerChoice.vp_start_gui()
     def openScheteachers(self):
         root.destroy()
@@ -164,6 +168,7 @@ class secretarypage:
         self.work_clock.configure(highlightcolor="black")
         self.work_clock.configure(pady="0")
         self.work_clock.configure(text='''שעון עבודה''')
+        self.work_clock.configure(command=self.OpenWork)
 
         self.inventory_payment = tk.Button(top)
         self.inventory_payment.place(relx=0.219, rely=0.324, height=93

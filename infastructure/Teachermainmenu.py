@@ -24,13 +24,17 @@ except ImportError:
 import Teachermainmenu_support
 import webbrowser
 import HealthPageTeacher
-import GamesTeacher
+import GamesForTeacher
 import classesTeacher
 import classesattendance
 
 
 
 import ScheForOneTeacher
+<<<<<<< HEAD
+=======
+import TransWorkClock
+>>>>>>> 71be31670ff3f41c70574635e3bcba714a66345b
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -58,9 +62,11 @@ def destroy_teacherpage():
     w = None
 
 class teacherpage:
+    def OpenWork(self):
+        TransWorkClock.vp_start_gui()
     def OpenGames(self):
         root.destroy()
-        GamesTeacher.vp_start_gui()
+        GamesForTeacher.vp_start_gui()
     def openHealth(self):
         root.destroy()
         HealthPageTeacher.vp_start_gui()
@@ -180,6 +186,7 @@ class teacherpage:
         self.teach_work.configure(highlightcolor="black")
         self.teach_work.configure(pady="0")
         self.teach_work.configure(text='''שעון עבודה''')
+        self.teach_work.configure(command=self.OpenWork)
 
         self.presents = tk.Button(top)
         self.presents.place(relx=0.474, rely=0.324, height=93, width=186)
