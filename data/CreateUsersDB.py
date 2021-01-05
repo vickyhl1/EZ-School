@@ -104,7 +104,8 @@ def user_db_init():
             'name': 'Tal Shaked',
             'id': '312208523',
             'password': '12345',
-            'Usertype': 2},
+            'Usertype': 2,
+            'workhours': 0},
         {
             'stuNum': 12,
             'name': 'Noa Hamuda',
