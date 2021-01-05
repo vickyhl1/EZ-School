@@ -21,6 +21,7 @@ except ImportError:
 
 import MathPageTeacher_support
 import Teachermainmenu
+import UploadAssTeacher
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -51,7 +52,9 @@ class MathPageTeacher:
     def openMainmenue(self):
         root.destroy()
         Teachermainmenu.vp_start_gui()
-
+    def openAssigmentUploadPage(self):
+        root.destroy()
+        UploadAssTeacher.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -111,6 +114,7 @@ class MathPageTeacher:
         self.UploadAssBtn.configure(highlightcolor="black")
         self.UploadAssBtn.configure(pady="0")
         self.UploadAssBtn.configure(text='''העלאת שיעורי בית''')
+        self.UploadAssBtn.configure(command=self.openAssigmentUploadPage)
 
         self.UploadMatirialBtn = tk.Button(top)
         self.UploadMatirialBtn.place(relx=0.517, rely=0.422, height=54

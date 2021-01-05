@@ -52,6 +52,10 @@ class MathPageTeacher:
         root.destroy()
         Studentmainmenu.vp_start_gui()
 
+    def openUloadHW(self):
+        root.destroy()
+
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -109,7 +113,7 @@ class MathPageTeacher:
         self.UploadAssBtn.configure(highlightbackground="#d9d9d9")
         self.UploadAssBtn.configure(highlightcolor="black")
         self.UploadAssBtn.configure(pady="0")
-        self.UploadAssBtn.configure(text='''העלאת שיעורי בית''')
+        self.UploadAssBtn.configure(text='''צפייה והעלאת שיעורי בית''')
 
         self.watchMatirialBtn = tk.Button(top)
         self.watchMatirialBtn.place(relx=0.517, rely=0.422, height=54, width=227)
