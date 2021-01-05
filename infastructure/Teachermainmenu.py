@@ -72,7 +72,7 @@ class teacherpage:
         classesTeacher.vp_start_gui()
 
     def openattendance(self):
-        root.destroy()
+        root.withdraw()
         classesattendance.vp_start_gui()
 
     def openSchedule(self):

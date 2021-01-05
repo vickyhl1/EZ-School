@@ -20,6 +20,7 @@ except ImportError:
     py3 = True
 
 import HebrewPageTeacher_support
+import Teachermainmenu
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -47,6 +48,10 @@ def destroy_HebrewPageTeacher():
     w = None
 
 class HebrewPageTeacher:
+    def openMainmenue(self):
+        root.destroy()
+        Teachermainmenu.vp_start_gui()
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -91,6 +96,7 @@ class HebrewPageTeacher:
         self.MainMenuebtn.configure(highlightcolor="black")
         self.MainMenuebtn.configure(pady="0")
         self.MainMenuebtn.configure(text='''תפריט ראשי''')
+        self.MainMenuebtn.configure(command=self.openMainmenue)
 
         self.UploadAssBtn = tk.Button(top)
         self.UploadAssBtn.place(relx=0.517, rely=0.244, height=54, width=227)

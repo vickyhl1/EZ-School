@@ -6,7 +6,8 @@
 #    Jan 05, 2021 12:30:45 PM +0200  platform: Windows NT
 
 import sys
-
+import pymongo
+sys.path.append('..')
 try:
     import Tkinter as tk
 except ImportError:
@@ -20,6 +21,20 @@ except ImportError:
     py3 = True
 
 import SubjectSelectPage_support
+import Teachermainmenu
+import Studentmainmenu
+from data import getUser
+import MathPageTeacher
+import HistoryPageTeacher
+import HebrewPageTeacher
+import TanachPageTeacher
+import MathPageStud
+import HistoryPageStud
+import HebrewPageStud
+import TanachPageStud
+
+
+
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -47,7 +62,48 @@ def destroy_SubjectSelectPage():
     w = None
 
 class SubjectSelectPage:
+    def openMainmenue(self):
+        if self.currentUser['Usertype'] == 2:
+            root.destroy()
+            Teachermainmenu.vp_start_gui()
+        elif self.currentUser['Usertype'] == 3:
+            root.destroy()
+            Studentmainmenu.vp_start_gui()
+
+    def openMathPage(self):
+        if self.currentUser['Usertype'] == 2:
+            root.destroy()
+            MathPageTeacher.vp_start_gui()
+        elif self.currentUser['Usertype'] == 3:
+            root.destroy()
+            MathPageStud.vp_start_gui()
+
+    def openHebrewPage(self):
+        if self.currentUser['Usertype'] == 2:
+            root.destroy()
+            HebrewPageTeacher.vp_start_gui()
+        elif self.currentUser['Usertype'] == 3:
+            root.destroy()
+            HebrewPageStud.vp_start_gui()
+
+    def openHistoryPage(self):
+        if self.currentUser['Usertype'] == 2:
+            root.destroy()
+            HistoryPageTeacher.vp_start_gui()
+        elif self.currentUser['Usertype'] == 3:
+            root.destroy()
+            HistoryPageStud.vp_start_gui()
+
+    def openTanchPage(self):
+        if self.currentUser['Usertype'] == 2:
+            root.destroy()
+            TanachPageTeacher.vp_start_gui()
+        elif self.currentUser['Usertype'] == 3:
+            root.destroy()
+            TanachPageStud.vp_start_gui()
+
     def __init__(self, top=None):
+        self.currentUser = getUser()
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
@@ -77,6 +133,7 @@ class SubjectSelectPage:
         self.Mainmenuebtn.configure(highlightcolor="black")
         self.Mainmenuebtn.configure(pady="0")
         self.Mainmenuebtn.configure(text='''תפריט ראשי''')
+        self.Mainmenuebtn.configure(command=self.openMainmenue)
 
         self.menubar = tk.Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
         top.configure(menu = self.menubar)
@@ -93,6 +150,7 @@ class SubjectSelectPage:
         self.Mathbtn.configure(highlightcolor="black")
         self.Mathbtn.configure(pady="0")
         self.Mathbtn.configure(text='''חשבון''')
+        self.Mathbtn.configure(command=self.openMathPage)
 
         self.Hebrewbtn = tk.Button(top)
         self.Hebrewbtn.place(relx=0.4, rely=0.356, height=44, width=97)
@@ -106,6 +164,7 @@ class SubjectSelectPage:
         self.Hebrewbtn.configure(highlightcolor="black")
         self.Hebrewbtn.configure(pady="0")
         self.Hebrewbtn.configure(text='''עברית''')
+        self.Hebrewbtn.configure(command=self.openHebrewPage)
 
         self.Historybtn = tk.Button(top)
         self.Historybtn.place(relx=0.4, rely=0.511, height=44, width=97)
@@ -119,6 +178,7 @@ class SubjectSelectPage:
         self.Historybtn.configure(highlightcolor="black")
         self.Historybtn.configure(pady="0")
         self.Historybtn.configure(text='''היסטורייה''')
+        self.Historybtn.configure(command=self.openHistoryPage)
 
         self.Tanachbtn = tk.Button(top)
         self.Tanachbtn.place(relx=0.4, rely=0.667, height=44, width=97)
@@ -132,6 +192,7 @@ class SubjectSelectPage:
         self.Tanachbtn.configure(highlightcolor="black")
         self.Tanachbtn.configure(pady="0")
         self.Tanachbtn.configure(text='''תנ"ך''')
+        self.Tanachbtn.configure(command=self.openTanchPage)
 
         self.TitleL = tk.Label(top)
         self.TitleL.place(relx=0.267, rely=0.044, height=41, width=264)

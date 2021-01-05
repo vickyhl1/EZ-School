@@ -69,7 +69,7 @@ def destroy_Login_Page():
     w = None
 
 
-class Login_Page(tk.Frame):
+class Login_Page:
     def login(self):
         f = open("Current_user.txt", "w")
         f.seek(0)

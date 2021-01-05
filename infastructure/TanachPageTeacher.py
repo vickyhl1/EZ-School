@@ -20,6 +20,7 @@ except ImportError:
     py3 = True
 
 import TanachPageTeacher_support
+import Teachermainmenu
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -47,6 +48,10 @@ def destroy_TanachPageTeacher():
     w = None
 
 class TanachPageTeacher:
+    def openMainmenue(self):
+        root.destroy()
+        Teachermainmenu.vp_start_gui()
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -60,7 +65,7 @@ class TanachPageTeacher:
         top.minsize(120, 1)
         top.maxsize(1924, 1061)
         top.resizable(1,  1)
-        top.title("תנ"ך")
+        top.title('''תנ"ך''')
         top.configure(background="#80ffff")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
@@ -91,6 +96,7 @@ class TanachPageTeacher:
         self.MainMenuebtn.configure(highlightcolor="black")
         self.MainMenuebtn.configure(pady="0")
         self.MainMenuebtn.configure(text='''תפריט ראשי''')
+        self.MainMenuebtn.configure(command=self.openMainmenue)
 
         self.UploadAssBtn = tk.Button(top)
         self.UploadAssBtn.place(relx=0.517, rely=0.244, height=54, width=227)
