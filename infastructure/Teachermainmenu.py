@@ -29,7 +29,7 @@ import classesTeacher
 import classesattendance
 
 
-
+import SubjectSelectPage
 import ScheForOneTeacher
 
 def vp_start_gui():
@@ -79,6 +79,9 @@ class teacherpage:
         root.destroy()
         ScheForOneTeacher.vp_start_gui()
 
+    def openCoursesSelectPage(self):
+        root.destroy()
+        SubjectSelectPage.vp_start_gui()
 
 
     def __init__(self, top=None):
@@ -218,6 +221,7 @@ class teacherpage:
         self.courses.configure(highlightcolor="black")
         self.courses.configure(pady="0")
         self.courses.configure(text='''מקצועות''')
+        self.courses.configure(command=self.openCoursesSelectPage)
 
 if __name__ == '__main__':
     vp_start_gui()

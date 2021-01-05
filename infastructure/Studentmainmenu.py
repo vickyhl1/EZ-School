@@ -30,7 +30,7 @@ import Seker1
 global userobj
 import TuitionStudent
 import classesSche
-
+import SubjectSelectPage
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -98,6 +98,10 @@ class studentpage:
     def openzoom(self):
         root.destroy()
         classes.vp_start_gui()
+
+    def openCoursesSelectPage(self):
+        root.destroy()
+        SubjectSelectPage.vp_start_gui()
 
     def __init__(self, top=None):
 
@@ -252,6 +256,7 @@ class studentpage:
         self.courses.configure(highlightcolor="black")
         self.courses.configure(pady="0")
         self.courses.configure(text='''מקצועות''')
+        self.courses.configure(command=self.openCoursesSelectPage)
 
 if __name__ == '__main__':
     vp_start_gui()
