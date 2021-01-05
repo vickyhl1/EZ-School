@@ -9,8 +9,8 @@
 
 #    Dec 31, 2020 11:42:40 AM +0200  platform: Windows NT
 
-import sys
 
+import sys
 sys.path.append('..')
 
 try:
@@ -28,6 +28,7 @@ except ImportError:
     py3 = True
 
 import GamesTeacher_support
+
 import webbrowser
 import Teachermainmenu
 from tkinter import messagebox
@@ -45,6 +46,10 @@ def vp_start_gui():
     '''Starting point when module is the main routine.'''
     global val, w, root
     root = tk.Tk()
+    top = Games (root)
+
+    top = Toplevel1 (root)
+
     top = Toplevel1(root)
     top = Games (root)
     top = Toplevel1 (root)
@@ -53,6 +58,14 @@ def vp_start_gui():
 
 
 w = None
+
+def create_Games(rt, *args, **kwargs):
+    '''Starting point when module is imported by another module.
+       Correct form of call: 'create_Games(root, *args, **kwargs)' .'''
+
+def create_Toplevel1(rt, *args, **kwargs):
+    '''Starting point when module is imported by another module.
+       Correct form of call: 'create_Toplevel1(root, *args, **kwargs)' .'''
 
 
 def create_Games(rt, *args, **kwargs):
@@ -71,11 +84,13 @@ def create_Toplevel1(rt, *args, **kwargs):
     root = rt
     w = tk.Toplevel(root)
     w = tk.Toplevel (root)
+
     top = Games (w)
     GamesTeacher_support.init(w, top, *args, **kwargs)
     return (w, top)
 
 def destroy_Games():
+
     top = Toplevel1 (w)
     GamesTeacher_support.init(w, top, *args, **kwargs)
     return (w, top)

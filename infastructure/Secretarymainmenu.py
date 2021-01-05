@@ -22,6 +22,11 @@ except ImportError:
 import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
+
+import SekerRes
+import TuitionSecretaryid
+
+
 import SekerChoice
 import TuitionSecretaryid
 import SekerRes
@@ -31,6 +36,7 @@ import TransWorkClock
 import TeachersSche
 import TuitionSecretaryid
 import classesScheSecretary
+
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''

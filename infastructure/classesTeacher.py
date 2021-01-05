@@ -6,7 +6,7 @@
 #    Dec 26, 2020 02:08:18 PM +0200  platform: Windows NT
 
 import sys
-
+sys.path.append('..')
 try:
     import Tkinter as tk
 except ImportError:

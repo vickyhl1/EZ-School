@@ -6,6 +6,7 @@
 #    Dec 31, 2020 04:30:03 PM +0200  platform: Windows NT
 
 import sys
+import pymongo
 
 try:
     import Tkinter as tk
@@ -19,7 +20,18 @@ except ImportError:
     import tkinter.ttk as ttk
     py3 = True
 
+sys.path.append('..')
+from data import user_db_init
+user_db_init()
+
+
+client = pymongo.MongoClient()
+mydb = client['EZSchooldb']
+
 import attendance3_support
+import Teachermainmenu
+from tkinter import messagebox
+import AbsenceReport3
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -49,7 +61,52 @@ def destroy_Toplevel1():
     w = None
 
 class Toplevel1:
+    def report(self):
+        AbsenceReport3.vp_start_gui()
+    def Back(self):
+        root.destroy()
+        Teachermainmenu.vp_start_gui()
+    def add_absence(self, student_id):
+        global mydb
+        userobj= mydb['Users'].find_one({'id': student_id})
+        mydb['Users'].update_one({'id':userobj['id']}, {'$set': {'attendance':userobj['attendance']+1}})
+
+    def Submit(self):
+        if not self.CheckVar1.get():
+            self.add_absence('302144070')
+        if not self.CheckVar2.get():
+            self.add_absence('123090942')
+        if not self.CheckVar3.get():
+            self.add_absence('012345678')
+        if not self.CheckVar4.get():
+            self.add_absence('204857673')
+        if not self.CheckVar5.get():
+            self.add_absence('012234567')
+        if not self.CheckVar6.get():
+            self.add_absence('001122334')
+        if not self.CheckVar7.get():
+            self.add_absence('098098098')
+        if not self.CheckVar8.get():
+            self.add_absence('204444099')
+        if not self.CheckVar9.get():
+            self.add_absence('111122111')
+        if not self.CheckVar10.get():
+            self.add_absence('001122333')
+        tk.messagebox.showinfo('Successful', f'''דוח הוגש''')
+        root.destroy()
+        Teachermainmenu.vp_start_gui()
+
     def __init__(self, top=None):
+        self.CheckVar1 = tk.IntVar()
+        self.CheckVar2 = tk.IntVar()
+        self.CheckVar3 = tk.IntVar()
+        self.CheckVar4 = tk.IntVar()
+        self.CheckVar5 = tk.IntVar()
+        self.CheckVar6 = tk.IntVar()
+        self.CheckVar7 = tk.IntVar()
+        self.CheckVar8 = tk.IntVar()
+        self.CheckVar9 = tk.IntVar()
+        self.CheckVar10 = tk.IntVar()
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
@@ -60,7 +117,7 @@ class Toplevel1:
 
         top.geometry("1920x1051+-9+-9")
         top.minsize(148, 1)
-        top.maxsize(1924, 1055)
+        top.maxsize(1550, 750)
         top.resizable(1,  1)
         top.title("נוכחות כיתה ג")
         top.configure(background="#fef1b4")
@@ -83,6 +140,7 @@ class Toplevel1:
         self.submit.configure(highlightcolor="black")
         self.submit.configure(pady="0")
         self.submit.configure(text='''הגשת נוכחות''')
+        self.submit.configure(command=self.Submit)
 
         self.stud1 = tk.Checkbutton(top)
         self.stud1.place(relx=0.385, rely=0.13, relheight=0.061, relwidth=0.181)
@@ -96,7 +154,9 @@ class Toplevel1:
         self.stud1.configure(highlightcolor="black")
         self.stud1.configure(justify='left')
         self.stud1.configure(text='''ישראל אביחיל 302144070''')
-        self.stud1.configure(variable=attendance3_support.che47)
+        self.stud1.configure(variable=self.CheckVar1)
+        self.stud1.configure(onvalue=1)
+        self.stud1.configure(offvalue=0)
 
         self.stud2 = tk.Checkbutton(top)
         self.stud2.place(relx=0.38, rely=0.181, relheight=0.061, relwidth=0.169)
@@ -110,7 +170,9 @@ class Toplevel1:
         self.stud2.configure(highlightcolor="black")
         self.stud2.configure(justify='left')
         self.stud2.configure(text='''טלי תבלין 123090942''')
-        self.stud2.configure(variable=attendance3_support.che49)
+        self.stud2.configure(variable=self.CheckVar2)
+        self.stud2.configure(onvalue=1)
+        self.stud2.configure(offvalue=0)
 
         self.stud3 = tk.Checkbutton(top)
         self.stud3.place(relx=0.37, rely=0.238, relheight=0.061, relwidth=0.201)
@@ -124,7 +186,9 @@ class Toplevel1:
         self.stud3.configure(highlightcolor="black")
         self.stud3.configure(justify='left')
         self.stud3.configure(text='''הדס חסידים 012345678''')
-        self.stud3.configure(variable=attendance3_support.che50)
+        self.stud3.configure(variable=self.CheckVar3)
+        self.stud3.configure(onvalue=1)
+        self.stud3.configure(offvalue=0)
 
         self.stud4 = tk.Checkbutton(top)
         self.stud4.place(relx=0.358, rely=0.3, relheight=0.061, relwidth=0.213)
@@ -138,11 +202,12 @@ class Toplevel1:
         self.stud4.configure(highlightcolor="black")
         self.stud4.configure(justify='left')
         self.stud4.configure(text='''מאי חג'בי 204857673''')
-        self.stud4.configure(variable=attendance3_support.che51)
+        self.stud4.configure(variable=self.CheckVar4)
+        self.stud4.configure(onvalue=1)
+        self.stud4.configure(offvalue=0)
 
         self.stud5 = tk.Checkbutton(top)
         self.stud5.place(relx=0.354, rely=0.362, relheight=0.051, relwidth=0.218)
-
         self.stud5.configure(activebackground="#ececec")
         self.stud5.configure(activeforeground="#000000")
         self.stud5.configure(background="#fef1b4")
@@ -153,7 +218,9 @@ class Toplevel1:
         self.stud5.configure(highlightcolor="black")
         self.stud5.configure(justify='left')
         self.stud5.configure(text='''שי סרוסי 012234567''')
-        self.stud5.configure(variable=attendance3_support.che52)
+        self.stud5.configure(variable=self.CheckVar5)
+        self.stud5.configure(onvalue=1)
+        self.stud5.configure(offvalue=0)
 
         self.stud6 = tk.Checkbutton(top)
         self.stud6.place(relx=0.37, rely=0.41, relheight=0.061, relwidth=0.202)
@@ -167,7 +234,9 @@ class Toplevel1:
         self.stud6.configure(highlightcolor="black")
         self.stud6.configure(justify='left')
         self.stud6.configure(text='''אירינה לרמן 001122334''')
-        self.stud6.configure(variable=attendance3_support.che53)
+        self.stud6.configure(variable=self.CheckVar6)
+        self.stud6.configure(onvalue=1)
+        self.stud6.configure(offvalue=0)
 
         self.stud7 = tk.Checkbutton(top)
         self.stud7.place(relx=0.37, rely=0.47, relheight=0.052, relwidth=0.201)
@@ -181,11 +250,12 @@ class Toplevel1:
         self.stud7.configure(highlightcolor="black")
         self.stud7.configure(justify='left')
         self.stud7.configure(text='''נמרוד קריגר 098098098''')
-        self.stud7.configure(variable=attendance3_support.che54)
+        self.stud7.configure(variable=self.CheckVar7)
+        self.stud7.configure(onvalue=1)
+        self.stud7.configure(offvalue=0)
 
         self.stud8 = tk.Checkbutton(top)
         self.stud8.place(relx=0.365, rely=0.514, relheight=0.062, relwidth=0.206)
-
         self.stud8.configure(activebackground="#ececec")
         self.stud8.configure(activeforeground="#000000")
         self.stud8.configure(background="#fef1b4")
@@ -196,11 +266,12 @@ class Toplevel1:
         self.stud8.configure(highlightcolor="black")
         self.stud8.configure(justify='left')
         self.stud8.configure(text='''נפתלי פרץ 204444099''')
-        self.stud8.configure(variable=attendance3_support.che55)
+        self.stud8.configure(variable=self.CheckVar8)
+        self.stud8.configure(onvalue=1)
+        self.stud8.configure(offvalue=0)
 
         self.stud9 = tk.Checkbutton(top)
         self.stud9.place(relx=0.375, rely=0.571, relheight=0.051, relwidth=0.196)
-
         self.stud9.configure(activebackground="#ececec")
         self.stud9.configure(activeforeground="#000000")
         self.stud9.configure(background="#fef1b4")
@@ -211,11 +282,12 @@ class Toplevel1:
         self.stud9.configure(highlightcolor="black")
         self.stud9.configure(justify='left')
         self.stud9.configure(text='''רפאל בן קימון 111122111''')
-        self.stud9.configure(variable=attendance3_support.che56)
+        self.stud9.configure(variable=self.CheckVar9)
+        self.stud9.configure(onvalue=1)
+        self.stud9.configure(offvalue=0)
 
         self.stud10 = tk.Checkbutton(top)
         self.stud10.place(relx=0.381, rely=0.628, relheight=0.05, relwidth=0.181)
-
         self.stud10.configure(activebackground="#ececec")
         self.stud10.configure(activeforeground="#000000")
         self.stud10.configure(background="#fef1b4")
@@ -226,7 +298,9 @@ class Toplevel1:
         self.stud10.configure(highlightcolor="black")
         self.stud10.configure(justify='left')
         self.stud10.configure(text='''גינדה סולצמן 001122333''')
-        self.stud10.configure(variable=attendance3_support.che57)
+        self.stud10.configure(variable=self.CheckVar10)
+        self.stud10.configure(onvalue=1)
+        self.stud10.configure(offvalue=0)
 
         self.Message1 = tk.Message(top)
         self.Message1.place(relx=0.333, rely=0.02, relheight=0.1, relwidth=0.311)
@@ -251,6 +325,22 @@ class Toplevel1:
         self.mainmenu.configure(highlightcolor="black")
         self.mainmenu.configure(pady="0")
         self.mainmenu.configure(text='''תפריט ראשי''')
+        self.mainmenu.configure(command=self.Back)
+
+        self.attendancereport = tk.Button(top)
+        self.attendancereport.place(relx=0.01, rely=0.800, height=73, width=176)
+        self.attendancereport.configure(activebackground="#ececec")
+        self.attendancereport.configure(activeforeground="#000000")
+        self.attendancereport.configure(background="#f5cb03")
+        self.attendancereport.configure(cursor="hand2")
+        self.attendancereport.configure(disabledforeground="#a3a3a3")
+        self.attendancereport.configure(foreground="#000000")
+        self.attendancereport.configure(highlightbackground="#d9d9d9")
+        self.attendancereport.configure(highlightcolor="black")
+        self.attendancereport.configure(pady="0")
+        self.attendancereport.configure(text='''דוח נוכחות''')
+        self.attendancereport.configure(command=self.report)
+
 
 if __name__ == '__main__':
     vp_start_gui()

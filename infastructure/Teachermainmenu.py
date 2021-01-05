@@ -26,8 +26,15 @@ import webbrowser
 import HealthPageTeacher
 import GamesForTeacher
 import classesTeacher
+import classesattendance
+
+
+
 import ScheForOneTeacher
+<<<<<<< HEAD
 import TransWorkClock
+=======
+>>>>>>> 26bbc8bc7e7fd9fa7f42a3ca58d28182257d8648
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -69,9 +76,15 @@ class teacherpage:
     def openzoom(self):
         root.destroy()
         classesTeacher.vp_start_gui()
+
+    def openattendance(self):
+        root.destroy()
+        classesattendance.vp_start_gui()
+
     def openSchedule(self):
         root.destroy()
         ScheForOneTeacher.vp_start_gui()
+
 
 
     def __init__(self, top=None):
@@ -87,7 +100,7 @@ class teacherpage:
         top.minsize(148, 1)
         top.maxsize(1550, 900)
         top.resizable(1,  1)
-        top.title("Teacher main menu")
+        top.title("תפריט ראשי מורה")
         top.configure(background="#ffffff")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
@@ -186,6 +199,7 @@ class teacherpage:
         self.presents.configure(highlightcolor="black")
         self.presents.configure(pady="0")
         self.presents.configure(text='''נוכחות תלמידים''')
+        self.presents.configure(command=self.openattendance)
 
         self.teach_forum = tk.Button(top)
         self.teach_forum.place(relx=0.609, rely=0.324, height=93, width=186)
