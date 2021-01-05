@@ -64,11 +64,17 @@ class AssigUplMath:
         file = filedialog.asksaveasfile(initialdir='/', title="בחר שם ומיקום להורדה", mode='wb',
             filetypes=[('PDF files', '*pdf'), ('RAR files', '*.rar'), ('ZIP files', '*zip')],
                                         defaultextension='.pdf')
+        if file == None:
+            return
         mycol =connect_to_db_and_collection('EZSchooldb', 'MathAssignments')
         data = mycol.find_one({'Assigment_num': int(self.DwnlSpnBX.get())})
         file.write(base64.b64decode(data['Assigment_file']))
 
     def upload_file(self):
+        if self.newfile == None:
+            tk.messagebox.showwarning("העלאה", "לא נבחר אף קובץ")
+            return
+
         upload_date = datetime.datetime.now()
         db = connect_to_db('EZSchooldb')
         collection1 = connect_to_db_and_collection('EZSchooldb', f'''Assignments{self.current_user['id']}''')
@@ -104,12 +110,15 @@ class AssigUplMath:
             Studentmainmenu.vp_start_gui()
 
     def chooseFile(self):
+        self.newfile = None
         self.newfile = filedialog.askopenfile(initialdir='/', title="תבחר קובץ להעלאה", mode='rb',
             filetypes=[('PDF files', '*pdf'), ('RAR files', '*.rar'), ('ZIP files', '*zip')])
+
 
     def __init__(self, top=None):
         self.current_user = getUser()
         self.values = list(range(1, connect_to_db_and_collection('EZSchooldb', 'MathAssignments').estimated_document_count() +1))
+        self.newfile = None
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
