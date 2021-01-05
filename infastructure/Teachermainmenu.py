@@ -27,14 +27,8 @@ import HealthPageTeacher
 import GamesForTeacher
 import classesTeacher
 import classesattendance
-
-
-
 import ScheForOneTeacher
-<<<<<<< HEAD
-=======
 import TransWorkClock
->>>>>>> 71be31670ff3f41c70574635e3bcba714a66345b
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''

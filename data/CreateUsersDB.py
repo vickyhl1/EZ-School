@@ -93,10 +93,10 @@ def user_db_init():
         {
             'stuNum': 11,
             'name': 'Vicky Hlustov',
-            'id': '121212121',
+            'id': '320755481',
             'password': '1234',
             'Usertype': 3,
-            'Tuition121212121': -221,
+            'Tuition320755481': -221,
             'class': 1,
             'attendance': 0},
 
@@ -537,10 +537,10 @@ def user_db_init():
         {
             'stuNum': 59,
             'name': 'Michael Rocker',
-            'id': '322131099',
+            'id': '322131009',
             'password': '1234',
             'Usertype': 3,
-            'Tuition322131099': -1123,
+            'Tuition322131009': -1123,
             'class': 6,
             'attendance': 0},
         {
