@@ -24,13 +24,12 @@ except ImportError:
 import Teachermainmenu_support
 import webbrowser
 import HealthPageTeacher
-import GamesTeacher
+import GamesForTeacher
 import classesTeacher
 import classesattendance
-
-
 import SubjectSelectPage
 import ScheForOneTeacher
+import TransWorkClock
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -58,9 +57,11 @@ def destroy_teacherpage():
     w = None
 
 class teacherpage:
+    def OpenWork(self):
+        TransWorkClock.vp_start_gui()
     def OpenGames(self):
         root.destroy()
-        GamesTeacher.vp_start_gui()
+        GamesForTeacher.vp_start_gui()
     def openHealth(self):
         root.destroy()
         HealthPageTeacher.vp_start_gui()
@@ -97,7 +98,7 @@ class teacherpage:
         top.minsize(148, 1)
         top.maxsize(1550, 900)
         top.resizable(1,  1)
-        top.title("תפריט ראשי מורה")
+        top.title("תפריט ראשי למורה")
         top.configure(background="#ffffff")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
@@ -106,9 +107,11 @@ class teacherpage:
         self.teach_sched.place(relx=0.219, rely=0.171, height=93, width=186)
         self.teach_sched.configure(activebackground="#ececec")
         self.teach_sched.configure(activeforeground="#000000")
-        self.teach_sched.configure(background="#d9d9d9")
+        self.teach_sched.configure(background="#a6ffff")
+        self.teach_sched.configure(cursor="hand2")
         self.teach_sched.configure(disabledforeground="#a3a3a3")
         self.teach_sched.configure(foreground="#000000")
+        self.teach_sched.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.teach_sched.configure(highlightbackground="#d9d9d9")
         self.teach_sched.configure(highlightcolor="black")
         self.teach_sched.configure(pady="0")
@@ -120,9 +123,11 @@ class teacherpage:
         self.zoom.place(relx=0.344, rely=0.17, height=93, width=186)
         self.zoom.configure(activebackground="#ececec")
         self.zoom.configure(activeforeground="#000000")
-        self.zoom.configure(background="#d9d9d9")
+        self.zoom.configure(background="#93ff93")
+        self.zoom.configure(cursor="hand2")
         self.zoom.configure(disabledforeground="#a3a3a3")
         self.zoom.configure(foreground="#000000")
+        self.zoom.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.zoom.configure(highlightbackground="#d9d9d9")
         self.zoom.configure(highlightcolor="black")
         self.zoom.configure(pady="0")
@@ -134,8 +139,10 @@ class teacherpage:
         self.teach_health.configure(activebackground="#ececec")
         self.teach_health.configure(activeforeground="#000000")
         self.teach_health.configure(background="#d9d9d9")
+        self.teach_health.configure(cursor="hand2")
         self.teach_health.configure(disabledforeground="#a3a3a3")
         self.teach_health.configure(foreground="#000000")
+        self.teach_health.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.teach_health.configure(highlightbackground="#d9d9d9")
         self.teach_health.configure(highlightcolor="black")
         self.teach_health.configure(pady="0")
@@ -150,9 +157,11 @@ class teacherpage:
         self.games_teach.place(relx=0.609, rely=0.171, height=93, width=186)
         self.games_teach.configure(activebackground="#ececec")
         self.games_teach.configure(activeforeground="#000000")
-        self.games_teach.configure(background="#d9d9d9")
+        self.games_teach.configure(background="#ff80c0")
+        self.games_teach.configure(cursor="hand2")
         self.games_teach.configure(disabledforeground="#a3a3a3")
         self.games_teach.configure(foreground="#000000")
+        self.games_teach.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.games_teach.configure(highlightbackground="#d9d9d9")
         self.games_teach.configure(highlightcolor="black")
         self.games_teach.configure(pady="0")
@@ -164,9 +173,11 @@ class teacherpage:
         self.shop.place(relx=0.219, rely=0.324, height=93, width=186)
         self.shop.configure(activebackground="#ececec")
         self.shop.configure(activeforeground="#000000")
-        self.shop.configure(background="#d9d9d9")
+        self.shop.configure(background="#008000")
+        self.shop.configure(cursor="hand2")
         self.shop.configure(disabledforeground="#a3a3a3")
         self.shop.configure(foreground="#000000")
+        self.shop.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.shop.configure(highlightbackground="#d9d9d9")
         self.shop.configure(highlightcolor="black")
         self.shop.configure(pady="0")
@@ -176,21 +187,26 @@ class teacherpage:
         self.teach_work.place(relx=0.344, rely=0.324, height=93, width=186)
         self.teach_work.configure(activebackground="#ececec")
         self.teach_work.configure(activeforeground="#000000")
-        self.teach_work.configure(background="#d9d9d9")
+        self.teach_work.configure(background="#ff8000")
+        self.teach_work.configure(cursor="hand2")
         self.teach_work.configure(disabledforeground="#a3a3a3")
         self.teach_work.configure(foreground="#000000")
+        self.teach_work.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.teach_work.configure(highlightbackground="#d9d9d9")
         self.teach_work.configure(highlightcolor="black")
         self.teach_work.configure(pady="0")
         self.teach_work.configure(text='''שעון עבודה''')
+        self.teach_work.configure(command=self.OpenWork)
 
         self.presents = tk.Button(top)
         self.presents.place(relx=0.474, rely=0.324, height=93, width=186)
         self.presents.configure(activebackground="#ececec")
         self.presents.configure(activeforeground="#000000")
-        self.presents.configure(background="#d9d9d9")
+        self.presents.configure(background="#0000ff")
+        self.presents.configure(cursor="hand2")
         self.presents.configure(disabledforeground="#a3a3a3")
         self.presents.configure(foreground="#000000")
+        self.presents.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.presents.configure(highlightbackground="#d9d9d9")
         self.presents.configure(highlightcolor="black")
         self.presents.configure(pady="0")
@@ -201,9 +217,11 @@ class teacherpage:
         self.teach_forum.place(relx=0.609, rely=0.324, height=93, width=186)
         self.teach_forum.configure(activebackground="#ececec")
         self.teach_forum.configure(activeforeground="#000000")
-        self.teach_forum.configure(background="#d9d9d9")
+        self.teach_forum.configure(background="#8080ff")
+        self.teach_forum.configure(cursor="hand2")
         self.teach_forum.configure(disabledforeground="#a3a3a3")
         self.teach_forum.configure(foreground="#000000")
+        self.teach_forum.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.teach_forum.configure(highlightbackground="#d9d9d9")
         self.teach_forum.configure(highlightcolor="black")
         self.teach_forum.configure(pady="0")
@@ -214,9 +232,11 @@ class teacherpage:
         self.courses.place(relx=0.745, rely=0.171, height=93, width=186)
         self.courses.configure(activebackground="#ececec")
         self.courses.configure(activeforeground="#000000")
-        self.courses.configure(background="#d9d9d9")
+        self.courses.configure(background="#ffff00")
+        self.courses.configure(cursor="hand2")
         self.courses.configure(disabledforeground="#a3a3a3")
         self.courses.configure(foreground="#000000")
+        self.courses.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.courses.configure(highlightbackground="#d9d9d9")
         self.courses.configure(highlightcolor="black")
         self.courses.configure(pady="0")
