@@ -23,7 +23,7 @@ except ImportError:
 import SubjectSelectPage_support
 import Teachermainmenu
 import Studentmainmenu
-from data import getUser
+from data import getUser,setSubject
 import MathPageTeacher
 import HistoryPageTeacher
 import HebrewPageTeacher
@@ -71,6 +71,7 @@ class SubjectSelectPage:
             Studentmainmenu.vp_start_gui()
 
     def openMathPage(self):
+        setSubject('Math')
         if self.currentUser['Usertype'] == 2:
             root.destroy()
             MathPageTeacher.vp_start_gui()
@@ -79,6 +80,7 @@ class SubjectSelectPage:
             MathPageStud.vp_start_gui()
 
     def openHebrewPage(self):
+        setSubject('Hebrew')
         if self.currentUser['Usertype'] == 2:
             root.destroy()
             HebrewPageTeacher.vp_start_gui()
@@ -87,6 +89,7 @@ class SubjectSelectPage:
             HebrewPageStud.vp_start_gui()
 
     def openHistoryPage(self):
+        setSubject('History')
         if self.currentUser['Usertype'] == 2:
             root.destroy()
             HistoryPageTeacher.vp_start_gui()
@@ -95,6 +98,7 @@ class SubjectSelectPage:
             HistoryPageStud.vp_start_gui()
 
     def openTanchPage(self):
+        setSubject('Tanach')
         if self.currentUser['Usertype'] == 2:
             root.destroy()
             TanachPageTeacher.vp_start_gui()

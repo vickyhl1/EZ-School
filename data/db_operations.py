@@ -22,3 +22,16 @@ def getUser():
     mycol = connect_to_db_and_collection('EZSchooldb', 'Users')
     userobj = mycol.find_one({'id': userid})
     return userobj
+
+def getSubject():
+    f = open("Current_Subject.txt", "r")
+    subject = f.readline().rstrip()
+    f.close()
+    return subject
+
+def setSubject(subject):
+    f = open("Current_Subject.txt", "w")
+    f.seek(0)
+    f.truncate()
+    f.write(subject)
+    f.close()

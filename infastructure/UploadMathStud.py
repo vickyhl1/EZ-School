@@ -8,6 +8,7 @@
 import sys
 import pymongo
 sys.path.append('..')
+import ntpath
 
 try:
     import Tkinter as tk
@@ -61,14 +62,16 @@ class AssigUplMath:
         Studentmainmenu.vp_start_gui()
 
     def download_file(self):
+        mycol = connect_to_db_and_collection('EZSchooldb', 'MathAssignments')
+        data = mycol.find_one({'Assignment_num': int(self.DwnlSpnBX.get())})
+
         file = filedialog.asksaveasfile(initialdir='/', title="בחר שם ומיקום להורדה", mode='wb',
             filetypes=[('PDF files', '*pdf'), ('RAR files', '*.rar'), ('ZIP files', '*zip')],
-                                        defaultextension='.pdf')
+                                        defaultextension='.pdf',initialfile=data['file_name'])
+
         if file == None:
             return
-        mycol =connect_to_db_and_collection('EZSchooldb', 'MathAssignments')
-        data = mycol.find_one({'Assigment_num': int(self.DwnlSpnBX.get())})
-        file.write(base64.b64decode(data['Assigment_file']))
+        file.write(base64.b64decode(data['Assignment_file']))
 
     def upload_file(self):
         if self.newfile == None:
@@ -76,24 +79,21 @@ class AssigUplMath:
             return
 
         upload_date = datetime.datetime.now()
-        db = connect_to_db('EZSchooldb')
         collection1 = connect_to_db_and_collection('EZSchooldb', f'''Assignments{self.current_user['id']}''')
         collection2 = connect_to_db_and_collection('EZSchooldb', 'MathAssignments')
         encoded_string = base64.b64encode(self.newfile.read())
-        # fs = gridfs.GridFS(db)     # בבדיקה
-        # with fs.new_file( chunkSize=800000, filename='Assigment') as fp:
-        #    fp.write(encoded_string)
+        filename = ntpath.basename(self.newfile.name)
         assign_num = int(self.UplSpnBX.get())
-        data = {'upload_time': upload_date, 'Assigment_file': encoded_string, 'Assigment_num': assign_num, 'Subject': 'Math'}
+        data = {'upload_time': upload_date,'file_name': filename, 'Assignment_file': encoded_string, 'Assignment_num': assign_num, 'Subject': 'Math'}
         flag1 = 0
         flag2=0
 
-        assign = collection2.find_one({'Assigment_num': assign_num})
+        assign = collection2.find_one({'Assignment_num': assign_num})
         dut_time = datetime.datetime.strptime(assign['due_in'], '%m/%d/%y')
         if dut_time < upload_date:
             flag1 = 1
         for assign in collection1.find({}):
-            if assign['Assigment_num'] == assign_num:
+            if assign['Assignment_num'] == assign_num:
                 flag2 = 1
                 break;
 
@@ -264,7 +264,7 @@ class AssigUplMath:
             self.DwnlSpnBX.configure(state='disabled')
             self.UplSpnBX.configure(state='disabled')
             self.UploadBtn.configure(state='disabled')
-            self.DwnlSpnBX.configure(state='disabled')
+            self.Downloadassigmentbtn.configure(state='disabled')
             self.choosefilebtn.configure(state='disabled')
         else:
             self.DwnlSpnBX.configure(value=self.values)

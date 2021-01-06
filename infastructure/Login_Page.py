@@ -95,8 +95,6 @@ class Login_Page:
             elif userobj['Usertype'] == 3:
                 root.destroy()
                 Studentmainmenu.vp_start_gui()
-
-
         else:
             tk.messagebox.showwarning('Login Page', 'The Id or Password is incorrect')
 

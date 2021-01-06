@@ -21,6 +21,7 @@ except ImportError:
 
 import TanachPageTeacher_support
 import Teachermainmenu
+import UploadAssTeacher
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -51,6 +52,9 @@ class TanachPageTeacher:
     def openMainmenue(self):
         root.destroy()
         Teachermainmenu.vp_start_gui()
+    def openuploadassign(self):
+        root.destroy()
+        UploadAssTeacher.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -110,6 +114,7 @@ class TanachPageTeacher:
         self.UploadAssBtn.configure(highlightcolor="black")
         self.UploadAssBtn.configure(pady="0")
         self.UploadAssBtn.configure(text='''העלאת שיעורי בית''')
+        self.UploadAssBtn.configure(command=self.openuploadassign)
 
         self.UploadMatirialBtn = tk.Button(top)
         self.UploadMatirialBtn.place(relx=0.517, rely=0.422, height=54

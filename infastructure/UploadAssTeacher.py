@@ -11,10 +11,9 @@ from tkcalendar import *
 import pymongo
 import datetime
 from tkinter import filedialog
-from data import getUser, connect_to_db_and_collection, connect_to_db
+from data import getUser, connect_to_db_and_collection, connect_to_db, setSubject, getSubject
 import base64
-import gridfs
-
+import ntpath
 
 try:
     import Tkinter as tk
@@ -67,27 +66,25 @@ class UploadAssTeacher:
 
     def UploadFile(self):
         assigment_date = self.uploadCalendar.get_date()
-        db = connect_to_db('EZSchooldb')
-        collection = connect_to_db_and_collection('EZSchooldb','MathAssignments')
+        collection = connect_to_db_and_collection('EZSchooldb',f'{self.current_subject}Assignments')
         encoded_string = base64.b64encode(self.newfile.read())
-        # fs = gridfs.GridFS(db)     # בבדיקה
-        #with fs.new_file( chunkSize=800000, filename='Assigment') as fp:
-        #    fp.write(encoded_string)
+        filename = ntpath.basename(self.newfile.name)
         assign_num = int(self.UplSpnBX.get())
-        data = {'due_in': assigment_date,'Assigment_file': encoded_string, 'Assigment_num': assign_num}
+        data = {'due_in': assigment_date, 'file_name': filename, 'Assignment_file': encoded_string, 'Assignment_num': assign_num}
         flag=0
         for assign in collection.find({}):
-            if assign['Assigment_num'] == assign_num:
+            if assign['Assignment_num'] == assign_num:
                 flag =1
                 break;
         if flag == 1:
-            collection.delete_one({'Assigment_num': assign_num})
+            collection.delete_one({'Assignment_num': assign_num})
         collection.insert_one(data)
         root.destroy()
         Teachermainmenu.vp_start_gui()
 
 
     def __init__(self, top=None):
+        self.current_subject = getSubject()
         self.current_user = getUser()
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -157,7 +154,7 @@ class UploadAssTeacher:
 
         self.date = datetime.datetime.now()
         self.uploadCalendar = Calendar(top, selectmode='day',year=self.date.year,
-                                       month=self.date.month, day=self.date.day)
+                                       month=self.date.month, day=self.date.day, mindate=self.date.today())
         self.uploadCalendar.place(relx=0.030, rely=0.15, height=220, width=250)
 
         self.UplSpnBX = tk.Spinbox(top, from_=1.0, to=100.0)
@@ -194,7 +191,14 @@ class UploadAssTeacher:
         self.titleL.configure(font="-family {Segoe UI} -size 14 -weight bold -underline 1")
         self.titleL.configure(foreground="#000000")
         self.titleL.configure(relief="ridge")
-        self.titleL.configure(text='''חשבון''')
+        if self.current_subject == 'Math':
+            self.titleL.configure(text='חשבון')
+        elif self.current_subject == 'History':
+            self.titleL.configure(text='היסטוריה')
+        elif self.current_subject == 'Hebrew':
+            self.titleL.configure(text='עברית')
+        elif self.current_subject == 'Tanach':
+            self.titleL.configure(text='''תנ"ך''')
 
 
 

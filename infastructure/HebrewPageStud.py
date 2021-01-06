@@ -21,6 +21,7 @@ except ImportError:
 
 import HebrewPageStud_support
 import Studentmainmenu
+import UploadAssTeacher
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -51,6 +52,9 @@ class HebrewPageStud:
     def openMainmenue(self):
         root.destroy()
         Studentmainmenu.vp_start_gui()
+    def openuploadassign(self):
+        root.destroy()
+        UploadAssTeacher.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -110,6 +114,7 @@ class HebrewPageStud:
         self.UploadAssBtn.configure(highlightcolor="black")
         self.UploadAssBtn.configure(pady="0")
         self.UploadAssBtn.configure(text='''העלאת שיעורי בית''')
+        self.UploadAssBtn.configure(command=self.openuploadassign)
 
         self.watchMatirialBtn = tk.Button(top)
         self.watchMatirialBtn.place(relx=0.517, rely=0.422, height=54, width=227)
