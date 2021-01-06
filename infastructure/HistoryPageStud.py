@@ -23,6 +23,7 @@ import HistoryPageStud_support
 import Studentmainmenu
 import UploadHistoryStud
 import FeedBackStud
+import MatirialPageStud
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -66,6 +67,7 @@ class HistoryPageStud:
 
     def opensubjectmatirial(self):
         root.destroy()
+        MatirialPageStud.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.

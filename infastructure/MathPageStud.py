@@ -23,6 +23,7 @@ import MathPageStud_support
 import Studentmainmenu
 import UploadMathStud
 import FeedBackStud
+import MatirialPageStud
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -66,6 +67,7 @@ class MathPageTeacher:
 
     def opensubjectmatirial(self):
         root.destroy()
+        MatirialPageStud.vp_start_gui()
 
 
     def __init__(self, top=None):

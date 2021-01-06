@@ -178,6 +178,7 @@ class Login_Page:
         self.Password_Entry.configure(insertbackground="black")
         self.Password_Entry.configure(selectbackground="blue")
         self.Password_Entry.configure(selectforeground="white")
+        self.Password_Entry.configure(show="*")
 
         self.Message1 = tk.Message(top)
         self.Message1.place(relx=0.5, rely=0.114, relheight=0.057
