@@ -22,6 +22,7 @@ except ImportError:
 import HistoryPageStud_support
 import Studentmainmenu
 import UploadHistoryStud
+import FeedBackStud
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -60,6 +61,7 @@ class HistoryPageStud:
 
     def openfeedback(self):
         root.destroy()
+        FeedBackStud.vp_start_gui()
 
 
     def opensubjectmatirial(self):

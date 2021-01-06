@@ -22,6 +22,7 @@ except ImportError:
 import HebrewPageStud_support
 import Studentmainmenu
 import UploadHebrewStud
+import FeedBackStud
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -58,6 +59,7 @@ class HebrewPageStud:
 
     def openfeedback(self):
         root.destroy()
+        FeedBackStud.vp_start_gui()
 
     def opensubjectmatirial(self):
         root.destroy()

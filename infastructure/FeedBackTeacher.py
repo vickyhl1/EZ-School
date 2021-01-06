@@ -117,7 +117,6 @@ class FeedbackTeacher:
                             {"$set": {"FeedBack": self.textBX.get("1.0", 'end')}})
             self.Reset()
 
-
     def __init__(self, top=None):
         self.current_subject = getSubject()
         self.user_list = []
@@ -151,7 +150,7 @@ class FeedbackTeacher:
         top.configure(highlightcolor="black")
 
         self.FeedbL = tk.Label(top)
-        self.FeedbL.place(relx=0.383, rely=0.022, height=41, width=134)
+        self.FeedbL.place(relx=0.383, rely=0.022, height=41, width=200)
         self.FeedbL.configure(activebackground="#f9f9f9")
         self.FeedbL.configure(activeforeground="black")
         self.FeedbL.configure(background="#ff00ff")
@@ -204,8 +203,6 @@ class FeedbackTeacher:
         self.StudL.configure(highlightcolor="black")
         self.StudL.configure(relief="ridge")
         self.StudL.configure(text='''לבחירת תלמיד''')
-
-
 
         self.MainMenuBtn = tk.Button(top)
         self.MainMenuBtn.place(relx=0.033, rely=0.828, height=64, width=127)
