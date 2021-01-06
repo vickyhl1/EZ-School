@@ -21,6 +21,7 @@ except ImportError:
 
 import MathPageStud_support
 import Studentmainmenu
+import UploadMathStud
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -52,7 +53,16 @@ class MathPageTeacher:
         root.destroy()
         Studentmainmenu.vp_start_gui()
 
-    def openUloadHW(self):
+    def openuploadassign(self):
+        root.destroy()
+        UploadMathStud.vp_start_gui()
+
+
+    def openfeedback(self):
+        root.destroy()
+
+
+    def opensubjectmatirial(self):
         root.destroy()
 
 
@@ -114,10 +124,10 @@ class MathPageTeacher:
         self.UploadAssBtn.configure(highlightcolor="black")
         self.UploadAssBtn.configure(pady="0")
         self.UploadAssBtn.configure(text='''צפייה והעלאת שיעורי בית''')
+        self.UploadAssBtn.configure(command=self.openuploadassign)
 
         self.watchMatirialBtn = tk.Button(top)
         self.watchMatirialBtn.place(relx=0.517, rely=0.422, height=54, width=227)
-
         self.watchMatirialBtn.configure(activebackground="#ececec")
         self.watchMatirialBtn.configure(activeforeground="#000000")
         self.watchMatirialBtn.configure(background="#00ff80")
@@ -128,6 +138,7 @@ class MathPageTeacher:
         self.watchMatirialBtn.configure(highlightcolor="black")
         self.watchMatirialBtn.configure(pady="0")
         self.watchMatirialBtn.configure(text='''צפייה בחומרי לימוד''')
+        self.watchMatirialBtn.configure(command=self.opensubjectmatirial)
 
         self.GetFeedbackbtn = tk.Button(top)
         self.GetFeedbackbtn.place(relx=0.517, rely=0.6, height=54, width=227)
@@ -141,6 +152,7 @@ class MathPageTeacher:
         self.GetFeedbackbtn.configure(highlightcolor="black")
         self.GetFeedbackbtn.configure(pady="0")
         self.GetFeedbackbtn.configure(text='''קבלת משוב על שיעורי בית''')
+        self.GetFeedbackbtn.configure(command=self.openfeedback)
 
 if __name__ == '__main__':
     vp_start_gui()

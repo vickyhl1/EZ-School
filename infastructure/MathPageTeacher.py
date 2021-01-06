@@ -22,6 +22,8 @@ except ImportError:
 import MathPageTeacher_support
 import Teachermainmenu
 import UploadAssTeacher
+import FeedBackTeacher
+import MatirialPageTeacher
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -52,9 +54,19 @@ class MathPageTeacher:
     def openMainmenue(self):
         root.destroy()
         Teachermainmenu.vp_start_gui()
+
     def openAssigmentUploadPage(self):
         root.destroy()
         UploadAssTeacher.vp_start_gui()
+
+    def openfeedback(self):
+        root.destroy()
+        FeedBackTeacher.vp_start_gui()
+
+    def opensubjectmatirial(self):
+        root.destroy()
+        MatirialPageTeacher.vp_start_gui()
+
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -117,8 +129,7 @@ class MathPageTeacher:
         self.UploadAssBtn.configure(command=self.openAssigmentUploadPage)
 
         self.UploadMatirialBtn = tk.Button(top)
-        self.UploadMatirialBtn.place(relx=0.517, rely=0.422, height=54
-                , width=227)
+        self.UploadMatirialBtn.place(relx=0.517, rely=0.422, height=54, width=227)
         self.UploadMatirialBtn.configure(activebackground="#ececec")
         self.UploadMatirialBtn.configure(activeforeground="#000000")
         self.UploadMatirialBtn.configure(background="#00ff80")
@@ -129,6 +140,7 @@ class MathPageTeacher:
         self.UploadMatirialBtn.configure(highlightcolor="black")
         self.UploadMatirialBtn.configure(pady="0")
         self.UploadMatirialBtn.configure(text='''העלאת חומרי לימוד''')
+        self.UploadMatirialBtn.configure(command=self.opensubjectmatirial)
 
         self.GiveFeedbackbtn = tk.Button(top)
         self.GiveFeedbackbtn.place(relx=0.517, rely=0.6, height=54, width=227)
@@ -142,6 +154,7 @@ class MathPageTeacher:
         self.GiveFeedbackbtn.configure(highlightcolor="black")
         self.GiveFeedbackbtn.configure(pady="0")
         self.GiveFeedbackbtn.configure(text='''משוב על שיעורי בית''')
+        self.GiveFeedbackbtn.configure(command=self.openfeedback)
 
 if __name__ == '__main__':
     vp_start_gui()

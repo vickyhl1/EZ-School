@@ -21,6 +21,7 @@ except ImportError:
 
 import HistoryPageStud_support
 import Studentmainmenu
+import UploadHistoryStud
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -51,6 +52,18 @@ class HistoryPageStud:
     def openMainmenue(self):
         root.destroy()
         Studentmainmenu.vp_start_gui()
+
+    def openuploadassign(self):
+        root.destroy()
+        UploadHistoryStud.vp_start_gui()
+
+
+    def openfeedback(self):
+        root.destroy()
+
+
+    def opensubjectmatirial(self):
+        root.destroy()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -110,10 +123,10 @@ class HistoryPageStud:
         self.UploadAssBtn.configure(highlightcolor="black")
         self.UploadAssBtn.configure(pady="0")
         self.UploadAssBtn.configure(text='''העלאת שיעורי בית''')
+        self.UploadAssBtn.configure(command=self.openuploadassign)
 
         self.watchMatirialBtn = tk.Button(top)
         self.watchMatirialBtn.place(relx=0.517, rely=0.422, height=54, width=227)
-
         self.watchMatirialBtn.configure(activebackground="#ececec")
         self.watchMatirialBtn.configure(activeforeground="#000000")
         self.watchMatirialBtn.configure(background="#00ff80")
@@ -124,6 +137,7 @@ class HistoryPageStud:
         self.watchMatirialBtn.configure(highlightcolor="black")
         self.watchMatirialBtn.configure(pady="0")
         self.watchMatirialBtn.configure(text='''צפייה בחומרי לימוד''')
+        self.watchMatirialBtn.configure(command=self.opensubjectmatirial)
 
         self.getFeedbackbtn = tk.Button(top)
         self.getFeedbackbtn.place(relx=0.517, rely=0.6, height=54, width=227)
@@ -137,6 +151,7 @@ class HistoryPageStud:
         self.getFeedbackbtn.configure(highlightcolor="black")
         self.getFeedbackbtn.configure(pady="0")
         self.getFeedbackbtn.configure(text='''קבלת משוב לשיעורי בית''')
+        self.getFeedbackbtn.configure(command=self.openfeedback)
 
 if __name__ == '__main__':
     vp_start_gui()

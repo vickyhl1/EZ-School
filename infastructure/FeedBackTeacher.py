@@ -162,13 +162,13 @@ class FeedbackTeacher:
         self.FeedbL.configure(highlightcolor="black")
         self.FeedbL.configure(relief="ridge")
         if self.current_subject == 'Math':
-            self.FeedbL.configure(text='''משוב''')
+            self.FeedbL.configure(text='''משוב לחשבון''')
         elif self.current_subject == 'History':
-            self.FeedbL.configure(text='''משוב''')
+            self.FeedbL.configure(text='''משוב להיסטוריה''')
         elif self.current_subject == 'Hebrew':
-            self.FeedbL.configure(text='''משוב''')
+            self.FeedbL.configure(text='''משוב לעברית''')
         elif self.current_subject == 'Tanach':
-            self.FeedbL.configure(text='''משוב''')
+            self.FeedbL.configure(text='''משוב לתנ"ך''')
 
 
         self.StudListC = ttk.Combobox(top)
@@ -219,6 +219,7 @@ class FeedbackTeacher:
         self.MainMenuBtn.configure(highlightcolor="black")
         self.MainMenuBtn.configure(pady="0")
         self.MainMenuBtn.configure(text='''תפריט ראשי''')
+        self.MainMenuBtn.configure(command=self.openmainmenu)
 
         self.AssignSB = tk.Spinbox(top, from_=1.0, to=100.0)
         self.AssignSB.place(relx=0.367, rely=0.24, relheight=0.041

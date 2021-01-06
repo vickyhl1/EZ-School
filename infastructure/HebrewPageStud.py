@@ -21,7 +21,7 @@ except ImportError:
 
 import HebrewPageStud_support
 import Studentmainmenu
-import UploadAssTeacher
+import UploadHebrewStud
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -54,7 +54,13 @@ class HebrewPageStud:
         Studentmainmenu.vp_start_gui()
     def openuploadassign(self):
         root.destroy()
-        UploadAssTeacher.vp_start_gui()
+        UploadHebrewStud.vp_start_gui()
+
+    def openfeedback(self):
+        root.destroy()
+
+    def opensubjectmatirial(self):
+        root.destroy()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -118,7 +124,6 @@ class HebrewPageStud:
 
         self.watchMatirialBtn = tk.Button(top)
         self.watchMatirialBtn.place(relx=0.517, rely=0.422, height=54, width=227)
-
         self.watchMatirialBtn.configure(activebackground="#ececec")
         self.watchMatirialBtn.configure(activeforeground="#000000")
         self.watchMatirialBtn.configure(background="#00ff80")
@@ -129,6 +134,7 @@ class HebrewPageStud:
         self.watchMatirialBtn.configure(highlightcolor="black")
         self.watchMatirialBtn.configure(pady="0")
         self.watchMatirialBtn.configure(text='''צפייה בחומרי לימוד''')
+        self.watchMatirialBtn.configure(command=self.opensubjectmatirial)
 
         self.getFeedbackbtn = tk.Button(top)
         self.getFeedbackbtn.place(relx=0.517, rely=0.6, height=54, width=227)
@@ -142,6 +148,7 @@ class HebrewPageStud:
         self.getFeedbackbtn.configure(highlightcolor="black")
         self.getFeedbackbtn.configure(pady="0")
         self.getFeedbackbtn.configure(text='''קבלת משוב על שיעורי בית''')
+        self.getFeedbackbtn.configure(command=self.openfeedback)
 
 if __name__ == '__main__':
     vp_start_gui()

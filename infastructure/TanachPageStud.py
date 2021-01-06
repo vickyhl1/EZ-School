@@ -21,6 +21,7 @@ except ImportError:
 
 import TanachPageStud_support
 import Studentmainmenu
+import UploadTanachStud
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -52,6 +53,18 @@ class TanachPageStud:
         root.destroy()
         Studentmainmenu.vp_start_gui()
 
+    def openuploadassign(self):
+        root.destroy()
+        UploadTanachStud.vp_start_gui()
+
+
+    def openfeedback(self):
+        root.destroy()
+
+
+    def opensubjectmatirial(self):
+        root.destroy()
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -77,7 +90,7 @@ class TanachPageStud:
         self.TanachL.configure(activeforeground="black")
         self.TanachL.configure(background="#ffb591")
         self.TanachL.configure(disabledforeground="#a3a3a3")
-        self.TanachL.configure(font="-family {Segoe UI} -size 14 -weight bold -underline")
+        self.TanachL.configure(font="-family {Segoe UI} -size 14 -weight bold -underline 1")
         self.TanachL.configure(foreground="#000000")
         self.TanachL.configure(highlightbackground="#d9d9d9")
         self.TanachL.configure(highlightcolor="black")
@@ -110,10 +123,10 @@ class TanachPageStud:
         self.UploadAssBtn.configure(highlightcolor="black")
         self.UploadAssBtn.configure(pady="0")
         self.UploadAssBtn.configure(text='''העלאת שיעורי בית''')
+        self.UploadAssBtn.configure(command=self.openuploadassign)
 
         self.watchMatirialBtn = tk.Button(top)
         self.watchMatirialBtn.place(relx=0.517, rely=0.422, height=54, width=227)
-
         self.watchMatirialBtn.configure(activebackground="#ececec")
         self.watchMatirialBtn.configure(activeforeground="#000000")
         self.watchMatirialBtn.configure(background="#00ff80")
@@ -124,6 +137,7 @@ class TanachPageStud:
         self.watchMatirialBtn.configure(highlightcolor="black")
         self.watchMatirialBtn.configure(pady="0")
         self.watchMatirialBtn.configure(text='''צפייה בחומרי לימוד''')
+        self.watchMatirialBtn.configure(command=self.opensubjectmatirial)
 
         self.GetFeedbackbtn = tk.Button(top)
         self.GetFeedbackbtn.place(relx=0.517, rely=0.6, height=54, width=227)
@@ -137,6 +151,7 @@ class TanachPageStud:
         self.GetFeedbackbtn.configure(highlightcolor="black")
         self.GetFeedbackbtn.configure(pady="0")
         self.GetFeedbackbtn.configure(text='''קבלת משוב על שיעורי בית''')
+        self.GetFeedbackbtn.configure(command=self.openfeedback)
 
 if __name__ == '__main__':
     vp_start_gui()
