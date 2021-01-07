@@ -32,6 +32,7 @@ import TuitionStudent
 import classesSche
 import SubjectSelectPage
 import GamesForStudent
+import AttendanceRep
 
 
 def vp_start_gui():
@@ -62,6 +63,8 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+    def openAbsRep(self):
+        AttendanceRep.vp_start_gui()
     def meeting(self):
         tk.messagebox._show('פגישת מזכירה', 'הדף נמצא בפיתוח, יהיה זמין בעתיד')
     def open_classes(self):
@@ -125,6 +128,21 @@ class studentpage:
         top.configure(background="#ffffff")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
+
+        self.AbsRep = tk.Button(top)
+        self.AbsRep.place(relx=0.094, rely=0.247, height=94, width=187)
+        self.AbsRep.configure(activebackground="#ececec")
+        self.AbsRep.configure(activeforeground="#000000")
+        self.AbsRep.configure(background="#ffff00")
+        self.AbsRep.configure(cursor="hand2")
+        self.AbsRep.configure(disabledforeground="#a3a3a3")
+        self.AbsRep.configure(foreground="#000000")
+        self.AbsRep.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.AbsRep.configure(highlightbackground="#d9d9d9")
+        self.AbsRep.configure(highlightcolor="black")
+        self.AbsRep.configure(pady="0")
+        self.AbsRep.configure(text='''דו''ח חיסורים''')
+        self.AbsRep.configure(command=self.openAbsRep)
 
         self.stud_sched = tk.Button(top)
         self.stud_sched.place(relx=0.219, rely=0.171, height=93, width=186)
