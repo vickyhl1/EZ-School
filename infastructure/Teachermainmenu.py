@@ -30,6 +30,9 @@ import classesattendance
 import SubjectSelectPage
 import ScheForOneTeacher
 import TransWorkClock
+import teacher_shop
+import Login_Page
+import ReceiptsReport
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -57,6 +60,10 @@ def destroy_teacherpage():
     w = None
 
 class teacherpage:
+    def Logout(self):
+        root.destroy()
+        Login_Page.vp_start_gui()
+
     def OpenWork(self):
         TransWorkClock.vp_start_gui()
     def OpenGames(self):
@@ -84,6 +91,13 @@ class teacherpage:
         root.destroy()
         SubjectSelectPage.vp_start_gui()
 
+    def openshop(self):
+        root.destroy()
+        teacher_shop.vp_start_gui()
+
+    def openReciptreport(self):
+        root.destroy()
+        ReceiptsReport.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -182,6 +196,7 @@ class teacherpage:
         self.shop.configure(highlightcolor="black")
         self.shop.configure(pady="0")
         self.shop.configure(text='''הזמנת ציוד משרדי''')
+        self.shop.configure(command=self.openshop)
 
         self.teach_work = tk.Button(top)
         self.teach_work.place(relx=0.344, rely=0.324, height=93, width=186)
@@ -242,6 +257,36 @@ class teacherpage:
         self.courses.configure(pady="0")
         self.courses.configure(text='''מקצועות''')
         self.courses.configure(command=self.openCoursesSelectPage)
+
+        self.LogOutBtn = tk.Button(top)
+        self.LogOutBtn.place(relx=0.01, rely=0.88, height=93, width=186)
+        self.LogOutBtn.configure(activebackground="#ececec")
+        self.LogOutBtn.configure(activeforeground="#000000")
+        self.LogOutBtn.configure(background="#ff0000")
+        self.LogOutBtn.configure(cursor="hand2")
+        self.LogOutBtn.configure(disabledforeground="#a3a3a3")
+        self.LogOutBtn.configure(foreground="#000000")
+        self.LogOutBtn.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.LogOutBtn.configure(highlightbackground="#d9d9d9")
+        self.LogOutBtn.configure(highlightcolor="black")
+        self.LogOutBtn.configure(pady="0")
+        self.LogOutBtn.configure(text='''התנתק''')
+        self.LogOutBtn.configure(command=self.Logout)
+
+        self.ReciptRepBtn = tk.Button(top)
+        self.ReciptRepBtn.place(relx=0.09, rely=0.324, height=93, width=186)
+        self.ReciptRepBtn.configure(activebackground="#ececec")
+        self.ReciptRepBtn.configure(activeforeground="#000000")
+        self.ReciptRepBtn.configure(background="#93ff93")
+        self.ReciptRepBtn.configure(cursor="hand2")
+        self.ReciptRepBtn.configure(disabledforeground="#a3a3a3")
+        self.ReciptRepBtn.configure(foreground="#000000")
+        self.ReciptRepBtn.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.ReciptRepBtn.configure(highlightbackground="#d9d9d9")
+        self.ReciptRepBtn.configure(highlightcolor="black")
+        self.ReciptRepBtn.configure(pady="0")
+        self.ReciptRepBtn.configure(text='''דו"ח רכישות''')
+        self.ReciptRepBtn.configure(command=self.openReciptreport)
 
 if __name__ == '__main__':
     vp_start_gui()

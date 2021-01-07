@@ -24,7 +24,7 @@ except ImportError:
 import Secretarymainmenu
 import InventoryManagment_support
 from data import connect_to_db_and_collection
-
+import InventReport
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -54,6 +54,8 @@ def destroy_InventoryManage():
     w = None
 
 class InventoryManage:
+    def InventReport(self):
+        InventReport.vp_start_gui()
     def main_menu(self):
         root.destroy()
         Secretarymainmenu.vp_start_gui()
@@ -71,7 +73,7 @@ class InventoryManage:
         if(amountupdate.isnumeric()):
             mycol.update_one({'item_name': updatechoice}, {"$set": {'units_available': int(amountupdate)}})
         else:
-            tk.messagebox.showwarning('ניהול מלאי', 'המלאי שהוזן אינו מספר נה להזין שנית')
+            tk.messagebox.showwarning('ניהול מלאי', 'המלאי שהוזן אינו מספר נא להזין שנית')
 
     def checkcurrentqty(self):
         mycol = connect_to_db_and_collection('EZSchooldb','Inventory')
@@ -116,6 +118,7 @@ class InventoryManage:
         self.UntUpbtn.configure(activebackground="#ececec")
         self.UntUpbtn.configure(activeforeground="#000000")
         self.UntUpbtn.configure(background="#41e916")
+        self.UntUpbtn.configure(cursor="hand2")
         self.UntUpbtn.configure(disabledforeground="#a3a3a3")
         self.UntUpbtn.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.UntUpbtn.configure(foreground="#000000")
@@ -130,6 +133,7 @@ class InventoryManage:
         self.backbtn.configure(activebackground="#ececec")
         self.backbtn.configure(activeforeground="#000000")
         self.backbtn.configure(background="#41e916")
+        self.backbtn.configure(cursor="hand2")
         self.backbtn.configure(disabledforeground="#a3a3a3")
         self.backbtn.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.backbtn.configure(foreground="#000000")
@@ -138,6 +142,21 @@ class InventoryManage:
         self.backbtn.configure(pady="0")
         self.backbtn.configure(text='''תפריט ראשי''')
         self.backbtn.configure(command =self.main_menu)
+
+        self.InventRep = tk.Button(top)
+        self.InventRep.place(relx=0.747, rely=0.895, height=74, width=157)
+        self.InventRep.configure(activebackground="#ececec")
+        self.InventRep.configure(activeforeground="#000000")
+        self.InventRep.configure(background="#41e916")
+        self.InventRep.configure(cursor="hand2")
+        self.InventRep.configure(disabledforeground="#a3a3a3")
+        self.InventRep.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.InventRep.configure(foreground="#000000")
+        self.InventRep.configure(highlightbackground="#d9d9d9")
+        self.InventRep.configure(highlightcolor="black")
+        self.InventRep.configure(pady="0")
+        self.InventRep.configure(text='''הפק דו''ח''')
+        self.InventRep.configure(command=self.InventReport)
 
         self.qtyL = tk.Label(top)
         self.qtyL.place(relx=0.464, rely=0.187, height=32, width=196)
@@ -204,17 +223,15 @@ class InventoryManage:
         self.currentqtyM.configure(activebackground="#c9f9bd")
         self.currentqtyM.configure(activeforeground="#000000")
         self.currentqtyM.configure(background="#c9f9bd")
+        self.currentqtyM.configure(cursor="hand2")
         self.currentqtyM.configure(disabledforeground="#a3a3a3")
         self.currentqtyM.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.currentqtyM.configure(foreground="#000000")
         self.currentqtyM.configure(highlightbackground="#d9d9d9")
         self.currentqtyM.configure(highlightcolor="black")
         self.currentqtyM.configure(pady="0")
-        self.currentqtyM.configure(text='לצפייה לחך כאן')
+        self.currentqtyM.configure(text='לצפייה לחץ כאן')
         self.currentqtyM.configure(command=self.checkcurrentqty)
-
-
-
 
 if __name__ == '__main__':
     vp_start_gui()

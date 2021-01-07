@@ -35,3 +35,16 @@ def setSubject(subject):
     f.truncate()
     f.write(subject)
     f.close()
+
+def findUser(userId):
+    mycol = connect_to_db_and_collection('EZSchooldb', 'Users')
+    userobj = mycol.find_one({'id': userId})
+    return userobj
+
+def GetChosenUser():
+    f = open("paymentShopForStudent.txt","r")
+    userid = f.readline().rstrip()
+    f.close()
+    mycol = connect_to_db_and_collection('EZSchooldb', 'Users')
+    userobj = mycol.find_one({'id': userid})
+    return userobj

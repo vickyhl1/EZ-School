@@ -116,9 +116,6 @@ class Login_Page:
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
 
-        self.menubar = tk.Menu(top, font="TkMenuFont", bg=_bgcolor, fg=_fgcolor)
-        top.configure(menu=self.menubar)
-
         self.Login_Button = tk.Button(top)
         self.Login_Button.place(relx=0.283, rely=0.577, height=93, width=256)
         self.Login_Button.configure(activebackground="#ececec")
@@ -132,7 +129,8 @@ class Login_Page:
         self.Login_Button.configure(pady="0")
         self.Login_Button.configure(text='''Login''')
         self.Login_Button.configure(command=self.login)
-
+        root.bind('<Return>', lambda x: self.login())
+        
         self.Label1 = tk.Label(top)
         self.Label1.place(relx=0.217, rely=0.267, height=30, width=82)
         self.Label1.configure(activebackground="#f9f9f9")

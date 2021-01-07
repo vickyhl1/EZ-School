@@ -27,7 +27,7 @@ user_db_init()
 
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
-
+Users=mydb['Users']
 import attendance1_support
 import Teachermainmenu
 import AbsenceReport
@@ -70,9 +70,10 @@ class Toplevel1:
         Teachermainmenu.vp_start_gui()
 
     def add_absence(self, student_id):
-        global mydb
-        userobj= mydb['Users'].find_one({'id': student_id})
-        mydb['Users'].update_one({'id':userobj['id']}, {'$set': {'attendance':userobj['attendance']+1}})
+        global Users
+        user = Users.find_one({'id': student_id})
+        Users.update_one({'id': user['id']}, {'$set': {'attendance': user['attendance'] + 1}})
+
     def Changebox1(self):
             self.CheckVar1=not self.CheckVar1
     def Changebox2(self):
@@ -93,6 +94,7 @@ class Toplevel1:
             self.CheckVar9=not self.CheckVar9
     def Changebox10(self):
             self.CheckVar10=not self.CheckVar10
+
 
     def Submit(self):
         if not self.CheckVar1:
@@ -180,10 +182,6 @@ class Toplevel1:
         self.stud1.configure(justify='left')
         self.stud1.configure(text='''עדי כהן 123456789''')
 
-
-
-
-
         self.stud2 = tk.Checkbutton(top)
         self.stud2.place(relx=0.406, rely=0.18, relheight=0.061, relwidth=0.164)
         self.stud2.configure(activebackground="#ececec")
@@ -210,7 +208,6 @@ class Toplevel1:
         self.stud3.configure(justify='left')
         self.stud3.configure(text='''אתי בלון 987654321''')
 
-
         self.stud4 = tk.Checkbutton(top)
         self.stud4.place(relx=0.385, rely=0.3, relheight=0.061, relwidth=0.186)
         self.stud4.configure(activebackground="#ececec")
@@ -223,7 +220,6 @@ class Toplevel1:
         self.stud4.configure(highlightcolor="black")
         self.stud4.configure(justify='left')
         self.stud4.configure(text='''יובל קטן 123412341''')
-
 
         self.stud5 = tk.Checkbutton(top)
         self.stud5.place(relx=0.38, rely=0.36, relheight=0.051, relwidth=0.192)
@@ -277,7 +273,6 @@ class Toplevel1:
         self.stud8.configure(justify='left')
         self.stud8.configure(text='''זיאד חמד 111111111''')
 
-
         self.stud9 = tk.Checkbutton(top)
         self.stud9.place(relx=0.401, rely=0.589, relheight=0.051, relwidth=0.17)
         self.stud9.configure(activebackground="#ececec")
@@ -304,10 +299,8 @@ class Toplevel1:
         self.stud10.configure(justify='left')
         self.stud10.configure(text='''רפאל עזריאייב 309044071''')
 
-
         self.Message1 = tk.Message(top)
         self.Message1.place(relx=0.333, rely=0.02, relheight=0.1, relwidth=0.311)
-
         self.Message1.configure(background="#fef1b4")
         self.Message1.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.Message1.configure(foreground="#000000")

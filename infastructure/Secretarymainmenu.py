@@ -36,6 +36,9 @@ import TransWorkClock
 import TeachersSche
 import TuitionSecretaryid
 import classesScheSecretary
+import Login_Page
+import ShopSecretaryid
+import InventoryManagment
 
 
 def vp_start_gui():
@@ -64,6 +67,10 @@ def destroy_secretarypage():
     w = None
 
 class secretarypage:
+    def Logout(self):
+        root.destroy()
+        Login_Page.vp_start_gui()
+
     def meet(self):
         tk.messagebox._show('יומן פגישות', 'הדף נמצא בפיתוח, יהיה זמין בעתיד')
     def OpenWork(self):
@@ -87,6 +94,14 @@ class secretarypage:
     def openManage(self):
         root.destroy()
         InventoryManagment.vp_start_gui()
+    def openShopforStudent(self):
+        root.destroy()
+        ShopSecretaryid.vp_start_gui()
+
+    def openInvManage(self):
+        root.destroy()
+        InventoryManagment.vp_start_gui()
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -199,6 +214,7 @@ class secretarypage:
         self.inventory_payment.configure(highlightcolor="black")
         self.inventory_payment.configure(pady="0")
         self.inventory_payment.configure(text='''גביית תשלום \n ציוד''')
+        self.inventory_payment.configure(command=self.openShopforStudent)
 
         self.tuition_fee = tk.Button(top)
         self.tuition_fee.place(relx=0.344, rely=0.324, height=93, width=186)
@@ -258,8 +274,22 @@ class secretarypage:
         self.inventory_manage.configure(highlightcolor="black")
         self.inventory_manage.configure(pady="0")
         self.inventory_manage.configure(text='''ניהול מלאי ציוד משרדי''')
-        self.inventory_manage.configure(command =self.openManage)
+        self.inventory_manage.configure(command=self.openInvManage)
 
+        self.LogOutBtn = tk.Button(top)
+        self.LogOutBtn.place(relx=0.01, rely=0.88, height=93, width=186)
+        self.LogOutBtn.configure(activebackground="#ececec")
+        self.LogOutBtn.configure(activeforeground="#000000")
+        self.LogOutBtn.configure(background="#ff0000")
+        self.LogOutBtn.configure(cursor="hand2")
+        self.LogOutBtn.configure(disabledforeground="#a3a3a3")
+        self.LogOutBtn.configure(foreground="#000000")
+        self.LogOutBtn.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.LogOutBtn.configure(highlightbackground="#d9d9d9")
+        self.LogOutBtn.configure(highlightcolor="black")
+        self.LogOutBtn.configure(pady="0")
+        self.LogOutBtn.configure(text='''התנתק''')
+        self.LogOutBtn.configure(command=self.Logout)
 
 if __name__ == '__main__':
     vp_start_gui()

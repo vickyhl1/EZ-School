@@ -537,10 +537,10 @@ def user_db_init():
         {
             'stuNum': 59,
             'name': 'Michael Rocker',
-            'id': '322131099',
+            'id': '322131009',
             'password': '1234',
             'Usertype': 3,
-            'Tuition322131099': -1123,
+            'Tuition322131009': -1123,
             'class': 6,
             'attendance': 0},
         {
