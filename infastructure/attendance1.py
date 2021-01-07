@@ -27,7 +27,7 @@ user_db_init()
 
 client = pymongo.MongoClient()
 mydb = client['EZSchooldb']
-
+Users=mydb['Users']
 import attendance1_support
 import Teachermainmenu
 import AbsenceReport
@@ -70,9 +70,9 @@ class Toplevel1:
         Teachermainmenu.vp_start_gui()
 
     def add_absence(self, student_id):
-        global mydb
-        userobj= mydb['Users'].find_one({'id': student_id})
-        mydb['Users'].update_one({'id':userobj['id']}, {'$set': {'attendance':userobj['attendance']+1}})
+        global Users
+        user= Users.find_one({'id': student_id})
+        Users.update_one({'id':user['id']}, {'$set': {'attendance':user['attendance']+1}})
 
     def Submit(self):
         if not self.CheckVar1.get():
