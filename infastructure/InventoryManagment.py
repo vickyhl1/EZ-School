@@ -71,7 +71,7 @@ class InventoryManage:
         if(amountupdate.isnumeric()):
             mycol.update_one({'item_name': updatechoice}, {"$set": {'units_available': int(amountupdate)}})
         else:
-            tk.messagebox.showwarning('ניהול מלאי', 'המלאי שהוזן אינו מספר נה להזין שנית')
+            tk.messagebox.showwarning('ניהול מלאי', 'המלאי שהוזן אינו מספר נא להזין שנית')
 
     def checkcurrentqty(self):
         mycol = connect_to_collection('Inventory')

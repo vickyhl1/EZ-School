@@ -61,6 +61,7 @@ class Tuition:
     def back(self):
         root.destroy()
         Studentmainmenu.vp_start_gui()
+
     def txt(self):
         f = open("Current_user.txt")
         id=f.readline()

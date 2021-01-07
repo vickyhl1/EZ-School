@@ -291,7 +291,7 @@ class studentpage:
         self.courses.configure(command=self.openCoursesSelectPage)
 
         self.LogOutBtn = tk.Button(top)
-        self.LogOutBtn.place(relx=0.01, rely=0.88, height=93, width=186)
+        self.LogOutBtn.place(relx=0.01, rely=0.78, height=93, width=186)
         self.LogOutBtn.configure(activebackground="#ececec")
         self.LogOutBtn.configure(activeforeground="#000000")
         self.LogOutBtn.configure(background="#ff0000")
