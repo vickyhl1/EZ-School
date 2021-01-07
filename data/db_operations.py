@@ -35,11 +35,8 @@ def setSubject(subject):
     f.truncate()
     f.write(subject)
     f.close()
-<<<<<<< HEAD
-=======
 
 def findUser(userId):
     mycol = connect_to_db_and_collection('EZSchooldb', 'Users')
     userobj = mycol.find_one({'id': userId})
     return userobj
->>>>>>> 71da90e25e47e438143e3ccf97ff7c0da33683e3

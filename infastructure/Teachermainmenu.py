@@ -30,11 +30,8 @@ import classesattendance
 import SubjectSelectPage
 import ScheForOneTeacher
 import TransWorkClock
-<<<<<<< HEAD
 import teacher_shop
-=======
 import Login_Page
->>>>>>> 71da90e25e47e438143e3ccf97ff7c0da33683e3
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
