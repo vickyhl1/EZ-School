@@ -66,10 +66,8 @@ def destroy_SubjectSelectPage():
 class SubjectSelectPage:
     def openReport(self):
         if self.currentUser['Usertype'] == 3:
-            root.destroy()
             GradeReportStud.vp_start_gui()
         elif self.currentUser['Usertype'] == 2:
-            root.destroy()
             GradeReportTeacher.vp_start_gui()
 
     def openMainmenue(self):
