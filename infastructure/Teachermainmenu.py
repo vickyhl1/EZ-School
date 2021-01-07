@@ -27,10 +27,7 @@ import HealthPageTeacher
 import GamesForTeacher
 import classesTeacher
 import classesattendance
-<<<<<<< HEAD
 import SubjectSelectPage
-=======
->>>>>>> 465221b494d0c137b69920d7e267c89c3bace3d9
 import ScheForOneTeacher
 import TransWorkClock
 

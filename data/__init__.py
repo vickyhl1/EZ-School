@@ -5,11 +5,8 @@ from .CreateInventoryDB import inventory_db_init
 from .CreateGameLinkDB import game_links_db_init
 from .CreateSekerDB import seker_db_init
 from .CreateInventoryDB import inventory_db_init, connect_to_collection
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 465221b494d0c137b69920d7e267c89c3bace3d9
 from .CreateScheduleClassesDB import Schedule_db_init
 from .CreateGameLinkDB import game_links_db_init
 from .CreateSekerDB import seker_db_init

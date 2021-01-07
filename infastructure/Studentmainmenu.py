@@ -32,12 +32,9 @@ import TuitionStudent
 import classesSche
 import SubjectSelectPage
 import GamesForStudent
-<<<<<<< HEAD
 import Login_Page
 
-=======
 import student_shop
->>>>>>> 465221b494d0c137b69920d7e267c89c3bace3d9
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -103,11 +100,7 @@ class studentpage:
         root.destroy()
         Seker1.vp_start_gui()
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 465221b494d0c137b69920d7e267c89c3bace3d9
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
@@ -117,17 +110,13 @@ class studentpage:
         root.destroy()
         classes.vp_start_gui()
 
-<<<<<<< HEAD
     def openCoursesSelectPage(self):
         root.destroy()
         SubjectSelectPage.vp_start_gui()
-=======
-    def open_student_shop(self):
-        root.destory()
-        student_shop.vp_start_gui()
 
-    def __init__(self, top=None):
->>>>>>> 465221b494d0c137b69920d7e267c89c3bace3d9
+    def open_student_shop(self):
+        root.destroy()
+        student_shop.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -192,10 +181,6 @@ class studentpage:
         self.stud_health.configure(text='''הצהרת בריאות''')
 
         self.stud_health.configure(command= self.openHealth)
-
-
-        self.menubar = tk.Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
-        top.configure(menu = self.menubar)
 
         self.meeting_sched = tk.Button(top)
         self.meeting_sched.place(relx=0.609, rely=0.171, height=93, width=186)
