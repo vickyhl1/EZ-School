@@ -91,6 +91,7 @@ class FeedbackTeacher:
         data = mycol.find_one({'Assignment_num': int(self.AssignSB.get())})
         if data == None:
             messagebox.showwarning('קבוץ לא קיים', 'תלמיד לא הגיש מטלה זו')
+            
         else:
             file = filedialog.asksaveasfile(initialdir='/', title="בחר שם ומיקום להורדה", mode='wb',
                                         filetypes=[('PDF files', '*pdf'), ('RAR files', '*.rar'),
