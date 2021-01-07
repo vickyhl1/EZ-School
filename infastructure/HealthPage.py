@@ -56,6 +56,7 @@ def destroy_Toplevel1():
     w = None
 
 class Toplevel1:
+
     def submit(self):
         global flag
         if flag:
@@ -72,6 +73,7 @@ class Toplevel1:
             tk.messagebox.showwarning('Health page', 'לא אישרת את ההצהרה, נסה שוב מאוחר יותר')
         root.destroy()
         Studentmainmenu.vp_start_gui()
+
     def checkbox(self):
         global flag
         if flag==1:

@@ -36,7 +36,8 @@ def user_db_init():
             'Tuition123456788': 0,
             'class': 1,
             'attendance': 0},
-        {   'stuNum':5,
+        {
+            'stuNum': 5,
             'name': 'Etty balloon',
             'id': '987654321',
             'password': '1234',
@@ -92,10 +93,10 @@ def user_db_init():
         {
             'stuNum': 11,
             'name': 'Vicky Hlustov',
-            'id': '121212121',
+            'id': '320755481',
             'password': '1234',
             'Usertype': 3,
-            'Tuition121212121': -221,
+            'Tuition320755481': -221,
             'class': 1,
             'attendance': 0},
 
@@ -103,7 +104,8 @@ def user_db_init():
             'name': 'Tal Shaked',
             'id': '312208523',
             'password': '12345',
-            'Usertype': 2},
+            'Usertype': 2,
+            'workhours': 0},
         {
             'stuNum': 12,
             'name': 'Noa Hamuda',

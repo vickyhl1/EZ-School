@@ -22,12 +22,21 @@ except ImportError:
 import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
+import InventoryManagment
+import SekerRes
+import TuitionSecretaryid
+
+
 import SekerChoice
 import TuitionSecretaryid
 import SekerRes
+import TuitionSecretaryid
+import classesScheSecretary
+import TransWorkClock
 import TeachersSche
 import TuitionSecretaryid
 import classesScheSecretary
+
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -55,6 +64,10 @@ def destroy_secretarypage():
     w = None
 
 class secretarypage:
+    def meet(self):
+        tk.messagebox._show('יומן פגישות', 'הדף נמצא בפיתוח, יהיה זמין בעתיד')
+    def OpenWork(self):
+        TransWorkClock.vp_start_gui()
     def openScheStudent(self):
         root.destroy()
         classesScheSecretary.vp_start_gui()
@@ -67,12 +80,13 @@ class secretarypage:
         root.destroy()
         HealthPageSecretary.vp_start_gui()
     def openSeker(self):
-        root.destroy()
         SekerChoice.vp_start_gui()
     def openScheteachers(self):
         root.destroy()
         TeachersSche.vp_start_gui()
-
+    def openManage(self):
+        root.destroy()
+        InventoryManagment.vp_start_gui()
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -86,7 +100,7 @@ class secretarypage:
         top.minsize(148, 1)
         top.maxsize(1550, 900)
         top.resizable(1,  1)
-        top.title("Secretary main menu")
+        top.title("תפריט ראשי למזכירה")
         top.configure(background="#ffffff")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
@@ -96,26 +110,30 @@ class secretarypage:
 
         self.student_schedule.configure(activebackground="#ececec")
         self.student_schedule.configure(activeforeground="#000000")
-        self.student_schedule.configure(background="#d9d9d9")
+        self.student_schedule.configure(background="#a6ffff")
+        self.student_schedule.configure(cursor="hand2")
         self.student_schedule.configure(disabledforeground="#a3a3a3")
         self.student_schedule.configure(foreground="#000000")
+        self.student_schedule.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.student_schedule.configure(highlightbackground="#d9d9d9")
         self.student_schedule.configure(highlightcolor="black")
         self.student_schedule.configure(pady="0")
-        self.student_schedule.configure(text='''עדכון מערכת שעות תלמיד''')
+        self.student_schedule.configure(text='''עדכון מערכת שעות \n תלמיד''')
         self.student_schedule.configure(command= self.openScheStudent)
 
         self.teacher_schedule = tk.Button(top)
         self.teacher_schedule.place(relx=0.344, rely=0.17, height=93, width=186)
         self.teacher_schedule.configure(activebackground="#ececec")
         self.teacher_schedule.configure(activeforeground="#000000")
-        self.teacher_schedule.configure(background="#d9d9d9")
+        self.teacher_schedule.configure(background="#ffff00")
+        self.teacher_schedule.configure(cursor="hand2")
         self.teacher_schedule.configure(disabledforeground="#a3a3a3")
         self.teacher_schedule.configure(foreground="#000000")
+        self.teacher_schedule.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.teacher_schedule.configure(highlightbackground="#d9d9d9")
         self.teacher_schedule.configure(highlightcolor="black")
         self.teacher_schedule.configure(pady="0")
-        self.teacher_schedule.configure(text='''עדכון מערכת שעות מורה''')
+        self.teacher_schedule.configure(text='''עדכון מערכת שעות \n מורה''')
         self.teacher_schedule.configure(command= self.openScheteachers)
 
         self.health = tk.Button(top)
@@ -123,8 +141,10 @@ class secretarypage:
         self.health.configure(activebackground="#ececec")
         self.health.configure(activeforeground="#000000")
         self.health.configure(background="#d9d9d9")
+        self.health.configure(cursor="hand2")
         self.health.configure(disabledforeground="#a3a3a3")
         self.health.configure(foreground="#000000")
+        self.health.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.health.configure(highlightbackground="#d9d9d9")
         self.health.configure(highlightcolor="black")
         self.health.configure(pady="0")
@@ -139,59 +159,71 @@ class secretarypage:
         self.meetings.place(relx=0.609, rely=0.171, height=93, width=186)
         self.meetings.configure(activebackground="#ececec")
         self.meetings.configure(activeforeground="#000000")
-        self.meetings.configure(background="#d9d9d9")
+        self.meetings.configure(background="#ff0000")
+        self.meetings.configure(cursor="hand2")
         self.meetings.configure(disabledforeground="#a3a3a3")
         self.meetings.configure(foreground="#000000")
+        self.meetings.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.meetings.configure(highlightbackground="#d9d9d9")
         self.meetings.configure(highlightcolor="black")
         self.meetings.configure(pady="0")
         self.meetings.configure(text='''יומן פגישות''')
+        self.meetings.configure(command=self.meet)
 
         self.work_clock = tk.Button(top)
         self.work_clock.place(relx=0.74, rely=0.171, height=93, width=186)
         self.work_clock.configure(activebackground="#ececec")
         self.work_clock.configure(activeforeground="#000000")
-        self.work_clock.configure(background="#d9d9d9")
+        self.work_clock.configure(background="#ff8000")
+        self.work_clock.configure(cursor="hand2")
         self.work_clock.configure(disabledforeground="#a3a3a3")
         self.work_clock.configure(foreground="#000000")
+        self.work_clock.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.work_clock.configure(highlightbackground="#d9d9d9")
         self.work_clock.configure(highlightcolor="black")
         self.work_clock.configure(pady="0")
         self.work_clock.configure(text='''שעון עבודה''')
+        self.work_clock.configure(command=self.OpenWork)
 
         self.inventory_payment = tk.Button(top)
         self.inventory_payment.place(relx=0.219, rely=0.324, height=93
                 , width=186)
         self.inventory_payment.configure(activebackground="#ececec")
         self.inventory_payment.configure(activeforeground="#000000")
-        self.inventory_payment.configure(background="#d9d9d9")
+        self.inventory_payment.configure(background="#008000")
+        self.inventory_payment.configure(cursor="hand2")
         self.inventory_payment.configure(disabledforeground="#a3a3a3")
         self.inventory_payment.configure(foreground="#000000")
+        self.inventory_payment.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.inventory_payment.configure(highlightbackground="#d9d9d9")
         self.inventory_payment.configure(highlightcolor="black")
         self.inventory_payment.configure(pady="0")
-        self.inventory_payment.configure(text='''גביית תשלום - ציוד''')
+        self.inventory_payment.configure(text='''גביית תשלום \n ציוד''')
 
         self.tuition_fee = tk.Button(top)
         self.tuition_fee.place(relx=0.344, rely=0.324, height=93, width=186)
         self.tuition_fee.configure(activebackground="#ececec")
         self.tuition_fee.configure(activeforeground="#000000")
-        self.tuition_fee.configure(background="#d9d9d9")
+        self.tuition_fee.configure(background="#ff80c0")
+        self.tuition_fee.configure(cursor="hand2")
         self.tuition_fee.configure(disabledforeground="#a3a3a3")
         self.tuition_fee.configure(foreground="#000000")
+        self.tuition_fee.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.tuition_fee.configure(highlightbackground="#d9d9d9")
         self.tuition_fee.configure(highlightcolor="black")
         self.tuition_fee.configure(pady="0")
-        self.tuition_fee.configure(text='''גביית תשלום - שכר לימוד''')
+        self.tuition_fee.configure(text='''גביית תשלום \n שכר לימוד''')
         self.tuition_fee.configure(command=self.openTuition)
 
         self.teachers_survey = tk.Button(top)
         self.teachers_survey.place(relx=0.474, rely=0.324, height=93, width=186)
         self.teachers_survey.configure(activebackground="#ececec")
         self.teachers_survey.configure(activeforeground="#000000")
-        self.teachers_survey.configure(background="#d9d9d9")
+        self.teachers_survey.configure(background="#0000ff")
+        self.teachers_survey.configure(cursor="hand2")
         self.teachers_survey.configure(disabledforeground="#a3a3a3")
         self.teachers_survey.configure(foreground="#000000")
+        self.teachers_survey.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.teachers_survey.configure(highlightbackground="#d9d9d9")
         self.teachers_survey.configure(highlightcolor="black")
         self.teachers_survey.configure(pady="0")
@@ -202,9 +234,11 @@ class secretarypage:
         self.forum.place(relx=0.609, rely=0.324, height=93, width=186)
         self.forum.configure(activebackground="#ececec")
         self.forum.configure(activeforeground="#000000")
-        self.forum.configure(background="#d9d9d9")
+        self.forum.configure(background="#8080ff")
+        self.forum.configure(cursor="hand2")
         self.forum.configure(disabledforeground="#a3a3a3")
         self.forum.configure(foreground="#000000")
+        self.forum.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.forum.configure(highlightbackground="#d9d9d9")
         self.forum.configure(highlightcolor="black")
         self.forum.configure(pady="0")
@@ -215,13 +249,17 @@ class secretarypage:
         self.inventory_manage.place(relx=0.74, rely=0.324, height=93, width=186)
         self.inventory_manage.configure(activebackground="#ececec")
         self.inventory_manage.configure(activeforeground="#000000")
-        self.inventory_manage.configure(background="#d9d9d9")
+        self.inventory_manage.configure(background="#93ff93")
+        self.inventory_manage.configure(cursor="hand2")
         self.inventory_manage.configure(disabledforeground="#a3a3a3")
         self.inventory_manage.configure(foreground="#000000")
+        self.inventory_manage.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.inventory_manage.configure(highlightbackground="#d9d9d9")
         self.inventory_manage.configure(highlightcolor="black")
         self.inventory_manage.configure(pady="0")
         self.inventory_manage.configure(text='''ניהול מלאי ציוד משרדי''')
+        self.inventory_manage.configure(command =self.openManage)
+
 
 if __name__ == '__main__':
     vp_start_gui()

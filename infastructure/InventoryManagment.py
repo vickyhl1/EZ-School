@@ -23,7 +23,7 @@ except ImportError:
 
 import Secretarymainmenu
 import InventoryManagment_support
-from data import connect_to_collection
+from data import connect_to_db_and_collection
 
 
 def vp_start_gui():
@@ -58,14 +58,14 @@ class InventoryManage:
         root.destroy()
         Secretarymainmenu.vp_start_gui()
     def listofitems_names(self):
-        mycol= connect_to_collection('Inventory')
+        mycol= connect_to_db_and_collection('EZSchooldb','Inventory')
         lstobj = list()
         for item in mycol.find({}):
             lstobj.append(item['item_name'])
         return lstobj
 
     def updateinventory(self):
-        mycol = connect_to_collection('Inventory')
+        mycol = connect_to_db_and_collection('EZSchooldb','Inventory')
         updatechoice = self.TCombobox1.get()
         amountupdate = self.Entry1.get()
         if(amountupdate.isnumeric()):
@@ -74,7 +74,7 @@ class InventoryManage:
             tk.messagebox.showwarning('ניהול מלאי', 'המלאי שהוזן אינו מספר נה להזין שנית')
 
     def checkcurrentqty(self):
-        mycol = connect_to_collection('Inventory')
+        mycol = connect_to_db_and_collection('EZSchooldb','Inventory')
         choice = self.TCombobox1.get()
         theobj = mycol.find_one({'item_name': choice})
         if not theobj == None:
@@ -99,9 +99,9 @@ class InventoryManage:
         self.style.map('.',background=
             [('selected', _compcolor), ('active',_ana2color)])
 
-        top.geometry("1920x1017+-8+-8")
-        top.minsize(120, 1)
-        top.maxsize(1924, 1061)
+        top.geometry("1920x1051+-9+-9")
+        top.minsize(148, 1)
+        top.maxsize(1550, 900)
         top.resizable(1,  1)
         top.title("ניהול מלאי")
         top.configure(background="#c9f9bd")
@@ -126,7 +126,7 @@ class InventoryManage:
         self.UntUpbtn.configure(command=self.updateinventory)
 
         self.backbtn = tk.Button(top)
-        self.backbtn.place(relx=0.026, rely=0.895, height=74, width=157)
+        self.backbtn.place(relx=0.026, rely=0.700, height=74, width=157)
         self.backbtn.configure(activebackground="#ececec")
         self.backbtn.configure(activeforeground="#000000")
         self.backbtn.configure(background="#41e916")
@@ -156,6 +156,7 @@ class InventoryManage:
         self.TCombobox1.configure(textvariable=InventoryManagment_support.combobox)
         self.TCombobox1.configure(takefocus="")
         self.TCombobox1.configure(value=self.listofitems_names())
+        self.TCombobox1.current(0)
 
 
         self.nameL = tk.Label(top)
@@ -199,7 +200,7 @@ class InventoryManage:
         self.currentqtyL.configure(text='''כמות נוכחית''')
 
         self.currentqtyM = tk.Button(top)
-        self.currentqtyM.place(relx=0.578, rely=0.226, relheight=0.03, relwidth=0.064)
+        self.currentqtyM.place(relx=0.56, rely=0.226, relheight=0.03, relwidth=0.09)
         self.currentqtyM.configure(activebackground="#c9f9bd")
         self.currentqtyM.configure(activeforeground="#000000")
         self.currentqtyM.configure(background="#c9f9bd")

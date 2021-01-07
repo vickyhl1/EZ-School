@@ -30,6 +30,8 @@ import Seker1
 global userobj
 import TuitionStudent
 import classesSche
+import SubjectSelectPage
+import GamesForStudent
 
 
 def vp_start_gui():
@@ -60,14 +62,15 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
-
+    def meeting(self):
+        tk.messagebox._show('פגישת מזכירה', 'הדף נמצא בפיתוח, יהיה זמין בעתיד')
     def open_classes(self):
         root.destroy()
         classesSche.vp_start_gui()
 
     def openGames(self):
         root.destroy()
-        Seker.vp_start_gui()
+        GamesForStudent.vp_start_gui()
     def opensurvey(self):
         f = open("isSekerOpen.txt")
         flag=f.read()
@@ -75,16 +78,14 @@ class studentpage:
         if flag == "0":
             tk.messagebox.showwarning('Seker', 'הסקר אינו זמין כרגע')
         else:
-             root.destroy()
              Seker1.vp_start_gui()
 
     def paymentTuition(self):
         root.destroy()
         TuitionStudent.vp_start_gui()
 
-    def opensurvey(self):
-        root.destroy()
-        Seker.vp_start_gui()
+
+
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
@@ -93,6 +94,10 @@ class studentpage:
     def openzoom(self):
         root.destroy()
         classes.vp_start_gui()
+
+    def openCoursesSelectPage(self):
+        root.destroy()
+        SubjectSelectPage.vp_start_gui()
 
     def __init__(self, top=None):
 
@@ -108,7 +113,7 @@ class studentpage:
         top.minsize(148, 1)
         top.maxsize(1550, 900)
         top.resizable(1,  1)
-        top.title("Student main menu")
+        top.title("תפריט ראשי לתלמיד")
         top.configure(background="#ffffff")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
@@ -117,9 +122,11 @@ class studentpage:
         self.stud_sched.place(relx=0.219, rely=0.171, height=93, width=186)
         self.stud_sched.configure(activebackground="#ececec")
         self.stud_sched.configure(activeforeground="#000000")
-        self.stud_sched.configure(background="#d9d9d9")
+        self.stud_sched.configure(background="#a6ffff")
+        self.stud_sched.configure(cursor="hand2")
         self.stud_sched.configure(disabledforeground="#a3a3a3")
         self.stud_sched.configure(foreground="#000000")
+        self.stud_sched.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.stud_sched.configure(highlightbackground="#d9d9d9")
         self.stud_sched.configure(highlightcolor="black")
         self.stud_sched.configure(pady="0")
@@ -130,9 +137,11 @@ class studentpage:
         self.zoom.place(relx=0.344, rely=0.17, height=93, width=186)
         self.zoom.configure(activebackground="#ececec")
         self.zoom.configure(activeforeground="#000000")
-        self.zoom.configure(background="#d9d9d9")
+        self.zoom.configure(background="#93ff93")
+        self.zoom.configure(cursor="hand2")
         self.zoom.configure(disabledforeground="#a3a3a3")
         self.zoom.configure(foreground="#000000")
+        self.zoom.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.zoom.configure(highlightbackground="#d9d9d9")
         self.zoom.configure(highlightcolor="black")
         self.zoom.configure(pady="0")
@@ -144,8 +153,10 @@ class studentpage:
         self.stud_health.configure(activebackground="#ececec")
         self.stud_health.configure(activeforeground="#000000")
         self.stud_health.configure(background="#d9d9d9")
+        self.stud_health.configure(cursor="hand2")
         self.stud_health.configure(disabledforeground="#a3a3a3")
         self.stud_health.configure(foreground="#000000")
+        self.stud_health.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.stud_health.configure(highlightbackground="#d9d9d9")
         self.stud_health.configure(highlightcolor="black")
         self.stud_health.configure(pady="0")
@@ -161,22 +172,27 @@ class studentpage:
         self.meeting_sched.place(relx=0.609, rely=0.171, height=93, width=186)
         self.meeting_sched.configure(activebackground="#ececec")
         self.meeting_sched.configure(activeforeground="#000000")
-        self.meeting_sched.configure(background="#d9d9d9")
+        self.meeting_sched.configure(background="#ff0000")
+        self.meeting_sched.configure(cursor="hand2")
         self.meeting_sched.configure(disabledforeground="#a3a3a3")
         self.meeting_sched.configure(foreground="#000000")
+        self.meeting_sched.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.meeting_sched.configure(highlightbackground="#d9d9d9")
         self.meeting_sched.configure(highlightcolor="black")
         self.meeting_sched.configure(pady="0")
         self.meeting_sched.configure(text='''פגישת מזכירה''')
         self.meeting_sched.configure(wraplength="-1")
+        self.meeting_sched.configure(command=self.meeting)
 
         self.games = tk.Button(top)
         self.games.place(relx=0.74, rely=0.171, height=93, width=186)
         self.games.configure(activebackground="#ececec")
         self.games.configure(activeforeground="#000000")
-        self.games.configure(background="#d9d9d9")
+        self.games.configure(background="#ff80c0")
+        self.games.configure(cursor="hand2")
         self.games.configure(disabledforeground="#a3a3a3")
         self.games.configure(foreground="#000000")
+        self.games.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.games.configure(highlightbackground="#d9d9d9")
         self.games.configure(highlightcolor="black")
         self.games.configure(pady="0")
@@ -187,9 +203,11 @@ class studentpage:
         self.shop.place(relx=0.219, rely=0.324, height=93, width=186)
         self.shop.configure(activebackground="#ececec")
         self.shop.configure(activeforeground="#000000")
-        self.shop.configure(background="#d9d9d9")
+        self.shop.configure(background="#008000")
+        self.shop.configure(cursor="hand2")
         self.shop.configure(disabledforeground="#a3a3a3")
         self.shop.configure(foreground="#000000")
+        self.shop.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.shop.configure(highlightbackground="#d9d9d9")
         self.shop.configure(highlightcolor="black")
         self.shop.configure(pady="0")
@@ -199,9 +217,11 @@ class studentpage:
         self.payment_tuit.place(relx=0.344, rely=0.324, height=93, width=186)
         self.payment_tuit.configure(activebackground="#ececec")
         self.payment_tuit.configure(activeforeground="#000000")
-        self.payment_tuit.configure(background="#d9d9d9")
+        self.payment_tuit.configure(background="#ff8000")
+        self.payment_tuit.configure(cursor="hand2")
         self.payment_tuit.configure(disabledforeground="#a3a3a3")
         self.payment_tuit.configure(foreground="#000000")
+        self.payment_tuit.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.payment_tuit.configure(highlightbackground="#d9d9d9")
         self.payment_tuit.configure(highlightcolor="black")
         self.payment_tuit.configure(pady="0")
@@ -213,10 +233,12 @@ class studentpage:
         self.survey.place(relx=0.474, rely=0.324, height=93, width=186)
         self.survey.configure(activebackground="#ececec")
         self.survey.configure(activeforeground="#000000")
-        self.survey.configure(background="#d9d9d9")
+        self.survey.configure(background="#0000ff")
+        self.survey.configure(cursor="hand2")
         self.survey.configure(cursor="hand2")
         self.survey.configure(disabledforeground="#a3a3a3")
         self.survey.configure(foreground="#000000")
+        self.survey.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.survey.configure(highlightbackground="#d9d9d9")
         self.survey.configure(highlightcolor="black")
         self.survey.configure(pady="0")
@@ -227,9 +249,11 @@ class studentpage:
         self.stud_forum.place(relx=0.609, rely=0.324, height=93, width=186)
         self.stud_forum.configure(activebackground="#ececec")
         self.stud_forum.configure(activeforeground="#000000")
-        self.stud_forum.configure(background="#d9d9d9")
+        self.stud_forum.configure(background="#8080ff")
+        self.stud_forum.configure(cursor="hand2")
         self.stud_forum.configure(disabledforeground="#a3a3a3")
         self.stud_forum.configure(foreground="#000000")
+        self.stud_forum.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.stud_forum.configure(highlightbackground="#d9d9d9")
         self.stud_forum.configure(highlightcolor="black")
         self.stud_forum.configure(pady="0")
@@ -240,13 +264,16 @@ class studentpage:
         self.courses.place(relx=0.74, rely=0.324, height=93, width=186)
         self.courses.configure(activebackground="#ececec")
         self.courses.configure(activeforeground="#000000")
-        self.courses.configure(background="#d9d9d9")
+        self.courses.configure(background="#ffff00")
+        self.courses.configure(cursor="hand2")
         self.courses.configure(disabledforeground="#a3a3a3")
         self.courses.configure(foreground="#000000")
+        self.courses.configure(font="-family {Segoe UI} -size 12 -weight bold")
         self.courses.configure(highlightbackground="#d9d9d9")
         self.courses.configure(highlightcolor="black")
         self.courses.configure(pady="0")
         self.courses.configure(text='''מקצועות''')
+        self.courses.configure(command=self.openCoursesSelectPage)
 
 if __name__ == '__main__':
     vp_start_gui()

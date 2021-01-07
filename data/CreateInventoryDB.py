@@ -16,7 +16,8 @@ def inventory_db_init():
             'id': '001',
             'item_name': 'עיפרון HB2',
             'price': 2,
-            'qty': 50},
+            'qty': 50
+        },
         {
             'id': '002',
             'item_name': 'עט שחור 0.5',

@@ -51,7 +51,6 @@ class Toplevel1:
     def submit(self):
         f = open("isSekerOpen.txt","r")
         txt = f.read()
-        print(txt)
         f.close()
         bool=1
         if txt=="1":
@@ -62,7 +61,6 @@ class Toplevel1:
             f.write("1")
         f.close()
         root.destroy()
-        Secretarymainmenu.vp_start_gui()
     def SekerResults(self):
         root.destroy()
         SekerRes.vp_start_gui()
