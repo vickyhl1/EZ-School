@@ -37,6 +37,7 @@ import Login_Page
 import AttendanceRep
 import Login_Page
 import student_shop
+import ReceiptsReport
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -123,6 +124,10 @@ class studentpage:
         root.destroy()
         student_shop.vp_start_gui()
 
+    def openReciptreport(self):
+        root.destroy()
+        ReceiptsReport.vp_start_gui()
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -142,7 +147,7 @@ class studentpage:
         top.configure(highlightcolor="black")
 
         self.AbsRep = tk.Button(top)
-        self.AbsRep.place(relx=0.094, rely=0.247, height=94, width=187)
+        self.AbsRep.place(relx=0.09, rely=0.17, height=94, width=187)
         self.AbsRep.configure(activebackground="#ececec")
         self.AbsRep.configure(activeforeground="#000000")
         self.AbsRep.configure(background="#ffff00")
@@ -263,7 +268,6 @@ class studentpage:
         self.payment_tuit.configure(text='''תשלום שכר לימוד''')
         self.payment_tuit.configure(command=self.paymentTuition)
 
-
         self.survey = tk.Button(top)
         self.survey.place(relx=0.474, rely=0.324, height=93, width=186)
         self.survey.configure(activebackground="#ececec")
@@ -324,6 +328,21 @@ class studentpage:
         self.LogOutBtn.configure(pady="0")
         self.LogOutBtn.configure(text='''התנתק''')
         self.LogOutBtn.configure(command=self.Logout)
+
+        self.ReciptRepBtn = tk.Button(top)
+        self.ReciptRepBtn.place(relx=0.09, rely=0.324, height=93, width=186)
+        self.ReciptRepBtn.configure(activebackground="#ececec")
+        self.ReciptRepBtn.configure(activeforeground="#000000")
+        self.ReciptRepBtn.configure(background="#93ff93")
+        self.ReciptRepBtn.configure(cursor="hand2")
+        self.ReciptRepBtn.configure(disabledforeground="#a3a3a3")
+        self.ReciptRepBtn.configure(foreground="#000000")
+        self.ReciptRepBtn.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.ReciptRepBtn.configure(highlightbackground="#d9d9d9")
+        self.ReciptRepBtn.configure(highlightcolor="black")
+        self.ReciptRepBtn.configure(pady="0")
+        self.ReciptRepBtn.configure(text='''דו"ח רכישות''')
+        self.ReciptRepBtn.configure(command=self.openReciptreport)
 
 
 

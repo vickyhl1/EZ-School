@@ -6,7 +6,6 @@
 #    Jan 07, 2021 12:06:53 PM +0200  platform: Windows NT
 
 import sys
-
 sys.path.append("..")
 try:
     import Tkinter as tk

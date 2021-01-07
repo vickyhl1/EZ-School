@@ -37,6 +37,8 @@ import TeachersSche
 import TuitionSecretaryid
 import classesScheSecretary
 import Login_Page
+import ShopSecretaryid
+import InventoryManagment
 
 
 def vp_start_gui():
@@ -89,6 +91,13 @@ class secretarypage:
     def openScheteachers(self):
         root.destroy()
         TeachersSche.vp_start_gui()
+    def openShopforStudent(self):
+        root.destroy()
+        ShopSecretaryid.vp_start_gui()
+
+    def openInvManage(self):
+        root.destroy()
+        InventoryManagment.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -202,6 +211,7 @@ class secretarypage:
         self.inventory_payment.configure(highlightcolor="black")
         self.inventory_payment.configure(pady="0")
         self.inventory_payment.configure(text='''גביית תשלום \n ציוד''')
+        self.inventory_payment.configure(command=self.openShopforStudent)
 
         self.tuition_fee = tk.Button(top)
         self.tuition_fee.place(relx=0.344, rely=0.324, height=93, width=186)
@@ -261,6 +271,7 @@ class secretarypage:
         self.inventory_manage.configure(highlightcolor="black")
         self.inventory_manage.configure(pady="0")
         self.inventory_manage.configure(text='''ניהול מלאי ציוד משרדי''')
+        self.inventory_manage.configure(command=self.openInvManage)
 
         self.LogOutBtn = tk.Button(top)
         self.LogOutBtn.place(relx=0.01, rely=0.88, height=93, width=186)

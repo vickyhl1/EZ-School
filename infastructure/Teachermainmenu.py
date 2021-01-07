@@ -32,6 +32,7 @@ import ScheForOneTeacher
 import TransWorkClock
 import teacher_shop
 import Login_Page
+import ReceiptsReport
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -93,6 +94,10 @@ class teacherpage:
     def openshop(self):
         root.destroy()
         teacher_shop.vp_start_gui()
+
+    def openReciptreport(self):
+        root.destroy()
+        ReceiptsReport.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -267,6 +272,21 @@ class teacherpage:
         self.LogOutBtn.configure(pady="0")
         self.LogOutBtn.configure(text='''התנתק''')
         self.LogOutBtn.configure(command=self.Logout)
+
+        self.ReciptRepBtn = tk.Button(top)
+        self.ReciptRepBtn.place(relx=0.09, rely=0.324, height=93, width=186)
+        self.ReciptRepBtn.configure(activebackground="#ececec")
+        self.ReciptRepBtn.configure(activeforeground="#000000")
+        self.ReciptRepBtn.configure(background="#93ff93")
+        self.ReciptRepBtn.configure(cursor="hand2")
+        self.ReciptRepBtn.configure(disabledforeground="#a3a3a3")
+        self.ReciptRepBtn.configure(foreground="#000000")
+        self.ReciptRepBtn.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.ReciptRepBtn.configure(highlightbackground="#d9d9d9")
+        self.ReciptRepBtn.configure(highlightcolor="black")
+        self.ReciptRepBtn.configure(pady="0")
+        self.ReciptRepBtn.configure(text='''דו"ח רכישות''')
+        self.ReciptRepBtn.configure(command=self.openReciptreport)
 
 if __name__ == '__main__':
     vp_start_gui()

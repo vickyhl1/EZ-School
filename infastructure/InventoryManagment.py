@@ -175,6 +175,7 @@ class InventoryManage:
         self.TCombobox1.configure(textvariable=InventoryManagment_support.combobox)
         self.TCombobox1.configure(takefocus="")
         self.TCombobox1.configure(value=self.listofitems_names())
+        self.TCombobox1.current(0)
 
 
         self.nameL = tk.Label(top)
