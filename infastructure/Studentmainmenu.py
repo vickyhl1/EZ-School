@@ -32,8 +32,12 @@ import TuitionStudent
 import classesSche
 import SubjectSelectPage
 import GamesForStudent
+<<<<<<< HEAD
 import Login_Page
 
+=======
+import student_shop
+>>>>>>> 465221b494d0c137b69920d7e267c89c3bace3d9
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -99,6 +103,11 @@ class studentpage:
         root.destroy()
         Seker1.vp_start_gui()
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 465221b494d0c137b69920d7e267c89c3bace3d9
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
@@ -108,9 +117,17 @@ class studentpage:
         root.destroy()
         classes.vp_start_gui()
 
+<<<<<<< HEAD
     def openCoursesSelectPage(self):
         root.destroy()
         SubjectSelectPage.vp_start_gui()
+=======
+    def open_student_shop(self):
+        root.destory()
+        student_shop.vp_start_gui()
+
+    def __init__(self, top=None):
+>>>>>>> 465221b494d0c137b69920d7e267c89c3bace3d9
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -224,6 +241,7 @@ class studentpage:
         self.shop.configure(highlightcolor="black")
         self.shop.configure(pady="0")
         self.shop.configure(text='''הזמנת ציוד משרדי''')
+        self.shop.configure(command=self.open_student_shop)
 
         self.payment_tuit = tk.Button(top)
         self.payment_tuit.place(relx=0.344, rely=0.324, height=93, width=186)
