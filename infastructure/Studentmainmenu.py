@@ -100,7 +100,6 @@ class studentpage:
         root.destroy()
         Seker1.vp_start_gui()
 
-
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
