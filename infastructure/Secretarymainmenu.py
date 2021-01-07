@@ -37,7 +37,7 @@ import TeachersSche
 import TuitionSecretaryid
 import classesScheSecretary
 import Login_Page
-
+import ShopSecretaryid
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -89,6 +89,9 @@ class secretarypage:
     def openScheteachers(self):
         root.destroy()
         TeachersSche.vp_start_gui()
+    def openShopforStudent(self):
+        root.destroy()
+        ShopSecretaryid.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -202,6 +205,7 @@ class secretarypage:
         self.inventory_payment.configure(highlightcolor="black")
         self.inventory_payment.configure(pady="0")
         self.inventory_payment.configure(text='''גביית תשלום \n ציוד''')
+        self.inventory_payment.configure(command=self.openShopforStudent)
 
         self.tuition_fee = tk.Button(top)
         self.tuition_fee.place(relx=0.344, rely=0.324, height=93, width=186)
