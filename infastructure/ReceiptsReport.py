@@ -59,7 +59,7 @@ class ReceiptsReport:
                                           values=('', '', recipt['total price'], recipt['purchase_time']))
             for item_name in recipt.keys():
                 if not (item_name == 'total price' or item_name == 'receipt_number' or item_name == 'purchase_time'):
-                    self.ReciptsTree.insert(row, 'end', text=item_name, values=(recipt[item_name], ""))
+                    self.ReciptsTree.insert(row, 'end', text='', values=(item_name, recipt[item_name], ""))
 
     def __init__(self, top=None):
         self.current_user = getUser()
@@ -109,16 +109,17 @@ class ReceiptsReport:
 
         self.ReciptsTree = ttk.Treeview(top)
         self.ReciptsTree["columns"] = ("one", "two","three","four")
-        self.ReciptsTree.column("#0", width=100, minwidth=100, stretch=tk.NO)
-        self.ReciptsTree.column("one", width=100, minwidth=100, stretch=tk.NO)
-        self.ReciptsTree.column("two", width=150, minwidth=150, stretch=tk.NO)
-        self.ReciptsTree.column("three", width=150, minwidth=150, stretch=tk.NO)
-        self.ReciptsTree.heading("#0", text="קבלה מס'", anchor=tk.W)
+        self.ReciptsTree.column("#0", width=75, minwidth=75, stretch=tk.NO)
+        self.ReciptsTree.column("one", width=150, minwidth=100, stretch=tk.YES)
+        self.ReciptsTree.column("two", width=75, minwidth=100, stretch=tk.NO)
+        self.ReciptsTree.column("three", width=100, minwidth=100, stretch=tk.NO)
+        self.ReciptsTree.column("four", width=175, minwidth=200, stretch=tk.NO)
+        self.ReciptsTree.heading("#0", text="מס' קבלה", anchor=tk.W)
         self.ReciptsTree.heading("one", text="מוצרים", anchor=tk.W)
         self.ReciptsTree.heading("two", text="כמות", anchor=tk.W)
-        self.ReciptsTree.heading("three", text="מחיר כולל", anchor=tk.W)
-        self.ReciptsTree.heading("four", text=",תאריך עיסקה", anchor=tk.W)
-        self.ReciptsTree.place(relx=0.1, rely=0.4)
+        self.ReciptsTree.heading("three", text="מחיר כולל(₪)", anchor=tk.W)
+        self.ReciptsTree.heading("four", text="תאריך עיסקה", anchor=tk.W)
+        self.ReciptsTree.place(relx=0.02, rely=0.4)
 
         self.InsertRecipts()
 

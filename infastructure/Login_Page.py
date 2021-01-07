@@ -116,9 +116,6 @@ class Login_Page:
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
 
-        self.menubar = tk.Menu(top, font="TkMenuFont", bg=_bgcolor, fg=_fgcolor)
-        top.configure(menu=self.menubar)
-
         self.Login_Button = tk.Button(top)
         self.Login_Button.place(relx=0.283, rely=0.577, height=93, width=256)
         self.Login_Button.configure(activebackground="#ececec")

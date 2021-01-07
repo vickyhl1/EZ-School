@@ -463,7 +463,7 @@ class teacher_shop:
         self.Message3.configure(width=197)
 
         self.total_cost = tk.Message(top)
-        self.total_cost.place(relx=0.513, rely=0.907, height=53, width=156)
+        self.total_cost.place(relx=0.45, rely=0.907, height=70, width=250)
         self.total_cost.configure(background="#7cacf3")
         self.total_cost.configure(font="-family {Segoe UI} -size 10 -weight bold")
         self.total_cost.configure(foreground="#000000")
