@@ -32,11 +32,9 @@ import TuitionStudent
 import classesSche
 import SubjectSelectPage
 import GamesForStudent
-<<<<<<< HEAD
 import AttendanceRep
-=======
 import Login_Page
->>>>>>> 71da90e25e47e438143e3ccf97ff7c0da33683e3
+
 
 import student_shop
 
@@ -68,15 +66,12 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
-<<<<<<< HEAD
     def openAbsRep(self):
         AttendanceRep.vp_start_gui()
-=======
     def Logout(self):
         root.destroy()
         Login_Page.vp_start_gui()
 
->>>>>>> 71da90e25e47e438143e3ccf97ff7c0da33683e3
     def meeting(self):
         tk.messagebox._show('פגישת מזכירה', 'הדף נמצא בפיתוח, יהיה זמין בעתיד')
     def open_classes(self):
