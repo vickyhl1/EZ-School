@@ -32,8 +32,13 @@ import TuitionStudent
 import classesSche
 import SubjectSelectPage
 import GamesForStudent
+<<<<<<< HEAD
 import AttendanceRep
+=======
+import Login_Page
+>>>>>>> 71da90e25e47e438143e3ccf97ff7c0da33683e3
 
+import student_shop
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -63,8 +68,15 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
+<<<<<<< HEAD
     def openAbsRep(self):
         AttendanceRep.vp_start_gui()
+=======
+    def Logout(self):
+        root.destroy()
+        Login_Page.vp_start_gui()
+
+>>>>>>> 71da90e25e47e438143e3ccf97ff7c0da33683e3
     def meeting(self):
         tk.messagebox._show('פגישת מזכירה', 'הדף נמצא בפיתוח, יהיה זמין בעתיד')
     def open_classes(self):
@@ -110,8 +122,11 @@ class studentpage:
         root.destroy()
         SubjectSelectPage.vp_start_gui()
 
-    def __init__(self, top=None):
+    def open_student_shop(self):
+        root.destroy()
+        student_shop.vp_start_gui()
 
+    def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
@@ -190,10 +205,6 @@ class studentpage:
 
         self.stud_health.configure(command= self.openHealth)
 
-
-        self.menubar = tk.Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
-        top.configure(menu = self.menubar)
-
         self.meeting_sched = tk.Button(top)
         self.meeting_sched.place(relx=0.609, rely=0.171, height=93, width=186)
         self.meeting_sched.configure(activebackground="#ececec")
@@ -238,6 +249,7 @@ class studentpage:
         self.shop.configure(highlightcolor="black")
         self.shop.configure(pady="0")
         self.shop.configure(text='''הזמנת ציוד משרדי''')
+        self.shop.configure(command=self.open_student_shop)
 
         self.payment_tuit = tk.Button(top)
         self.payment_tuit.place(relx=0.344, rely=0.324, height=93, width=186)
@@ -300,6 +312,23 @@ class studentpage:
         self.courses.configure(pady="0")
         self.courses.configure(text='''מקצועות''')
         self.courses.configure(command=self.openCoursesSelectPage)
+
+        self.LogOutBtn = tk.Button(top)
+        self.LogOutBtn.place(relx=0.01, rely=0.88, height=93, width=186)
+        self.LogOutBtn.configure(activebackground="#ececec")
+        self.LogOutBtn.configure(activeforeground="#000000")
+        self.LogOutBtn.configure(background="#ff0000")
+        self.LogOutBtn.configure(cursor="hand2")
+        self.LogOutBtn.configure(disabledforeground="#a3a3a3")
+        self.LogOutBtn.configure(foreground="#000000")
+        self.LogOutBtn.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.LogOutBtn.configure(highlightbackground="#d9d9d9")
+        self.LogOutBtn.configure(highlightcolor="black")
+        self.LogOutBtn.configure(pady="0")
+        self.LogOutBtn.configure(text='''התנתק''')
+        self.LogOutBtn.configure(command=self.Logout)
+
+
 
 if __name__ == '__main__':
     vp_start_gui()

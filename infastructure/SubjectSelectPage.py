@@ -32,6 +32,8 @@ import MathPageStud
 import HistoryPageStud
 import HebrewPageStud
 import TanachPageStud
+import GradeReportStud
+import GradeReportTeacher
 
 
 
@@ -62,6 +64,14 @@ def destroy_SubjectSelectPage():
     w = None
 
 class SubjectSelectPage:
+    def openReport(self):
+        if self.currentUser['Usertype'] == 3:
+            root.destroy()
+            GradeReportStud.vp_start_gui()
+        elif self.currentUser['Usertype'] == 2:
+            root.destroy()
+            GradeReportTeacher.vp_start_gui()
+
     def openMainmenue(self):
         if self.currentUser['Usertype'] == 2:
             root.destroy()
@@ -139,9 +149,6 @@ class SubjectSelectPage:
         self.Mainmenuebtn.configure(text='''תפריט ראשי''')
         self.Mainmenuebtn.configure(command=self.openMainmenue)
 
-        self.menubar = tk.Menu(top,font="TkMenuFont",bg=_bgcolor,fg=_fgcolor)
-        top.configure(menu = self.menubar)
-
         self.Mathbtn = tk.Button(top)
         self.Mathbtn.place(relx=0.4, rely=0.2, height=44, width=97)
         self.Mathbtn.configure(activebackground="#ececec")
@@ -205,6 +212,20 @@ class SubjectSelectPage:
         self.TitleL.configure(font="-family {Segoe UI} -size 14 -weight bold -underline 1")
         self.TitleL.configure(foreground="#000000")
         self.TitleL.configure(text='''נא לבחור מקצוע''')
+
+        self.ReportBtn = tk.Button(top)
+        self.ReportBtn.place(relx=0.1, rely=0.2, height=44, width=97)
+        self.ReportBtn.configure(activebackground="#ececec")
+        self.ReportBtn.configure(activeforeground="#000000")
+        self.ReportBtn.configure(background="#707070")
+        self.ReportBtn.configure(disabledforeground="#a3a3a3")
+        self.ReportBtn.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.ReportBtn.configure(foreground="#000000")
+        self.ReportBtn.configure(highlightbackground="#d9d9d9")
+        self.ReportBtn.configure(highlightcolor="black")
+        self.ReportBtn.configure(pady="0")
+        self.ReportBtn.configure(text='''דו"ח ציונים''')
+        self.ReportBtn.configure(command=self.openReport)
 
 if __name__ == '__main__':
     vp_start_gui()

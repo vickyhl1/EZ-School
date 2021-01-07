@@ -30,6 +30,7 @@ import classesattendance
 import SubjectSelectPage
 import ScheForOneTeacher
 import TransWorkClock
+import Login_Page
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -57,6 +58,10 @@ def destroy_teacherpage():
     w = None
 
 class teacherpage:
+    def Logout(self):
+        root.destroy()
+        Login_Page.vp_start_gui()
+
     def OpenWork(self):
         TransWorkClock.vp_start_gui()
     def OpenGames(self):
@@ -242,6 +247,21 @@ class teacherpage:
         self.courses.configure(pady="0")
         self.courses.configure(text='''מקצועות''')
         self.courses.configure(command=self.openCoursesSelectPage)
+
+        self.LogOutBtn = tk.Button(top)
+        self.LogOutBtn.place(relx=0.01, rely=0.88, height=93, width=186)
+        self.LogOutBtn.configure(activebackground="#ececec")
+        self.LogOutBtn.configure(activeforeground="#000000")
+        self.LogOutBtn.configure(background="#ff0000")
+        self.LogOutBtn.configure(cursor="hand2")
+        self.LogOutBtn.configure(disabledforeground="#a3a3a3")
+        self.LogOutBtn.configure(foreground="#000000")
+        self.LogOutBtn.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.LogOutBtn.configure(highlightbackground="#d9d9d9")
+        self.LogOutBtn.configure(highlightcolor="black")
+        self.LogOutBtn.configure(pady="0")
+        self.LogOutBtn.configure(text='''התנתק''')
+        self.LogOutBtn.configure(command=self.Logout)
 
 if __name__ == '__main__':
     vp_start_gui()
