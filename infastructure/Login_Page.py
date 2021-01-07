@@ -132,8 +132,8 @@ class Login_Page:
         self.Login_Button.configure(pady="0")
         self.Login_Button.configure(text='''Login''')
         self.Login_Button.configure(command=self.login)
-        root.bind('<Return>',lambda x: self.login())
-
+        root.bind('<Return>', lambda x: self.login())
+        
         self.Label1 = tk.Label(top)
         self.Label1.place(relx=0.217, rely=0.267, height=30, width=82)
         self.Label1.configure(activebackground="#f9f9f9")
