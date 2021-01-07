@@ -29,10 +29,8 @@ import Login_Page_support
 import Secretarymainmenu
 import Studentmainmenu
 import Teachermainmenu
-
-
-sys.path.append('..')
 from data import user_db_init, inventory_db_init,game_links_db_init,Schedule_db_init,ScheduleTeacher_db_init
+
 user_db_init()
 inventory_db_init()
 game_links_db_init()
@@ -71,7 +69,7 @@ def destroy_Login_Page():
     w = None
 
 
-class Login_Page(tk.Frame):
+class Login_Page:
     def login(self):
         f = open("Current_user.txt", "w")
         f.seek(0)
@@ -97,8 +95,6 @@ class Login_Page(tk.Frame):
             elif userobj['Usertype'] == 3:
                 root.destroy()
                 Studentmainmenu.vp_start_gui()
-
-
         else:
             tk.messagebox.showwarning('Login Page', 'The Id or Password is incorrect')
 
@@ -182,6 +178,7 @@ class Login_Page(tk.Frame):
         self.Password_Entry.configure(insertbackground="black")
         self.Password_Entry.configure(selectbackground="blue")
         self.Password_Entry.configure(selectforeground="white")
+        self.Password_Entry.configure(show="*")
 
         self.Message1 = tk.Message(top)
         self.Message1.place(relx=0.5, rely=0.114, relheight=0.057
