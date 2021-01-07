@@ -32,12 +32,10 @@ import TuitionStudent
 import classesSche
 import SubjectSelectPage
 import GamesForStudent
-<<<<<<< HEAD
 import AttendanceRep
-=======
 import Login_Page
->>>>>>> 71da90e25e47e438143e3ccf97ff7c0da33683e3
-
+import AttendanceRep
+import Login_Page
 import student_shop
 
 def vp_start_gui():
@@ -68,15 +66,14 @@ def destroy_studentpage():
     w = None
 
 class studentpage:
-<<<<<<< HEAD
     def openAbsRep(self):
         AttendanceRep.vp_start_gui()
-=======
+    def openAbsRep(self):
+        AttendanceRep.vp_start_gui()
     def Logout(self):
         root.destroy()
         Login_Page.vp_start_gui()
 
->>>>>>> 71da90e25e47e438143e3ccf97ff7c0da33683e3
     def meeting(self):
         tk.messagebox._show('פגישת מזכירה', 'הדף נמצא בפיתוח, יהיה זמין בעתיד')
     def open_classes(self):
@@ -314,7 +311,7 @@ class studentpage:
         self.courses.configure(command=self.openCoursesSelectPage)
 
         self.LogOutBtn = tk.Button(top)
-        self.LogOutBtn.place(relx=0.01, rely=0.88, height=93, width=186)
+        self.LogOutBtn.place(relx=0.01, rely=0.78, height=93, width=186)
         self.LogOutBtn.configure(activebackground="#ececec")
         self.LogOutBtn.configure(activeforeground="#000000")
         self.LogOutBtn.configure(background="#ff0000")

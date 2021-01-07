@@ -30,6 +30,7 @@ import classesattendance
 import SubjectSelectPage
 import ScheForOneTeacher
 import TransWorkClock
+import teacher_shop
 import Login_Page
 
 def vp_start_gui():
@@ -89,6 +90,9 @@ class teacherpage:
         root.destroy()
         SubjectSelectPage.vp_start_gui()
 
+    def openshop(self):
+        root.destroy()
+        teacher_shop.vp_start_gui()
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -187,6 +191,7 @@ class teacherpage:
         self.shop.configure(highlightcolor="black")
         self.shop.configure(pady="0")
         self.shop.configure(text='''הזמנת ציוד משרדי''')
+        self.shop.configure(command=self.openshop)
 
         self.teach_work = tk.Button(top)
         self.teach_work.place(relx=0.344, rely=0.324, height=93, width=186)
