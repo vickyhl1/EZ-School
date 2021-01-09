@@ -598,11 +598,12 @@ def user_db_init():
             'password': '12345',
             'Usertype': 2,
             'workhours': 0},
+        {
+
+        }
     ]
 
     for user in data:
         existing_user = mycol.find_one({'id': user['id']})
         if existing_user == None:
-            mycol.insert_one(user)
-        elif not existing_user['id'] == user['id']:
             mycol.insert_one(user)

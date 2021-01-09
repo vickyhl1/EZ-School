@@ -5,9 +5,8 @@ Developers:
 3. Yovel Aloni
 4. Vicky Hlustov
 
-to run execute EZSchool.exe
+to run through python run Login_Page.py in infastructure folder
 
-to run through python run Login_Page.py
 to run in python install the next packages:
 1. pymongo
 2. tkcalendar
