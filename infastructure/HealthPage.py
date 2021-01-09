@@ -27,6 +27,8 @@ from tkinter import messagebox
 import Studentmainmenu
 import Teachermainmenu
 import Secretarymainmenu
+from data import connect_to_db_and_collection, getUser
+
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -62,27 +64,20 @@ class Toplevel1:
         if flag:
             tk.messagebox._show('Health page', 'ההצהרה הוגשה')
             flag=0
-            f = open("Current_user.txt")
-            txt = str(date.today()) + "\n" + f.read() + "\n\n"
-            f.close()
-            f = open("Health_statements.txt", "a")
-            f.write(txt + "\n\n")
-            f.close()
+            my_collec = connect_to_db_and_collection('EZSchooldb', 'Users')
+            my_collec.update_one({'id': self.current_user['id']}, {'$set': {'health': str(date.today())}})
 
         else:
             tk.messagebox.showwarning('Health page', 'לא אישרת את ההצהרה, נסה שוב מאוחר יותר')
         root.destroy()
-        Studentmainmenu.vp_start_gui()
 
     def checkbox(self):
         global flag
-        if flag==1:
-            flag=0
-        elif flag==0:
-            flag=1
+        flag= not flag
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
+        self.current_user = getUser()
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
         _fgcolor = '#000000'  # X11 color: 'black'
         _compcolor = '#d9d9d9' # X11 color: 'gray85'
@@ -133,9 +128,9 @@ class Toplevel1:
                 , relheight=0.0, height=21)
         self.checkboxhealth.configure(variable=HealthPage_support.tch51)
         self.checkboxhealth.configure(takefocus="")
-        self.checkboxhealth.configure(text='''מאשר\ת''')
+        self.checkboxhealth.configure(text='''מאשר''')
         self.checkboxhealth.configure(compound='bottom')
-        self.checkboxhealth.configure(command= self.checkbox)
+        self.checkboxhealth.configure(command=self.checkbox)
 
 
         self.submithealth = tk.Button(top)

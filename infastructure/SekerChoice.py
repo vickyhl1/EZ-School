@@ -56,10 +56,14 @@ class Toplevel1:
         if txt=="1":
             f=open("isSekerOpen.txt","w")
             f.write("0")
+            tk.messagebox.showinfo('סקר', 'הסקר הוסתר בהצלחה')
         else:
             f=open("isSekerOpen.txt", "w")
             f.write("1")
+            tk.messagebox.showinfo('סקר', 'הסקר פורסם בהצלחה')
+
         f.close()
+
         root.destroy()
     def SekerResults(self):
         root.destroy()

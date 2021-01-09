@@ -56,7 +56,7 @@ class ReceiptsReport:
         recipts = self.current_user['receipts']
         for recipt in recipts:
             row = self.ReciptsTree.insert("", 'end',text=recipt['receipt_number'],
-                                          values=('', '', recipt['total price'], recipt['purchase_time']))
+                                  values=('', '', recipt['total price'], recipt['purchase_time']))
             for item_name in recipt.keys():
                 if not (item_name == 'total price' or item_name == 'receipt_number' or item_name == 'purchase_time'):
                     self.ReciptsTree.insert(row, 'end', text='', values=(item_name, recipt[item_name], ""))

@@ -290,7 +290,8 @@ def user_db_init():
             'name': 'Yovel Aloni',
             'id': '319122842',
             'password': '123456',
-            'Usertype': 1},
+            'Usertype': 1,
+            'workhours': 0},
         {
             'stuNum': 32,
             'name': 'Nadav Ishay',
@@ -565,32 +566,38 @@ def user_db_init():
             'name': 'Hannah Montanna',
             'id': '312208524',
             'password': '123456',
-            'Usertype': 2},
+            'Usertype': 2,
+            'workhours': 0},
         {
             'name': 'Drake Bell',
             'id': '312208525',
             'password': '123456',
-            'Usertype': 2},
+            'Usertype': 2,
+            'workhours': 0},
         {
             'name': 'Josh Peck',
             'id': '312208526',
             'password': '123456',
-            'Usertype': 2},
+            'Usertype': 2,
+            'workhours': 0},
         {
             'name': 'Megan Fox',
             'id': '312208527',
             'password': '123456',
-            'Usertype': 2},
+            'Usertype': 2,
+            'workhours': 0},
         {
             'name': 'Angelina Jolie',
             'id': '312208528',
             'password': '123456',
-            'Usertype': 2},
+            'Usertype': 2,
+            'workhours': 0},
         {
             'name': 'Liam Hemsworth',
             'id': '312208529',
             'password': '12345',
-            'Usertype': 2},
+            'Usertype': 2,
+            'workhours': 0},
     ]
 
     for user in data:

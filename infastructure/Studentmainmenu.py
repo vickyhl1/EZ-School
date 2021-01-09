@@ -38,6 +38,9 @@ import AttendanceRep
 import Login_Page
 import student_shop
 import ReceiptsReport
+from data import connect_to_db_and_collection, getUser
+from tkinter import messagebox
+from datetime import date
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -102,8 +105,15 @@ class studentpage:
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
     def openHealth(self):
-        root.destroy()
-        HealthPage.vp_start_gui()
+        self.user = getUser()
+        flag =1
+        if 'health' in self.user:
+            if self.user['health'] == str(date.today()):
+                tk.messagebox.showwarning('הצהרת בריאות', 'הצהרת הבריאות כבר הוגשה')
+                flag =0
+        if flag:
+            HealthPage.vp_start_gui()
+
     def openzoom(self):
         root.destroy()
         classes.vp_start_gui()
@@ -117,12 +127,16 @@ class studentpage:
         student_shop.vp_start_gui()
 
     def openReciptreport(self):
-        root.destroy()
-        ReceiptsReport.vp_start_gui()
+        if 'receipts' in self.user:
+            ReceiptsReport.vp_start_gui()
+        else:
+            tk.messagebox.showwarning('Shop report', 'לא בוצעו רכישות')
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
+        self.user = getUser()
+
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
         _fgcolor = '#000000'  # X11 color: 'black'
         _compcolor = '#d9d9d9' # X11 color: 'gray85'
@@ -307,7 +321,7 @@ class studentpage:
         self.courses.configure(command=self.openCoursesSelectPage)
 
         self.LogOutBtn = tk.Button(top)
-        self.LogOutBtn.place(relx=0.01, rely=0.78, height=93, width=186)
+        self.LogOutBtn.place(relx=0.01, rely=0.7, height=93, width=186)
         self.LogOutBtn.configure(activebackground="#ececec")
         self.LogOutBtn.configure(activeforeground="#000000")
         self.LogOutBtn.configure(background="#ff0000")
