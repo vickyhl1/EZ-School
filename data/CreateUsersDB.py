@@ -598,9 +598,7 @@ def user_db_init():
             'password': '12345',
             'Usertype': 2,
             'workhours': 0},
-        {
 
-        }
     ]
 
     for user in data:
