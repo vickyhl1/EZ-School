@@ -61,7 +61,7 @@ class classes_Sche2:
     def Lesson(self,nameday,index):
         global mydb
         userobj = mydb['ScheduleClasses'].find_one({'name':'class2'})
-        msg= (str(userobj[nameday][index]))
+        msg= ((userobj[nameday][index]))
         return msg
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
