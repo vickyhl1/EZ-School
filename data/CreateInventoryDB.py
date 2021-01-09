@@ -49,5 +49,3 @@ def inventory_db_init():
         exisiting_item = mycol.find_one({'id': item['id']})
         if exisiting_item == None:
             mycol.insert_one(item)
-        elif not exisiting_item['id'] == exisiting_item['id']:
-            mycol.insert_one(item)

@@ -52,7 +52,10 @@ def Schedule_db_init():
                 "wednesday6": ["חשבון", "חשבון", "עברית", "עברית", "הסטוריה"],
                 "name": "class6"}
     ]
-
+    for item in data:
+        exisiting_item = mycol.find_one({'name': item['name']})
+        if exisiting_item == None:
+            mycol.insert_one(item)
 
 
 
