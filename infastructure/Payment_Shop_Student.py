@@ -67,11 +67,30 @@ class shop_payment:
     def submit(self):
         inventory_collec = connect_to_db_and_collection('EZSchooldb', 'Inventory')
         users_collect=connect_to_db_and_collection('EZSchooldb','Users')
-        year=int(self.year_entry.get())
-        month=int(self.month_entry.get())
+        year=(self.year_entry.get())
+        month=(self.month_entry.get())
         idofcard=self.id_entry.get()
         cardnumber=self.card_entry.get()
         flag=1
+        if cardnumber == "":
+            tk.messagebox.showwarning('Shop', 'לא הוזן מספר כרטיס, נסה שוב')
+            flag = 0
+
+        if flag:
+            if idofcard == "":
+                tk.messagebox.showwarning('Shop', 'לא הוזנה תעודת זהות, נסה שוב')
+                flag = 0
+        if flag:
+            if year == "":
+                tk.messagebox.showwarning('Shop', 'לא הוזנה שנה, נסה שוב')
+                flag = 0
+        if flag:
+            if month == "":
+                tk.messagebox.showwarning('Shop', 'לא הוזן חודש, נסה שוב')
+                flag = 0
+        if flag:
+            year = int(year)
+            month = int(month)
         if flag:
             if(len(cardnumber)<16):
                 tk.messagebox.showwarning('Shop', 'מספר הכרטיס אינו תקין-קצר מידי, נסה שוב')

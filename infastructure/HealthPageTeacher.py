@@ -26,6 +26,7 @@ import HealthPage_support
 from datetime import date
 from tkinter import messagebox
 import Teachermainmenu
+from data import connect_to_db_and_collection, getUser
 
 
 
@@ -68,26 +69,20 @@ class Toplevel1:
         if flag:
             tk.messagebox._show('Health page', 'ההצהרה הוגשה')
             flag = 0
-            f = open("Current_user.txt")
-            txt = str(date.today()) + "\n" + f.read() + "\n\n"
-            f.close()
-            f = open("Health_statements.txt", "a")
-            f.write(txt + "\n\n")
-            f.close()
+            my_collec = connect_to_db_and_collection('EZSchooldb', 'Users')
+            my_collec.update_one({'id': self.current_user['id']}, {'$set': {'health': str(date.today())}})
 
         else:
             tk.messagebox.showwarning('Health page', 'לא אישרת את ההצהרה, נסה שוב מאוחר יותר')
         root.destroy()
-        Teachermainmenu.vp_start_gui()
 
     def checkbox(self):
         global flag
-        if flag == 1:
-            flag = 0
-        elif flag == 0:
-            flag = 1
+        flag = not flag
 
     def __init__(self, top=None):
+        self.current_user = getUser()
+
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'

@@ -51,18 +51,20 @@ class Toplevel1:
     def submit(self):
         f = open("isSekerOpen.txt","r")
         txt = f.read()
-        print(txt)
         f.close()
         bool=1
         if txt=="1":
             f=open("isSekerOpen.txt","w")
             f.write("0")
+            tk.messagebox.showinfo('סקר', 'הסקר הוסתר בהצלחה')
         else:
             f=open("isSekerOpen.txt", "w")
             f.write("1")
+            tk.messagebox.showinfo('סקר', 'הסקר פורסם בהצלחה')
+
         f.close()
+
         root.destroy()
-        Secretarymainmenu.vp_start_gui()
     def SekerResults(self):
         root.destroy()
         SekerRes.vp_start_gui()

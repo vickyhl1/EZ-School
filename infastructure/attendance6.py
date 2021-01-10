@@ -71,6 +71,27 @@ class Toplevel1:
         global mydb
         userobj= mydb['Users'].find_one({'id': student_id})
         mydb['Users'].update_one({'id':userobj['id']}, {'$set': {'attendance':userobj['attendance']+1}})
+    def Changebox1(self):
+            self.CheckVar1=not self.CheckVar1
+    def Changebox2(self):
+            self.CheckVar2=not self.CheckVar2
+    def Changebox3(self):
+            self.CheckVar3=not self.CheckVar3
+    def Changebox4(self):
+            self.CheckVar4=not self.CheckVar4
+    def Changebox5(self):
+            self.CheckVar5=not self.CheckVar5
+    def Changebox6(self):
+            self.CheckVar6=not self.CheckVar6
+    def Changebox7(self):
+            self.CheckVar7=not self.CheckVar7
+    def Changebox8(self):
+            self.CheckVar8=not self.CheckVar8
+    def Changebox9(self):
+            self.CheckVar9=not self.CheckVar9
+    def Changebox10(self):
+            self.CheckVar10=not self.CheckVar10
+
 
     def Submit(self):
         if not self.CheckVar1.get():
@@ -98,16 +119,16 @@ class Toplevel1:
         Teachermainmenu.vp_start_gui()
 
     def __init__(self, top=None):
-        self.CheckVar1 = tk.IntVar()
-        self.CheckVar2 = tk.IntVar()
-        self.CheckVar3 = tk.IntVar()
-        self.CheckVar4 = tk.IntVar()
-        self.CheckVar5 = tk.IntVar()
-        self.CheckVar6 = tk.IntVar()
-        self.CheckVar7 = tk.IntVar()
-        self.CheckVar8 = tk.IntVar()
-        self.CheckVar9 = tk.IntVar()
-        self.CheckVar10 = tk.IntVar()
+        self.CheckVar1 = 0
+        self.CheckVar2 = 0
+        self.CheckVar3 = 0
+        self.CheckVar4 = 0
+        self.CheckVar5 = 0
+        self.CheckVar6 = 0
+        self.CheckVar7 = 0
+        self.CheckVar8 = 0
+        self.CheckVar9 = 0
+        self.CheckVar10 = 0
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
@@ -156,9 +177,7 @@ class Toplevel1:
         self.stud1.configure(highlightcolor="black")
         self.stud1.configure(justify='left')
         self.stud1.configure(text='''וין דיזל 324982135''')
-        self.stud1.configure(variable=self.CheckVar1)
-        self.stud1.configure(onvalue=1)
-        self.stud1.configure(offvalue=0)
+
 
         self.stud2 = tk.Checkbutton(top)
         self.stud2.place(relx=0.365, rely=0.181, relheight=0.061, relwidth=0.184)
@@ -173,9 +192,7 @@ class Toplevel1:
         self.stud2.configure(highlightcolor="black")
         self.stud2.configure(justify='left')
         self.stud2.configure(text='''כריס פראט 312872215''')
-        self.stud2.configure(variable=self.CheckVar2)
-        self.stud2.configure(onvalue=1)
-        self.stud2.configure(offvalue=0)
+
 
         self.stud3 = tk.Checkbutton(top)
         self.stud3.place(relx=0.333, rely=0.238, relheight=0.061, relwidth=0.238)
@@ -190,9 +207,7 @@ class Toplevel1:
         self.stud3.configure(highlightcolor="black")
         self.stud3.configure(justify='left')
         self.stud3.configure(text='''זואי סלדנה 231145678''')
-        self.stud3.configure(variable=self.CheckVar3)
-        self.stud3.configure(onvalue=1)
-        self.stud3.configure(offvalue=0)
+
 
         self.stud4 = tk.Checkbutton(top)
         self.stud4.place(relx=0.349, rely=0.295, relheight=0.061, relwidth=0.213)
@@ -207,9 +222,7 @@ class Toplevel1:
         self.stud4.configure(highlightcolor="black")
         self.stud4.configure(justify='left')
         self.stud4.configure(text='''בראדלי קופר 312555673''')
-        self.stud4.configure(variable=self.CheckVar4)
-        self.stud4.configure(onvalue=1)
-        self.stud4.configure(offvalue=0)
+
 
         self.stud5 = tk.Checkbutton(top)
         self.stud5.place(relx=0.339, rely=0.362, relheight=0.051, relwidth=0.233)
@@ -224,9 +237,7 @@ class Toplevel1:
         self.stud5.configure(highlightcolor="black")
         self.stud5.configure(justify='left')
         self.stud5.configure(text='''דייב בטיסטה 312545673''')
-        self.stud5.configure(variable=self.CheckVar5)
-        self.stud5.configure(onvalue=1)
-        self.stud5.configure(offvalue=0)
+
 
         self.stud6 = tk.Checkbutton(top)
         self.stud6.place(relx=0.334, rely=0.41, relheight=0.061, relwidth=0.238)
@@ -240,9 +251,7 @@ class Toplevel1:
         self.stud6.configure(highlightcolor="black")
         self.stud6.configure(justify='left')
         self.stud6.configure(text='''קארן גילאן 213522324''')
-        self.stud6.configure(variable=self.CheckVar6)
-        self.stud6.configure(onvalue=1)
-        self.stud6.configure(offvalue=0)
+
 
         self.stud7 = tk.Checkbutton(top)
         self.stud7.place(relx=0.323, rely=0.47, relheight=0.052, relwidth=0.248)
@@ -256,9 +265,7 @@ class Toplevel1:
         self.stud7.configure(highlightcolor="black")
         self.stud7.configure(justify='left')
         self.stud7.configure(text='''סת' גרין 322171742''')
-        self.stud7.configure(variable=self.CheckVar7)
-        self.stud7.configure(onvalue=1)
-        self.stud7.configure(offvalue=0)
+
 
         self.stud8 = tk.Checkbutton(top)
         self.stud8.place(relx=0.334, rely=0.514, relheight=0.062, relwidth=0.237)
@@ -273,9 +280,7 @@ class Toplevel1:
         self.stud8.configure(highlightcolor="black")
         self.stud8.configure(justify='left')
         self.stud8.configure(text='''מייקל רוקר 322131009''')
-        self.stud8.configure(variable=self.CheckVar8)
-        self.stud8.configure(onvalue=1)
-        self.stud8.configure(offvalue=0)
+
 
         self.stud9 = tk.Checkbutton(top)
         self.stud9.place(relx=0.333, rely=0.571, relheight=0.051, relwidth=0.238)
@@ -290,9 +295,7 @@ class Toplevel1:
         self.stud9.configure(highlightcolor="black")
         self.stud9.configure(justify='left')
         self.stud9.configure(text='''מילה קוניס 312246583''')
-        self.stud9.configure(variable=self.CheckVar9)
-        self.stud9.configure(onvalue=1)
-        self.stud9.configure(offvalue=0)
+
 
         self.stud10 = tk.Checkbutton(top)
         self.stud10.place(relx=0.376, rely=0.628, relheight=0.05, relwidth=0.186)
@@ -307,9 +310,7 @@ class Toplevel1:
         self.stud10.configure(highlightcolor="black")
         self.stud10.configure(justify='left')
         self.stud10.configure(text='''כריסטופר פיירבנק 238723233''')
-        self.stud10.configure(variable=self.CheckVar10)
-        self.stud10.configure(onvalue=1)
-        self.stud10.configure(offvalue=0)
+
 
         self.Message1 = tk.Message(top)
         self.Message1.place(relx=0.333, rely=0.02, relheight=0.1, relwidth=0.311)
@@ -349,6 +350,17 @@ class Toplevel1:
         self.attendancereport.configure(pady="0")
         self.attendancereport.configure(text='''דוח נוכחות''')
         self.attendancereport.configure(command=self.report)
+
+        self.stud1.configure(command=self.Changebox1)
+        self.stud2.configure(command=self.Changebox2)
+        self.stud3.configure(command=self.Changebox3)
+        self.stud4.configure(command=self.Changebox4)
+        self.stud5.configure(command=self.Changebox5)
+        self.stud6.configure(command=self.Changebox6)
+        self.stud7.configure(command=self.Changebox7)
+        self.stud8.configure(command=self.Changebox8)
+        self.stud9.configure(command=self.Changebox9)
+        self.stud10.configure(command=self.Changebox10)
 
 
 if __name__ == '__main__':

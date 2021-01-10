@@ -22,7 +22,7 @@ except ImportError:
 import Secretarymainmenu_support
 import webbrowser
 import HealthPageSecretary
-
+import InventoryManagment
 import SekerRes
 import TuitionSecretaryid
 
@@ -39,7 +39,9 @@ import classesScheSecretary
 import Login_Page
 import ShopSecretaryid
 import InventoryManagment
-
+import healthReport
+from datetime import date
+from data import connect_to_db_and_collection, getUser
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''
@@ -83,14 +85,25 @@ class secretarypage:
         TuitionSecretaryid.vp_start_gui()
     def openforum(self):
         webbrowser.open("https://talsh16.wixsite.com/ezschool")
+
     def openHealth(self):
-        root.destroy()
-        HealthPageSecretary.vp_start_gui()
+        self.user = getUser()
+        flag = 1
+        if 'health' in self.user:
+            if self.user['health'] == str(date.today()):
+                tk.messagebox.showwarning('הצהרת בריאות', 'הצהרת הבריאות כבר הוגשה')
+                flag = 0
+        if flag:
+            HealthPageSecretary.vp_start_gui()
+
     def openSeker(self):
         SekerChoice.vp_start_gui()
     def openScheteachers(self):
         root.destroy()
         TeachersSche.vp_start_gui()
+    def openManage(self):
+        root.destroy()
+        InventoryManagment.vp_start_gui()
     def openShopforStudent(self):
         root.destroy()
         ShopSecretaryid.vp_start_gui()
@@ -98,6 +111,10 @@ class secretarypage:
     def openInvManage(self):
         root.destroy()
         InventoryManagment.vp_start_gui()
+    def openHealthReport(self):
+        healthReport.vp_start_gui()
+
+
 
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
@@ -132,6 +149,21 @@ class secretarypage:
         self.student_schedule.configure(pady="0")
         self.student_schedule.configure(text='''עדכון מערכת שעות \n תלמיד''')
         self.student_schedule.configure(command= self.openScheStudent)
+
+        self.healthreport = tk.Button(top)
+        self.healthreport.place(relx=0.094, rely=0.171, height=93, width=186)
+        self.healthreport.configure(activebackground="#ececec")
+        self.healthreport.configure(activeforeground="#000000")
+        self.healthreport.configure(background="#ffbbff")
+        self.healthreport.configure(cursor="hand2")
+        self.healthreport.configure(disabledforeground="#a3a3a3")
+        self.healthreport.configure(foreground="#000000")
+        self.healthreport.configure(font="-family {Segoe UI} -size 12 -weight bold")
+        self.healthreport.configure(highlightbackground="#d9d9d9")
+        self.healthreport.configure(highlightcolor="black")
+        self.healthreport.configure(pady="0")
+        self.healthreport.configure(text='''דוח הצהרות בריאות\n עדכני''')
+        self.healthreport.configure(command=self.openHealthReport)
 
         self.teacher_schedule = tk.Button(top)
         self.teacher_schedule.place(relx=0.344, rely=0.17, height=93, width=186)
@@ -274,7 +306,7 @@ class secretarypage:
         self.inventory_manage.configure(command=self.openInvManage)
 
         self.LogOutBtn = tk.Button(top)
-        self.LogOutBtn.place(relx=0.01, rely=0.88, height=93, width=186)
+        self.LogOutBtn.place(relx=0.01, rely=0.7, height=93, width=186)
         self.LogOutBtn.configure(activebackground="#ececec")
         self.LogOutBtn.configure(activeforeground="#000000")
         self.LogOutBtn.configure(background="#ff0000")

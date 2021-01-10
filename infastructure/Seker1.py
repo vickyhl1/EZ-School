@@ -59,11 +59,8 @@ class Seker:
         data={'q1':self.Question1.get(),'q2':self.Question2.get(),'q3':self.Question3.get(),'q4':self.Question4.get()
             ,'q5':self.Question5.get(),'q6':self.Question6.get(),'q7':self.Question7.get(),'q8':self.Question8.get()}
         mycol.insert_one(data)
-        self.mainmenu()
 
-    def mainmenu(self):
-        root.destroy()
-        Studentmainmenu.vp_start_gui()
+
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -334,19 +331,7 @@ class Seker:
         self.SubmitButton.configure(text='''הגשה''')
         self.SubmitButton.configure(command=self.Submit)
 
-        self.BackToMenu = tk.Button(top)
-        self.BackToMenu.place(relx=0.022, rely=0.908, height=44, width=157)
-        self.BackToMenu.configure(activebackground="#ececec")
-        self.BackToMenu.configure(activeforeground="#000000")
-        self.BackToMenu.configure(background="#d9d9d9")
-        self.BackToMenu.configure(cursor="hand2")
-        self.BackToMenu.configure(disabledforeground="#a3a3a3")
-        self.BackToMenu.configure(foreground="#000000")
-        self.BackToMenu.configure(highlightbackground="#d9d9d9")
-        self.BackToMenu.configure(highlightcolor="black")
-        self.BackToMenu.configure(pady="0")
-        self.BackToMenu.configure(text='''חזרה לתפריט הראשי''')
-        self.BackToMenu.configure(command=self.mainmenu)
+
 
 # ======================================================
 # Support code for Balloon Help (also called tooltips).

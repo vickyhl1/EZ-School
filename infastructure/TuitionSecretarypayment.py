@@ -76,17 +76,41 @@ class Tuition:
     def submit(self):
         global userobj
         key="Tuition"+userobj["id"]
-        year=int(self.year_entry.get())
-        month=int(self.month_entry.get())
+        year=(self.year_entry.get())
+        month=(self.month_entry.get())
         idofcard=self.id_entry.get()
         cardnumber=self.card_entry.get()
         amount=self.amount_entry.get()
         balance=userobj[key]
         flag=1
-        for c in amount:
-            if c < '0' or c > '9':
+        if amount == "":
+            tk.messagebox.showwarning('Shop', 'לא הוזן סכום, נסה שוב')
+            flag = 0
+        if flag:
+            if cardnumber == "":
+                tk.messagebox.showwarning('Shop', 'לא הוזן מספר כרטיס, נסה שוב')
                 flag = 0
-                tk.messagebox.showwarning('Tuition', 'סכום לא תקין- חייב להכיל ספרות בלבד')
+
+        if flag:
+            if idofcard == "":
+                tk.messagebox.showwarning('Shop', 'לא הוזנה תעודת זהות, נסה שוב')
+                flag = 0
+        if flag:
+            if year == "":
+                tk.messagebox.showwarning('Shop', 'לא הוזנה שנה, נסה שוב')
+                flag = 0
+        if flag:
+            if month == "":
+                tk.messagebox.showwarning('Shop', 'לא הוזן חודש, נסה שוב')
+                flag = 0
+        if flag:
+            year = int(year)
+            month = int(month)
+        if flag:
+            for c in amount:
+                if c < '0' or c > '9':
+                    flag = 0
+                    tk.messagebox.showwarning('Tuition', 'סכום לא תקין- חייב להכיל ספרות בלבד')
         if flag:
             amount=float(amount)
             if (amount <= 0 or amount == None):

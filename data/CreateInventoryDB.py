@@ -16,7 +16,8 @@ def inventory_db_init():
             'id': '001',
             'item_name': 'עיפרון HB2',
             'price': 2,
-            'units_available': 50},
+            'units_available': 50
+        },
         {
             'id': '002',
             'item_name': 'עט שחור 0.5',
@@ -47,6 +48,4 @@ def inventory_db_init():
     for item in inventory:
         exisiting_item = mycol.find_one({'id': item['id']})
         if exisiting_item == None:
-            mycol.insert_one(item)
-        elif not exisiting_item['id'] == exisiting_item['id']:
             mycol.insert_one(item)

@@ -58,7 +58,7 @@ class Toplevel1:
         name = "work"+" "+id+".txt"
         f = open(name)
         message=f.read()
-        print(message)
+        f.close()
         return (message)
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.

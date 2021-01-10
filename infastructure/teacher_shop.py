@@ -253,7 +253,7 @@ class teacher_shop:
         top.minsize(148, 1)
         top.maxsize(1924, 1055)
         top.resizable(1, 1)
-        top.title("חנות תלמיד")
+        top.title("חנות מורה")
         top.configure(background="#7cacf3")
         top.configure(highlightbackground="#d9d9d9")
         top.configure(highlightcolor="black")
